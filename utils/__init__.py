@@ -34,6 +34,6 @@ def plot_stroke(stroke, save_name=None):
                 bbox_inches='tight',
                 pad_inches=0.5)
         except Exception:
-            print "Error building image!: " + save_name
+            print("Error building image!: " + save_name)
 
     pyplot.close()
