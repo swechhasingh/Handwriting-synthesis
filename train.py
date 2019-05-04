@@ -38,7 +38,7 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
     return avg_loss
 
 
-def validation(model, valid_loader, device):
+def validation(model, valid_loader, device, epoch):
     avg_loss = 0.0
     model.eval()
 
@@ -75,7 +75,7 @@ def train(train_loader, valid_loader, batch_size, n_epochs, device):
     for epoch in range(n_epochs):
 
         train_loss = train_epoch(model, optimizer, epoch, train_loader, device)
-        valid_loss = validation(model, valid_loader, device)
+        valid_loss = validation(model, valid_loader, device, epoch)
         train_losses.append(train_loss)
         valid_losses.append(valid_loss)
         print('Epoch {}: Train: avg. loss: {:.3f}'.format(epoch + 1, train_loss))
