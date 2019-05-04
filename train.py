@@ -91,7 +91,7 @@ def train(train_loader, valid_loader, batch_size, n_epochs, device):
 def sample_from_out_dist(y_hat):
     split_sizes = [1] + [20] * 6
     y = torch.split(y_hat, split_sizes, dim=0)
-
+    print(y)
     eos_prob = F.sigmoid(y[0])
     mixture_weights = stable_softmax(y[1], dim=0)
     mu_1 = y[2]
@@ -102,7 +102,7 @@ def sample_from_out_dist(y_hat):
 
     bernoulli_dist = bernoulli.Bernoulli(probs=eos_prob)
     eos_sample = bernoulli_dist.sample()
-    print(eos_prob, eos_prob.device)
+    print(eos_prob)
     K = torch.multinomial(mixture_weights, 1)
     print(mixture_weights, mixture_weights.device)
     print(K, K.device)
