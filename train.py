@@ -118,7 +118,7 @@ def sample_from_out_dist(y_hat):
 
 def generate(model, seq_len, device):
     model.eval()
-	inp = torch.zeros(1, 1, 3)
+    inp = torch.zeros(1, 1, 3)
     inp = inp.to(device)
 
     gen_seq = []
@@ -128,18 +128,17 @@ def generate(model, seq_len, device):
 
     for i in range(seq_len):
 
-	    y_hat, state = model.forward(inp, hidden)
+        y_hat, state = model.forward(inp, hidden)
 
-	    _hidden = torch.stack([s[0] for s in state], dim=0)
-	    _cell = torch.stack([s[1] for s in state], dim=0)
-	    hidden = (_hidden, _cell)
+        _hidden = torch.stack([s[0] for s in state], dim=0)
+        _cell = torch.stack([s[1] for s in state], dim=0)
+        hidden = (_hidden, _cell)
 
-	    y_hat = y_hat.squeeze()
+        y_hat = y_hat.squeeze()
 
         Z = sample_from_out_dist(y_hat)
-	    inp = Z
-	    gen_seq.append(Z.squeeze().cpu().numpy())
-        
+        inp = Z
+        gen_seq.append(Z.squeeze().cpu().numpy())
 
     gen_seq = np.array(gen_seq)
     plot_stroke(gen_seq)
