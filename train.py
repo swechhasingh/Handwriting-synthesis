@@ -93,7 +93,7 @@ def sample_from_out_dist(y_hat):
     y = torch.split(y_hat, split_sizes, dim=0)
 
     eos_prob = F.sigmoid(y[0])
-    mixture_weights = stable_softmax(y[1])
+    mixture_weights = stable_softmax(y[1], dim=0)
     mu_1 = y[2]
     mu_2 = y[3]
     std_1 = torch.exp(y[4])

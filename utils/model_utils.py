@@ -3,10 +3,10 @@ import torch.nn.functional as F
 import math
 
 
-def stable_softmax(X):
-    max_vec = torch.max(X, 2, keepdim=True)
+def stable_softmax(X, dim=2):
+    max_vec = torch.max(X, dim, keepdim=True)
     exp_X = torch.exp(X - max_vec[0])
-    sum_exp_X = torch.sum(exp_X, 2, keepdim=True)
+    sum_exp_X = torch.sum(exp_X, dim, keepdim=True)
     X_hat = exp_X / sum_exp_X
     return X_hat
 
