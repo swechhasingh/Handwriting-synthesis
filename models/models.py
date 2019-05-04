@@ -19,13 +19,13 @@ class UnconditionalLSTM(nn.Module):
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
 
     def forward(self, inputs, initial_hidden):
-    	hiddens = []
-    	hidden_cell_state = []  # list of (hn,cn)
+        hiddens = []
+        hidden_cell_state = []  # list of (hn,cn)
         output, hidden = self.LSTM_layers[0](inputs, (initial_hidden[0][0], initial_hidden[1][0]))
         hiddens.append(output)
         hidden_cell_state.append(hidden)
         for i in range(self.n_layers - 1):
-        	inp = torch.cat((inputs, output), dim=2)
+            inp = torch.cat((inputs, output), dim=2)
             output, hidden = self.LSTM_layers[i](inp, (initial_hidden[0][i], initial_hidden[1][i]))
             hiddens.append(output)
             hidden_cell_state.append(hidden)
@@ -35,8 +35,5 @@ class UnconditionalLSTM(nn.Module):
 
     def init_hidden(self, batch_size):
         initial_hidden = (torch.Tensor(self.n_layers, batch_size, self.hidden_size),
-                      torch.Tensor(self.n_layers, batch_size, self.hidden_size))
+                          torch.Tensor(self.n_layers, batch_size, self.hidden_size))
         return initial_hidden
-
-    
-        

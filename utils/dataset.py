@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader, Dataset
 
 
 class HandwritingDataset(Dataset):
-	"""Handwriting dataset."""
+    """Handwriting dataset."""
 
     def __init__(self, inputdata, targetdata, mask):
         """
