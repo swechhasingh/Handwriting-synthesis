@@ -151,14 +151,14 @@ if __name__ == "__main__":
     n_epochs = 60
 
     # Load the data and text
-    strokes = np.load('./data/strokes.npy', encoding='bytes')
+    strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')
     with open('./data/sentences.txt') as f:
         texts = f.readlines()
 
     data, mask = get_data_and_mask(strokes)
 
     idx_permute = np.random.permutation(data.shape[0])
-
+    n_train = int(0.9 * data.shape[0])
     trainset = data[idx_permute[:n_train]]
     train_mask = mask[idx_permute[:n_train]]
 

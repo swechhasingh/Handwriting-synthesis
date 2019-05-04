@@ -17,15 +17,15 @@ def logSumExp(X, constant):
     """
     max_vec = torch.max(X, 2, keepdim=True)
     exp_X = torch.exp(X - max_vec[0])
-    exp_X = exp_X * consatnt
-    log_sum = torch.log(torch.sum(exp_X, 2, keepdim=True)) + max_vec
+    exp_X = exp_X * constant
+    log_sum = torch.log(torch.sum(exp_X, 2, keepdim=True)) + max_vec[0]
     return log_sum.squeeze()
 
 
 def compute_unconditional_loss(targets, y_hat, mask, M=20):
     split_sizes = [1] + [20] * 6
     y = torch.split(y_hat, split_sizes, dim=2)
-    eos_prob = F.sigmoid(y[0])
+    eos_prob = F.sigmoid(y[0]).squeeze()
     mixture_weights = stable_softmax(y[1])
     mu_1 = y[2]
     mu_2 = y[3]

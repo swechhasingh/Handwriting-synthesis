@@ -19,11 +19,11 @@ class HandwritingDataset(Dataset):
         self.mask = mask
 
     def __len__(self):
-        return data.shape[0]
+        return self.inputdata.shape[0]
 
     def __getitem__(self, idx):
-        input_seq = torch.from_numpy(self.inputdata[idx]).astype('float32')
-        target = torch.from_numpy(self.targetdata[idx]).astype('float32')
-        mask = torch.from_numpy(self.mask[idx]).astype('float32')
+        input_seq = torch.from_numpy(self.inputdata[idx])
+        target = torch.from_numpy(self.targetdata[idx])
+        mask = torch.from_numpy(self.mask[idx])
         sample = (input_seq, target, mask)
         return sample

@@ -46,7 +46,7 @@ def train_offset_normalization(data):
        mean 0, std. dev. 1 over the training set.
     """
     mean = data[:, :, 1:].mean(axis=(0, 1))
-    datadata[:, :, 1:] -= mean
+    data[:, :, 1:] -= mean
     std = data[:, :, 1:].std(axis=(0, 1))
     data[:, :, 1:] /= std
 

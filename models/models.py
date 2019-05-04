@@ -21,12 +21,12 @@ class UnconditionalLSTM(nn.Module):
     def forward(self, inputs, initial_hidden):
         hiddens = []
         hidden_cell_state = []  # list of (hn,cn)
-        output, hidden = self.LSTM_layers[0](inputs, (initial_hidden[0][0], initial_hidden[1][0]))
+        output, hidden = self.LSTM_layers[0](inputs, (initial_hidden[0][0:1], initial_hidden[1][0:1]))
         hiddens.append(output)
         hidden_cell_state.append(hidden)
-        for i in range(self.n_layers - 1):
+        for i in range(1, self.n_layers):
             inp = torch.cat((inputs, output), dim=2)
-            output, hidden = self.LSTM_layers[i](inp, (initial_hidden[0][i], initial_hidden[1][i]))
+            output, hidden = self.LSTM_layers[i](inp, (initial_hidden[0][i:i + 1], initial_hidden[1][i:i + 1]))
             hiddens.append(output)
             hidden_cell_state.append(hidden)
         inp = torch.cat(hiddens, dim=2)
@@ -37,3 +37,10 @@ class UnconditionalLSTM(nn.Module):
         initial_hidden = (torch.Tensor(self.n_layers, batch_size, self.hidden_size),
                           torch.Tensor(self.n_layers, batch_size, self.hidden_size))
         return initial_hidden
+
+    def init_weight(self):
+        for layer in self.LSTM_layers:
+            nn.init.xavier_uniform_(layer.weight)
+            nn.init.constant_(layer.bias, 0.)
+        nn.init.uniform_(self.output_layer.weight, a=0.0, b=1.0)
+        nn.init.constant_(self.output_layer.bias, 0.)
