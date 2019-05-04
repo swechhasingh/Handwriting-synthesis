@@ -104,7 +104,7 @@ def sample_from_out_dist(y_hat):
     eos_sample = bernoulli_dist.sample()
 
     K = torch.multinomial(mixture_weights, 1)
-    K = K.int().item()
+
     mu_k = y_hat.new_zeros(2)
     mu_k[0] = mu_1[K]
     mu_k[1] = mu_2[K]
@@ -162,7 +162,7 @@ if __name__ == "__main__":
         texts = f.readlines()
 
     data, mask = get_data_and_mask(strokes)
-
+    data, mask = data[:100], mask[:100]
     idx_permute = np.random.permutation(data.shape[0])
     n_train = int(0.9 * data.shape[0])
     trainset = data[idx_permute[:n_train]]
