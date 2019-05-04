@@ -5,6 +5,7 @@ import torch.optim as optim
 from torch.utils import data
 from torch.utils.data import DataLoader
 from torch.distributions import bernoulli
+import torch.nn.functional as F
 
 from models.models import UnconditionalLSTM
 from utils import plot_stroke
@@ -73,8 +74,9 @@ def train(train_loader, valid_loader, batch_size, n_epochs, device):
     valid_losses = []
 
     for epoch in range(n_epochs):
-
+        print("training.....")
         train_loss = train_epoch(model, optimizer, epoch, train_loader, device)
+        print("validation....")
         valid_loss = validation(model, valid_loader, device, epoch)
         train_losses.append(train_loss)
         valid_losses.append(valid_loss)
