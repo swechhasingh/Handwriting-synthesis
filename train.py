@@ -102,10 +102,12 @@ def sample_from_out_dist(y_hat):
 
     bernoulli_dist = bernoulli.Bernoulli(probs=eos_prob)
     eos_sample = bernoulli_dist.sample()
-
+    print(eos_prob, eos_prob.device)
     K = torch.multinomial(mixture_weights, 1)
-
+    print(mixture_weights, mixture_weights.device)
+    print(K, K.device)
     mu_k = y_hat.new_zeros(2)
+    print(mu_k.device)
     mu_k[0] = mu_1[K]
     mu_k[1] = mu_2[K]
     cov = y_hat.new_zeros(2, 2)
@@ -151,7 +153,8 @@ def generate(model, seq_len, device):
 
 
 if __name__ == "__main__":
-
+    torch.manual_seed(1234)
+    np.random.seed(1234)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     batch_size = 32
     n_epochs = 1
