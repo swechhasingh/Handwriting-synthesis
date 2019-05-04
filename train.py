@@ -145,7 +145,7 @@ def generate(model, seq_len, device):
 
         Z = sample_from_out_dist(y_hat)
         inp = Z
-        gen_seq.append(Z.squeeze().cpu().numpy())
+        gen_seq.append(Z.squeeze().detach().cpu().numpy())
 
     gen_seq = np.array(gen_seq)
     plot_stroke(gen_seq)
