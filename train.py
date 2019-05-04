@@ -81,6 +81,8 @@ def train(train_loader, valid_loader, batch_size, n_epochs, device):
         print('Epoch {}: Train: avg. loss: {:.3f}'.format(epoch + 1, train_loss))
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
 
+    torch.save(model.state_dict(), "best_model.pt")
+
     return model
 
 
@@ -125,7 +127,7 @@ def generate(model, seq_len, device):
 
     gen_seq = []
     batch_size = inp.shape[0]
-    initial_hidden = model.init_hidden(batch_size).to(device)
+    initial_hidden = model.init_hidden(batch_size)
     hidden = tuple([h.to(device) for h in initial_hidden])
 
     for i in range(seq_len):
@@ -150,7 +152,7 @@ if __name__ == "__main__":
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     batch_size = 32
-    n_epochs = 60
+    n_epochs = 1
 
     # Load the data and text
     strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')
