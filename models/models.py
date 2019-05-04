@@ -17,7 +17,7 @@ class UnconditionalLSTM(nn.Module):
             self.LSTM_layers.append(nn.LSTM(input_size + hidden_size, hidden_size, 1, batch_first=True))
 
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
-        # self.init_weight()
+        self.init_weight()
 
     def forward(self, inputs, initial_hidden):
         hiddens = []
@@ -40,10 +40,12 @@ class UnconditionalLSTM(nn.Module):
         return initial_hidden
 
     def init_weight(self):
-        for layer in self.LSTM_layers:
-            nn.init.xavier_uniform_(layer.weight_ih_l)
-            nn.init.xavier_uniform_(layer.weight_hh_l)
-            nn.init.constant_(layer.bias_ih_l, 0.)
-            nn.init.constant_(layer.bias_hh_l, 0.)
+        for param in self.LSTM_layers.parameters():
+        	if param.dim == 2:
+               nn.init.xavier_uniform_(param)
+               
+            elif param.dim == 1:
+                nn.init.constant_(param, 0.)
+                
         nn.init.uniform_(self.output_layer.weight, a=0.0, b=1.0)
         nn.init.constant_(self.output_layer.bias, 0.)
