@@ -41,7 +41,9 @@ class UnconditionalLSTM(nn.Module):
 
     def init_weight(self):
         for layer in self.LSTM_layers:
-            nn.init.xavier_uniform_(layer.weight)
-            nn.init.constant_(layer.bias, 0.)
+            nn.init.xavier_uniform_(layer.weight_ih_l)
+            nn.init.xavier_uniform_(layer.weight_hh_l)
+            nn.init.constant_(layer.bias_ih_l, 0.)
+            nn.init.constant_(layer.bias_hh_l, 0.)
         nn.init.uniform_(self.output_layer.weight, a=0.0, b=1.0)
         nn.init.constant_(self.output_layer.bias, 0.)
