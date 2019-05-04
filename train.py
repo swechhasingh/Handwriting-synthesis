@@ -104,7 +104,7 @@ def sample_from_out_dist(y_hat):
     eos_sample = bernoulli_dist.sample()
 
     K = torch.multinomial(mixture_weights, 1)
-    K = K.item()
+    K = K.int().item()
     mu_k = y_hat.new_zeros(2)
     mu_k[0] = mu_1[K]
     mu_k[1] = mu_2[K]
