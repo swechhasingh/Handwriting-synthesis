@@ -156,7 +156,7 @@ if __name__ == "__main__":
     np.random.seed(1)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     batch_size = 32
-    n_epochs = 1
+    n_epochs = 10
 
     # Load the data and text
     strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')
