@@ -19,6 +19,7 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
     for i, (inputs, targets, mask) in enumerate(train_loader):
         inputs = inputs.to(device)
         targets = targets.to(device)
+        mask = mask.to(device)
         batch_size = inputs.shape[0]
         initial_hidden = model.init_hidden(batch_size)
         initial_hidden = tuple([h.to(device) for h in initial_hidden])
@@ -45,6 +46,7 @@ def validation(model, valid_loader, device):
         for i, (inputs, targets, mask) in enumerate(valid_loader):
             inputs = inputs.to(device)
             targets = targets.to(device)
+            mask = mask.to(device)
             batch_size = inputs.shape[0]
             initial_hidden = model.init_hidden(batch_size)
             initial_hidden = tuple([h.to(device) for h in initial_hidden])
