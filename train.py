@@ -164,7 +164,7 @@ if __name__ == "__main__":
         texts = f.readlines()
 
     data, mask = get_data_and_mask(strokes)
-    data, mask = data[:100], mask[:100]
+    # data, mask = data[:100], mask[:100]
     idx_permute = np.random.permutation(data.shape[0])
     n_train = int(0.9 * data.shape[0])
     trainset = data[idx_permute[:n_train]]
