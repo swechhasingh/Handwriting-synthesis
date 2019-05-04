@@ -41,11 +41,11 @@ class UnconditionalLSTM(nn.Module):
 
     def init_weight(self):
         for param in self.LSTM_layers.parameters():
-        	if param.dim == 2:
-               nn.init.xavier_uniform_(param)
-               
+            if param.dim == 2:
+                nn.init.xavier_uniform_(param)
+
             elif param.dim == 1:
                 nn.init.constant_(param, 0.)
-                
+
         nn.init.uniform_(self.output_layer.weight, a=0.0, b=1.0)
         nn.init.constant_(self.output_layer.bias, 0.)
