@@ -18,7 +18,7 @@ class UnconditionalLSTM(nn.Module):
 
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
 
-        # self.init_weight()
+        self.init_weight()
 
     def forward(self, inputs, initial_hidden):
         hiddens = []
