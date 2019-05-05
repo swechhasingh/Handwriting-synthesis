@@ -21,13 +21,23 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
         inputs = inputs.to(device)
         targets = targets.to(device)
         mask = mask.to(device)
+
         batch_size = inputs.shape[0]
         initial_hidden = model.init_hidden(batch_size)
         initial_hidden = tuple([h.to(device) for h in initial_hidden])
+
         optimizer.zero_grad()
         y_hat, state = model.forward(inputs, initial_hidden)
         loss = compute_unconditional_loss(targets, y_hat, mask)
+
+        # Output gradient clipping
+        y_hat.register_hook(lambda grad: torch.clamp(grad, -100, 100))
+
         loss.backward()
+
+        # LSTM params gradient clipping
+        nn.utils.clip_grad_value_(model.parameters(), 10)
+
         optimizer.step()
         avg_loss += loss.item()
 
@@ -156,7 +166,7 @@ if __name__ == "__main__":
     # np.random.seed(1)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     batch_size = 32
-    n_epochs = 10
+    n_epochs = 5
 
     # Load the data and text
     strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')

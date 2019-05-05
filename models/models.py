@@ -33,7 +33,7 @@ class UnconditionalLSTM(nn.Module):
             hidden_cell_state.append(hidden)
         inp = torch.cat(hiddens, dim=2)
         y_hat = self.output_layer(inp)
-        y_hat.register_hook(lambda grad: torch.clamp(grad, -100, 100))
+
         return y_hat, hidden_cell_state
 
     def init_hidden(self, batch_size):
@@ -51,7 +51,3 @@ class UnconditionalLSTM(nn.Module):
 
         nn.init.uniform_(self.output_layer.weight, a=0.0, b=1.0)
         nn.init.constant_(self.output_layer.bias, 0.)
-
-    def lstm_gradient_clipping(self):
-        for param in self.LSTM_layers.parameters():
-            param.register_hook(lambda grad: torch.clamp(grad, -10, 10))
