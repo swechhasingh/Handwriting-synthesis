@@ -17,7 +17,7 @@ class UnconditionalLSTM(nn.Module):
             self.LSTM_layers.append(nn.LSTM(input_size + hidden_size, hidden_size, 1, batch_first=True))
 
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
-        self.lstm_gradient_clipping()
+
         # self.init_weight()
 
     def forward(self, inputs, initial_hidden):
