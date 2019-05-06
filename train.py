@@ -157,10 +157,12 @@ def generate(model, seq_len, device):
 
             Z = sample_from_out_dist(y_hat)
             inp = Z
-            gen_seq.append(Z.squeeze().detach().cpu().numpy())
+            gen_seq.append(Z)
 
-    gen_seq = np.array(gen_seq)
-    plot_stroke(gen_seq, save_name="ger_seq.png")
+    gen_seq = torch.cat(gen_seq, dim=1)
+    gen_seq = gen_seq.detach().cpu().numpy()
+
+    return gen_seq
 
 
 if __name__ == "__main__":
@@ -200,4 +202,7 @@ if __name__ == "__main__":
 
     model = train(train_loader, valid_loader, batch_size, n_epochs, device)
     seq_len = 700
-    generate(model, seq_len, device)
+    gen_seq = generate(model, seq_len, device)
+
+    gen_seq = data_denormalization(mean, std, gen_seq)
+    plot_stroke(gen_seq, save_name="ger_seq.png")
