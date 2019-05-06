@@ -23,7 +23,7 @@ class UnconditionalLSTM(nn.Module):
 
     def forward(self, inputs, initial_hidden):
         hiddens = []
-        hidden_cell_state = []  # list of (hn,cn)
+        hidden_cell_state = []  # list of tuple(hn,cn) for each layer
         output, hidden = self.LSTM_layers[0](inputs, (initial_hidden[0][0:1], initial_hidden[1][0:1]))
         hiddens.append(output)
         hidden_cell_state.append(hidden)
@@ -46,11 +46,6 @@ class UnconditionalLSTM(nn.Module):
         k = math.sqrt(1. / self.hidden_size)
         for param in self.LSTM_layers.parameters():
             nn.init.uniform_(param, a=-k, b=k)
-            print(param)
-            # if param.dim == 2:
-
-            # elif param.dim == 1:
-            #     nn.init.constant_(param, 0.)
 
         nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
         nn.init.constant_(self.output_layer.bias, 0.)

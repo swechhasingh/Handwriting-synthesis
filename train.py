@@ -147,11 +147,11 @@ def generate(model, seq_len, device):
     with torch.no_grad():
         for i in range(seq_len):
 
-            y_hat, hidden = model.forward(inp, hidden)
+            y_hat, state = model.forward(inp, hidden)
 
-            # _hidden = torch.stack([s[0] for s in state], dim=0)
-            # _cell = torch.stack([s[1] for s in state], dim=0)
-            # hidden = (_hidden, _cell)
+            _hidden = torch.cat([s[0] for s in state], dim=0)
+            _cell = torch.cat([s[1] for s in state], dim=0)
+            hidden = (_hidden, _cell)
 
             y_hat = y_hat.squeeze()
 
