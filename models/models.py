@@ -1,4 +1,5 @@
 import torch
+import math
 import torch.nn as nn
 
 
@@ -42,12 +43,13 @@ class UnconditionalLSTM(nn.Module):
         return initial_hidden
 
     def init_weight(self):
+        k = math.sqrt(1. / self.hidden_size)
         for param in self.LSTM_layers.parameters():
-            if param.dim == 2:
-                nn.init.xavier_uniform_(param)
+            nn.init.uniform_(param, a=-k, b=k)
+            # if param.dim == 2:
 
-            elif param.dim == 1:
-                nn.init.constant_(param, 0.)
+            # elif param.dim == 1:
+            #     nn.init.constant_(param, 0.)
 
-        nn.init.uniform_(self.output_layer.weight, a=0.0, b=1.0)
+        nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
         nn.init.constant_(self.output_layer.bias, 0.)
