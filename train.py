@@ -101,7 +101,7 @@ def train(train_loader, valid_loader, batch_size, n_epochs, device):
 def sample_from_out_dist(y_hat):
     split_sizes = [1] + [20] * 6
     y = torch.split(y_hat, split_sizes, dim=0)
-    print(y)
+
     eos_prob = F.sigmoid(y[0])
     mixture_weights = stable_softmax(y[1], dim=0)
     mu_1 = y[2]
