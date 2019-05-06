@@ -160,7 +160,7 @@ def generate(model, seq_len, device):
             gen_seq.append(Z.squeeze().detach().cpu().numpy())
 
     gen_seq = np.array(gen_seq)
-    plot_stroke(gen_seq)
+    plot_stroke(gen_seq, save_name="ger_seq.png")
 
 
 if __name__ == "__main__":
