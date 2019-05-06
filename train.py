@@ -165,8 +165,8 @@ if __name__ == "__main__":
     # torch.manual_seed(1)
     # np.random.seed(1)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    batch_size = 16
-    n_epochs = 1
+    batch_size = 32
+    n_epochs = 5
 
     # Load the data and text
     strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')
@@ -174,7 +174,7 @@ if __name__ == "__main__":
         texts = f.readlines()
 
     data, mask = get_data_and_mask(strokes)
-    data, mask = data[:64], mask[:64]
+    # data, mask = data[:1], mask[:64]
     idx_permute = np.random.permutation(data.shape[0])
     n_train = int(0.9 * data.shape[0])
     trainset = data[idx_permute[:n_train]]
