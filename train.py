@@ -139,23 +139,25 @@ def generate(model, seq_len, device):
     inp = inp.to(device)
 
     gen_seq = []
-    batch_size = inp.shape[0]
+    batch_size = 1
+
     initial_hidden = model.init_hidden(batch_size)
     hidden = tuple([h.to(device) for h in initial_hidden])
 
-    for i in range(seq_len):
+    with torch.no_grad():
+        for i in range(seq_len):
 
-        y_hat, state = model.forward(inp, hidden)
+            y_hat, hidden = model.forward(inp, hidden)
 
-        _hidden = torch.stack([s[0] for s in state], dim=0)
-        _cell = torch.stack([s[1] for s in state], dim=0)
-        hidden = (_hidden, _cell)
+            # _hidden = torch.stack([s[0] for s in state], dim=0)
+            # _cell = torch.stack([s[1] for s in state], dim=0)
+            # hidden = (_hidden, _cell)
 
-        y_hat = y_hat.squeeze()
+            y_hat = y_hat.squeeze()
 
-        Z = sample_from_out_dist(y_hat)
-        inp = Z
-        gen_seq.append(Z.squeeze().detach().cpu().numpy())
+            Z = sample_from_out_dist(y_hat)
+            inp = Z
+            gen_seq.append(Z.squeeze().detach().cpu().numpy())
 
     gen_seq = np.array(gen_seq)
     plot_stroke(gen_seq)
@@ -165,8 +167,8 @@ if __name__ == "__main__":
     # torch.manual_seed(1)
     # np.random.seed(1)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    batch_size = 32
-    n_epochs = 5
+    batch_size = 16
+    n_epochs = 1
 
     # Load the data and text
     strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')
@@ -174,7 +176,7 @@ if __name__ == "__main__":
         texts = f.readlines()
 
     data, mask = get_data_and_mask(strokes)
-    # data, mask = data[:1], mask[:64]
+    data, mask = data[:64], mask[:64]
     idx_permute = np.random.permutation(data.shape[0])
     n_train = int(0.9 * data.shape[0])
     trainset = data[idx_permute[:n_train]]
