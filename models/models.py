@@ -38,14 +38,15 @@ class UnconditionalLSTM(nn.Module):
         return y_hat, hidden_cell_state
 
     def init_hidden(self, batch_size):
-        initial_hidden = (torch.Tensor(self.n_layers, batch_size, self.hidden_size),
-                          torch.Tensor(self.n_layers, batch_size, self.hidden_size))
+        initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size),
+                          torch.zeros(self.n_layers, batch_size, self.hidden_size))
         return initial_hidden
 
     def init_weight(self):
         k = math.sqrt(1. / self.hidden_size)
         for param in self.LSTM_layers.parameters():
             nn.init.uniform_(param, a=-k, b=k)
+            print(param)
             # if param.dim == 2:
 
             # elif param.dim == 1:
