@@ -66,7 +66,7 @@ def data_denormalization(mean, std, data):
     """
        Data denormalization using train set mean and std
     """
-    data[:, : 1:] *= std
-    data[:, : 1:] += mean
+    data[:, :, 1:] *= std
+    data[:, :, 1:] += mean
 
     return data
