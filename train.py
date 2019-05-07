@@ -4,7 +4,7 @@ import numpy as np
 import torch.optim as optim
 from torch.utils import data
 from torch.utils.data import DataLoader
-from torch.distributions import bernoulli
+from torch.distributions import bernoulli, uniform
 import torch.nn.functional as F
 
 from models.models import UnconditionalLSTM
@@ -136,7 +136,13 @@ def sample_from_out_dist(y_hat):
 def generate(model, seq_len, device):
     model.eval()
     inp = torch.zeros(1, 1, 3)
+    # co_offset = torch.rand_like(inp[0, 0, 1:], dtype=torch.float32, device=device)
+    p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
+    co_offset = p.sample()
+    inp[0, 0, 1:] = co_offset
     inp = inp.to(device)
+
+    print("Input: ", inp)
 
     gen_seq = []
     batch_size = 1
@@ -144,6 +150,7 @@ def generate(model, seq_len, device):
     initial_hidden = model.init_hidden(batch_size)
     hidden = tuple([h.to(device) for h in initial_hidden])
 
+    print("Generating sequence....")
     with torch.no_grad():
         for i in range(seq_len):
 
@@ -166,11 +173,11 @@ def generate(model, seq_len, device):
 
 
 if __name__ == "__main__":
-    # torch.manual_seed(1)
-    # np.random.seed(1)
+    torch.manual_seed(212)
+    np.random.seed(458)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     batch_size = 32
-    n_epochs = 100
+    n_epochs = 130
 
     # Load the data and text
     strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')
@@ -201,8 +208,13 @@ if __name__ == "__main__":
     valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False)
 
     model = train(train_loader, valid_loader, batch_size, n_epochs, device)
+
+    model = UnconditionalLSTM(hidden_size=400, n_layers=3, output_size=121, input_size=3)
+    model = model.to(device)
+
+    model.load_state_dict(torch.load("best_model.pt", map_location=device))
     seq_len = 700
     gen_seq = generate(model, seq_len, device)
 
     gen_seq = data_denormalization(mean, std, gen_seq)
-    plot_stroke(gen_seq[0], save_name="ger_seq.png")
+    plot_stroke(gen_seq[0], save_name="gen_seq.png")
