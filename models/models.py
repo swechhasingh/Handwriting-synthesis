@@ -3,10 +3,10 @@ import math
 import torch.nn as nn
 
 
-class UnconditionalLSTM(nn.Module):
+class HandWritingPredictionNet(nn.Module):
 
-    def __init__(self, hidden_size=900, n_layers=1, output_size=121, input_size=3):
-        super(UnconditionalLSTM, self).__init__()
+    def __init__(self, hidden_size=400, n_layers=3, output_size=121, input_size=3):
+        super(HandWritingPredictionNet, self).__init__()
         self.input_size = input_size
         self.hidden_size = hidden_size
         self.output_size = output_size
@@ -49,3 +49,35 @@ class UnconditionalLSTM(nn.Module):
 
         nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
         nn.init.constant_(self.output_layer.bias, 0.)
+
+
+class HandWritingSynthesisNet(nn.Module):
+
+    def __init__(self, hidden_size=400, n_layers=3, output_size=121, window_size=77):
+        super(HandWritingSynthesisNet, self).__init__()
+        self.vocab_size = window_size
+        self.hidden_size = hidden_size
+        self.output_size = output_size
+        self.n_layers = n_layers
+        K = 10
+
+        self.lstm_1 = nn.LSTM(3 + window_size, hidden_size, batch_first=True)
+        self.lstm_2 = nn.LSTM(3 + window_size + hidden_size, hidden_size, batch_first=True)
+        self.lstm_3 = nn.LSTM(3 + window_size + hidden_size, hidden_size, batch_first=True)
+
+        self.window_layer = nn.Linear(hidden, 3 * K)
+        self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
+
+    def init_hidden(self, batch_size):
+        initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size),
+                          torch.zeros(self.n_layers, batch_size, self.hidden_size))
+        window_vector = torch.zeros(batch_size, self.vocab_size)
+        return initial_hidden,
+
+    def one_hot_encoding(self, text):
+        encoding = text.new_zeros((len(text), self.vocab_size))
+        encoding[torch.arange(len(text)), text] = 1.
+        return encoding
+
+    def forward(self, inputs, targets, text):
+        return 2

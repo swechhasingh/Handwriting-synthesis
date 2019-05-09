@@ -1,17 +1,35 @@
 import torch
 import torch.nn as nn
 import numpy as np
+import argparse
 import torch.optim as optim
 from torch.utils import data
 from torch.utils.data import DataLoader
 from torch.distributions import bernoulli, uniform
 import torch.nn.functional as F
 
-from models.models import UnconditionalLSTM
+from models.models import HandWritingPredictionNet
 from utils import plot_stroke
 from utils.dataset import HandwritingDataset
 from utils.model_utils import compute_unconditional_loss, stable_softmax
-from utils.data_utils import get_data_and_mask, get_inputs_and_targets, train_offset_normalization, valid_offset_normalization, data_denormalization
+from utils.data_utils import train_offset_normalization, valid_offset_normalization, data_denormalization
+
+
+def argparser():
+
+    parser = argparse.ArgumentParser(description='PyTorch Handwriting Synthesis Model')
+    parser.add_argument('--hidden_size', type=int, default=400)
+    parser.add_argument('--n_layers', type=int, default=3)
+    parser.add_argument('--batch_size', type=int, default=32)
+    parser.add_argument('--n_epochs', type=int, default=100)
+    parser.add_argument('--model', type=str, default='prediction')
+    parser.add_argument('--data_path', type=str, default='./data/')
+    parser.add_argument('--text_req', action='store_true')
+    parser.add_argument('--debug', action='store_true')
+    parser.add_argument('--seed', type=int, default=212, help='random seed')
+    args = parser.parse_args()
+
+    return args
 
 
 def train_epoch(model, optimizer, epoch, train_loader, device):
@@ -74,8 +92,8 @@ def validation(model, valid_loader, device, epoch):
     return avg_loss
 
 
-def train(train_loader, valid_loader, batch_size, n_epochs, device):
-    model = UnconditionalLSTM(hidden_size=400, n_layers=3, output_size=121, input_size=3)
+def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
+
     model = model.to(device)
 
     optimizer = optim.Adam(model.parameters(), lr=0.001)
@@ -98,123 +116,28 @@ def train(train_loader, valid_loader, batch_size, n_epochs, device):
     return model
 
 
-def sample_from_out_dist(y_hat):
-    split_sizes = [1] + [20] * 6
-    y = torch.split(y_hat, split_sizes, dim=0)
-
-    eos_prob = F.sigmoid(y[0])
-    mixture_weights = stable_softmax(y[1], dim=0)
-    mu_1 = y[2]
-    mu_2 = y[3]
-    std_1 = torch.exp(y[4])
-    std_2 = torch.exp(y[5])
-    correlations = F.tanh(y[6])
-
-    bernoulli_dist = bernoulli.Bernoulli(probs=eos_prob)
-    eos_sample = bernoulli_dist.sample()
-
-    K = torch.multinomial(mixture_weights, 1)
-
-    mu_k = y_hat.new_zeros(2)
-
-    mu_k[0] = mu_1[K]
-    mu_k[1] = mu_2[K]
-    cov = y_hat.new_zeros(2, 2)
-    cov[0, 0] = std_1[K].pow(2)
-    cov[1, 1] = std_2[K].pow(2)
-    cov[0, 1], cov[1, 0] = correlations[K] * std_1[K] * std_2[K], correlations[K] * std_1[K] * std_2[K]
-
-    x = torch.normal(mean=torch.Tensor([0., 0.]), std=torch.Tensor([1., 1.])).to(device)
-    Z = mu_k + torch.mv(cov, x)
-
-    sample = y_hat.new_zeros(1, 1, 3)
-    sample[0, 0, 0] = eos_sample.item()
-    sample[0, 0, 1:] = Z
-    return sample
-
-
-def generate(model, seq_len, device):
-    model.eval()
-    inp = torch.zeros(1, 1, 3)
-    # co_offset = torch.rand_like(inp[0, 0, 1:], dtype=torch.float32, device=device)
-    p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
-    co_offset = p.sample()
-    inp[0, 0, 1:] = co_offset
-    inp = inp.to(device)
-
-    print("Input: ", inp)
-
-    gen_seq = []
-    batch_size = 1
-
-    initial_hidden = model.init_hidden(batch_size)
-    hidden = tuple([h.to(device) for h in initial_hidden])
-
-    print("Generating sequence....")
-    with torch.no_grad():
-        for i in range(seq_len):
-
-            y_hat, state = model.forward(inp, hidden)
-
-            _hidden = torch.cat([s[0] for s in state], dim=0)
-            _cell = torch.cat([s[1] for s in state], dim=0)
-            hidden = (_hidden, _cell)
-
-            y_hat = y_hat.squeeze()
-
-            Z = sample_from_out_dist(y_hat)
-            inp = Z
-            gen_seq.append(Z)
-
-    gen_seq = torch.cat(gen_seq, dim=1)
-    gen_seq = gen_seq.detach().cpu().numpy()
-
-    return gen_seq
-
-
 if __name__ == "__main__":
-    torch.manual_seed(212)
-    np.random.seed(458)
+
+    args = argparser()
+
+    # fix random seed
+    torch.manual_seed(args.seed)
+    np.random.seed(args.seed)
+
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    batch_size = 32
-    n_epochs = 130
+
+    model = args.model
+    batch_size = args.batch_size
+    n_epochs = args.n_epochs
 
     # Load the data and text
-    strokes = np.load('./data/strokes.npy', allow_pickle=True, encoding='bytes')
-    with open('./data/sentences.txt') as f:
-        texts = f.readlines()
-
-    data, mask = get_data_and_mask(strokes)
-    # data, mask = data[:64], mask[:64]
-    idx_permute = np.random.permutation(data.shape[0])
-    n_train = int(0.9 * data.shape[0])
-    trainset = data[idx_permute[:n_train]]
-    train_mask = mask[idx_permute[:n_train]]
-
-    validset = data[idx_permute[n_train:]]
-    valid_mask = mask[idx_permute[n_train:]]
-
-    mean, std, normalized_trainset = train_offset_normalization(trainset)
-
-    normalized_validset = valid_offset_normalization(mean, std, validset)
-
-    train_inp, train_target = get_inputs_and_targets(normalized_trainset)
-    valid_inp, valid_target = get_inputs_and_targets(normalized_validset)
-
-    train_dataset = HandwritingDataset(train_inp, train_target, train_mask)
-    valid_dataset = HandwritingDataset(valid_inp, valid_target, valid_mask)
+    train_dataset = HandwritingDataset(args.data_path, split='train', text_req=args.text_req)
+    valid_dataset = HandwritingDataset(args.data_path, split='valid', text_req=args.text_req)
 
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False)
 
-    model = train(train_loader, valid_loader, batch_size, n_epochs, device)
-
-    model = UnconditionalLSTM(hidden_size=400, n_layers=3, output_size=121, input_size=3)
-    model = model.to(device)
-
-    model.load_state_dict(torch.load("best_model.pt", map_location=device))
-    seq_len = 700
-    gen_seq = generate(model, seq_len, device)
-
-    gen_seq = data_denormalization(mean, std, gen_seq)
-    plot_stroke(gen_seq[0], save_name="gen_seq.png")
+    if model == 'prediction':
+        model = HandWritingPredictionNet(hidden_size=400, n_layers=3, output_size=121, input_size=3)
+        model = train(model, train_loader, valid_loader, batch_size, n_epochs, device)
+    elif model == 'synthesis':
