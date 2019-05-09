@@ -65,10 +65,10 @@ def sample_from_out_dist(y_hat, bias=0.0):
 
 def generate_unconditional_seq(model_path, seq_len, device):
 
-	model = HandWritingPredictionNet()
+    model = HandWritingPredictionNet()
     # load the best model
     model.load_state_dict(torch.load(model_path, map_location=device))
-    
+
     model.eval()
 
     # initial input
@@ -107,9 +107,10 @@ def generate_unconditional_seq(model_path, seq_len, device):
 
     return gen_seq
 
+
 def generate_conditional_sequence(model_path, char_seq, device):
-	gen_seq = []
-	return gen_seq
+    gen_seq = []
+    return gen_seq
 
 if __name__ == '__main__':
 
@@ -124,10 +125,9 @@ if __name__ == '__main__':
     model_path = args.model_path
     model = args.model
 
-
     if model == 'prediction':
         gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
-        
+
     elif model == 'synthesis':
         gen_seq = generate_conditional_sequence(model_path, args.char_seq, device)
 
@@ -136,5 +136,3 @@ if __name__ == '__main__':
 
     # plot the sequence
     plot_stroke(gen_seq[0], save_name="gen_seq.png")
-
-    
