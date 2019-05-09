@@ -78,7 +78,7 @@ class HandwritingDataset(Dataset):
             self.mask = mask[n_train:]
             self.texts = inp_text[n_train:]
             self.char_mask = char_mask[n_train:]
-            self.dataset = valid_offset_normalization(Global.train_mean, Global.train_std, data)
+            self.dataset = valid_offset_normalization(Global.train_mean, Global.train_std, self.dataset)
 
         # divide data into inputs and target seqs
         self.input_data = np.zeros(self.dataset.shape, dtype=np.float32)
