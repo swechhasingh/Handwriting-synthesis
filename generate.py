@@ -12,7 +12,7 @@ from utils import plot_stroke
 from utils.constants import Global
 from utils.dataset import HandwritingDataset
 from utils.model_utils import compute_unconditional_loss, stable_softmax
-from utils.data_utils import get_data_and_mask, get_inputs_and_targets, train_offset_normalization, valid_offset_normalization, data_denormalization
+from utils.data_utils import train_offset_normalization, valid_offset_normalization, data_denormalization
 
 
 def argparser():
