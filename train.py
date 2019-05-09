@@ -141,3 +141,4 @@ if __name__ == "__main__":
         model = HandWritingPredictionNet(hidden_size=400, n_layers=3, output_size=121, input_size=3)
         model = train(model, train_loader, valid_loader, batch_size, n_epochs, device)
     elif model == 'synthesis':
+        print("")
