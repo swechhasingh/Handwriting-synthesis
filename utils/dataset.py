@@ -59,21 +59,25 @@ class HandwritingDataset(Dataset):
         self.id_to_char, self.char_to_id = self.build_vocab(inp_text)
 
         idx_permute = np.random.permutation(n_total)
+        data = data[idx_permute]
+        mask = mask[idx_permute]
+        inp_text = inp_text[idx_permute]
+        char_mask = char_mask[idx_permute]
 
         n_train = int(0.9 * data.shape[0])
 
         if split == 'train':
-            self.dataset = data[idx_permute[:n_train]]
-            self.mask = mask[idx_permute[:n_train]]
-            self.texts = inp_text[idx_permute[:n_train]]
-            self.char_mask = char_mask[idx_permute[:n_train]]
+            self.dataset = data[:n_train]
+            self.mask = mask[:n_train]
+            self.texts = inp_text[:n_train]
+            self.char_mask = char_mask[:n_train]
             Global.train_mean, Global.train_std, self.dataset = train_offset_normalization(self.dataset)
 
         elif split == 'valid':
-            self.dataset = data[idx_permute[n_train:]]
-            self.mask = mask[idx_permute[n_train:]]
-            self.texts = inp_text[idx_permute[n_train:]]
-            self.char_mask = char_mask[idx_permute[n_train:]]
+            self.dataset = data[n_train:]
+            self.mask = mask[n_train:]
+            self.texts = inp_text[n_train:]
+            self.char_mask = char_mask[n_train:]
             self.dataset = valid_offset_normalization(Global.train_mean, Global.train_std, data)
 
         # divide data into inputs and target seqs
