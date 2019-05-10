@@ -85,7 +85,7 @@ def validation(model, valid_loader, device, epoch):
 
     with torch.no_grad():
         for i, mini_batch in enumerate(valid_loader):
-        	if isinstance(HandWritingPredictionNet):
+            if isinstance(HandWritingPredictionNet):
                 inputs, targets, mask = mini_batch
             else:
                 inputs, targets, mask, text, text_mask = mini_batch
