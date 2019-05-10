@@ -72,6 +72,7 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
             nn.utils.clip_grad_value_(model.lstm_1.parameters(), 10)
             nn.utils.clip_grad_value_(model.lstm_2.parameters(), 10)
             nn.utils.clip_grad_value_(model.lstm_3.parameters(), 10)
+            nn.utils.clip_grad_value_(model.window_layer.parameters(), 10)
 
         optimizer.step()
         avg_loss += loss.item()
