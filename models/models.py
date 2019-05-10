@@ -71,7 +71,7 @@ class HandWritingSynthesisNet(nn.Module):
     def init_hidden(self, batch_size, device):
         initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device),
                           torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device))
-        window_vector = torch.zeros(batch_size, 1, self.vocab_size, device=devcie)
+        window_vector = torch.zeros(batch_size, 1, self.vocab_size, device=device)
         kappa = torch.zeros(batch_size, 10, device=device)
         return initial_hidden, window_vector, kappa
 
