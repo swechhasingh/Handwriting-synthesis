@@ -72,7 +72,7 @@ class HandWritingSynthesisNet(nn.Module):
         initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device),
                           torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device))
         window_vector = torch.zeros(batch_size, 1, self.vocab_size, device=device)
-        kappa = torch.zeros(batch_size, 10, device=device)
+        kappa = torch.zeros(batch_size, 10, 1, device=device)
         return initial_hidden, window_vector, kappa
 
     def one_hot_encoding(self, text):
@@ -80,7 +80,7 @@ class HandWritingSynthesisNet(nn.Module):
         U = text.shape[1]
         encoding = text.new_zeros((N, U, self.vocab_size))
         for i in range(N):
-            encoding[i, torch.arange(U), text[i]] = 1.
+            encoding[i, torch.arange(U), text[i].long()] = 1.
         return encoding
 
     def compute_window_vector(self, mix_params, prev_kappa, text, text_mask):
@@ -89,9 +89,10 @@ class HandWritingSynthesisNet(nn.Module):
         alpha, beta, kappa = mix_params.split(10, dim=1)
         kappa += prev_kappa
         prev_kappa = kappa
-        u = text.new_tensor(torch.arange(text.shape[1]))
+        u = text.new_tensor(torch.arange(text.shape[1]), dtype=torch.float32)
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
-        window_vec = torch.sum(phi * text_mask * encoding, dim=1, keep_dim=True)
+        phi = (phi * text_mask).unsqueeze(2)
+        window_vec = torch.sum(phi * encoding, dim=1, keepdim=True)
         return window_vec, prev_kappa
 
     def forward(self, inputs, text, text_mask, initial_hidden, prev_window_vec, prev_kappa):

@@ -93,7 +93,7 @@ class HandwritingDataset(Dataset):
         return np.array([self.id_to_char[id] for id in id_seq])
 
     def char_to_idx(self, char_seq):
-        return np.array([self.char_to_id[char] for char in char_seq])
+        return np.array([self.char_to_id[char] for char in char_seq]).astype(np.float32)
 
     def build_vocab(self, texts):
         counter = Counter()
