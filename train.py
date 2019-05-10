@@ -36,7 +36,7 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
     avg_loss = 0.0
     model.train()
     for i, mini_batch in enumerate(train_loader):
-        if isinstance(HandWritingPredictionNet):
+        if isinstance(model, HandWritingPredictionNet):
             inputs, targets, mask = mini_batch
         else:
             inputs, targets, mask, text, text_mask = mini_batch
@@ -51,7 +51,7 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
 
         optimizer.zero_grad()
 
-        if isinstance(HandWritingPredictionNet):
+        if isinstance(model, HandWritingPredictionNet):
             initial_hidden = model.init_hidden(batch_size, device)
             y_hat, state = model.forward(inputs, initial_hidden)
         else:
@@ -85,7 +85,7 @@ def validation(model, valid_loader, device, epoch):
 
     with torch.no_grad():
         for i, mini_batch in enumerate(valid_loader):
-            if isinstance(HandWritingPredictionNet):
+            if isinstance(model, HandWritingPredictionNet):
                 inputs, targets, mask = mini_batch
             else:
                 inputs, targets, mask, text, text_mask = mini_batch
@@ -98,7 +98,7 @@ def validation(model, valid_loader, device, epoch):
 
             batch_size = inputs.shape[0]
 
-            if isinstance(HandWritingPredictionNet):
+            if isinstance(model, HandWritingPredictionNet):
                 initial_hidden = model.init_hidden(batch_size, device)
                 y_hat, state = model.forward(inputs, initial_hidden)
             else:
