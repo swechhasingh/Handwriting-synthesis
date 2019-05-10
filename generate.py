@@ -110,7 +110,7 @@ def generate_unconditional_seq(model_path, seq_len, device):
     return gen_seq
 
 
-def generate_conditional_sequence(model_path, char_seq, device):
+def generate_conditional_sequence(model_path, char_seq, device, chat_to_idx):
     model = HandWritingSynthesisNet()
     # load the best model
     model.load_state_dict(torch.load(model_path, map_location=device))
@@ -125,6 +125,8 @@ def generate_conditional_sequence(model_path, char_seq, device):
     inp = inp.to(device)
 
     print("Input: ", inp)
+
+    char_seq = np.array(list(char_seq))
 
     gen_seq = []
     batch_size = 1

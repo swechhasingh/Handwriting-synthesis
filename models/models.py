@@ -67,6 +67,7 @@ class HandWritingSynthesisNet(nn.Module):
 
         self.window_layer = nn.Linear(hidden_size, 3 * K)
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
+        self.init_weight()
 
     def init_hidden(self, batch_size, device):
         initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device),
