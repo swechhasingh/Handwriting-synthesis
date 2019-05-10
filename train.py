@@ -66,7 +66,12 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
         loss.backward()
 
         # LSTM params gradient clipping
-        nn.utils.clip_grad_value_(model.parameters(), 10)
+        if isinstance(model, HandWritingPredictionNet):
+            nn.utils.clip_grad_value_(model.parameters(), 10)
+        else:
+            nn.utils.clip_grad_value_(model.lstm_1.parameters(), 10)
+            nn.utils.clip_grad_value_(model.lstm_2.parameters(), 10)
+            nn.utils.clip_grad_value_(model.lstm_3.parameters(), 10)
 
         optimizer.step()
         avg_loss += loss.item()
