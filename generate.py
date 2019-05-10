@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from torch.distributions import bernoulli, uniform
 import torch.nn.functional as F
 
-from models.models import HandWritingPredictionNet
+from models.models import HandWritingPredictionNet, HandWritingSynthesisNet
 from utils import plot_stroke
 from utils.constants import Global
 from utils.dataset import HandwritingDataset
@@ -111,7 +111,45 @@ def generate_unconditional_seq(model_path, seq_len, device):
 
 
 def generate_conditional_sequence(model_path, char_seq, device):
+    model = HandWritingSynthesisNet()
+    # load the best model
+    model.load_state_dict(torch.load(model_path, map_location=device))
+
+    model.eval()
+
+    # initial input
+    inp = torch.zeros(1, 1, 3)
+    p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
+    co_offset = p.sample()
+    inp[0, 0, 1:] = co_offset
+    inp = inp.to(device)
+
+    print("Input: ", inp)
+
     gen_seq = []
+    batch_size = 1
+
+    initial_hidden = model.init_hidden(batch_size, device)
+
+    print("Generating sequence....")
+    with torch.no_grad():
+        for i in range(seq_len):
+
+            y_hat, state = model.forward(inp, hidden)
+
+            _hidden = torch.cat([s[0] for s in state], dim=0)
+            _cell = torch.cat([s[1] for s in state], dim=0)
+            hidden = (_hidden, _cell)
+
+            y_hat = y_hat.squeeze()
+
+            Z = sample_from_out_dist(y_hat)
+            inp = Z
+            gen_seq.append(Z)
+
+    gen_seq = torch.cat(gen_seq, dim=1)
+    gen_seq = gen_seq.detach().cpu().numpy()
+
     return gen_seq
 
 if __name__ == '__main__':

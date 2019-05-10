@@ -95,6 +95,23 @@ class HandWritingSynthesisNet(nn.Module):
         window_vec = torch.sum(phi * encoding, dim=1, keepdim=True)
         return window_vec, prev_kappa
 
+    def init_weight(self):
+        k = math.sqrt(1. / self.hidden_size)
+        for param in self.lstm_1.parameters():
+            nn.init.uniform_(param, a=-k, b=k)
+
+        for param in self.lstm_2.parameters():
+            nn.init.uniform_(param, a=-k, b=k)
+
+        for param in self.lstm_3.parameters():
+            nn.init.uniform_(param, a=-k, b=k)
+
+        nn.init.uniform_(self.window_layer.weight, a=-0.1, b=0.1)
+        nn.init.constant_(self.window_layer.bias, 0.)
+
+        nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
+        nn.init.constant_(self.output_layer.bias, 0.)
+
     def forward(self, inputs, text, text_mask, initial_hidden, prev_window_vec, prev_kappa):
 
         hid_1 = []
