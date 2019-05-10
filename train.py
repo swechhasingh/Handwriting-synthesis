@@ -156,8 +156,8 @@ if __name__ == "__main__":
     n_epochs = args.n_epochs
 
     # Load the data and text
-    train_dataset = HandwritingDataset(args.data_path, split='train', text_req=args.text_req)
-    valid_dataset = HandwritingDataset(args.data_path, split='valid', text_req=args.text_req)
+    train_dataset = HandwritingDataset(args.data_path, split='train', text_req=args.text_req, debug=args.debug)
+    valid_dataset = HandwritingDataset(args.data_path, split='valid', text_req=args.text_req, debug=args.debug)
 
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False)

@@ -61,9 +61,9 @@ class HandWritingSynthesisNet(nn.Module):
         self.n_layers = n_layers
         K = 10
 
-        self.lstm_1 = nn.LSTM(3 + window_size, hidden_size, batch_first=True)
-        self.lstm_2 = nn.LSTM(3 + window_size + hidden_size, hidden_size, batch_first=True)
-        self.lstm_3 = nn.LSTM(3 + window_size + hidden_size, hidden_size, batch_first=True)
+        self.lstm_1 = nn.LSTM(3 + self.vocab_size, hidden_size, batch_first=True)
+        self.lstm_2 = nn.LSTM(3 + self.vocab_size + hidden_size, hidden_size, batch_first=True)
+        self.lstm_3 = nn.LSTM(3 + self.vocab_size + hidden_size, hidden_size, batch_first=True)
 
         self.window_layer = nn.Linear(hidden_size, 3 * K)
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)

@@ -9,7 +9,7 @@ from utils.constants import Global
 class HandwritingDataset(Dataset):
     """Handwriting dataset."""
 
-    def __init__(self, data_path, split='train', text_req=False):
+    def __init__(self, data_path, split='train', text_req=False, debug=False):
         """
         Args:
             data_path (string): Path to the data folder.
@@ -64,6 +64,12 @@ class HandwritingDataset(Dataset):
         mask = mask[idx_permute]
         inp_text = inp_text[idx_permute]
         char_mask = char_mask[idx_permute]
+
+        if debug:
+            data = data[:64]
+            mask = mask[:64]
+            inp_text = inp_text[:64]
+            char_mask = char_mask[:64]
 
         n_train = int(0.9 * data.shape[0])
 
