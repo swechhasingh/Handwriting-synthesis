@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from torch.distributions import bernoulli, uniform
 import torch.nn.functional as F
 
-from models.models import HandWritingPredictionNet
+from models.models import HandWritingPredictionNet, HandWritingSynthesisNet
 from utils import plot_stroke
 from utils.dataset import HandwritingDataset
 from utils.model_utils import compute_unconditional_loss, stable_softmax
@@ -35,17 +35,29 @@ def argparser():
 def train_epoch(model, optimizer, epoch, train_loader, device):
     avg_loss = 0.0
     model.train()
-    for i, (inputs, targets, mask) in enumerate(train_loader):
+    for i, mini_batch in enumerate(train_loader):
+        if isinstance(HandWritingPredictionNet):
+            inputs, targets, mask = mini_batch
+        else:
+            inputs, targets, mask, text, text_mask = mini_batch
+            text = text.to(device)
+            text_mask = text_mask.to(device)
+
         inputs = inputs.to(device)
         targets = targets.to(device)
         mask = mask.to(device)
 
         batch_size = inputs.shape[0]
-        initial_hidden = model.init_hidden(batch_size)
-        initial_hidden = tuple([h.to(device) for h in initial_hidden])
 
         optimizer.zero_grad()
-        y_hat, state = model.forward(inputs, initial_hidden)
+
+        if isinstance(HandWritingPredictionNet):
+            initial_hidden = model.init_hidden(batch_size, device)
+            y_hat, state = model.forward(inputs, initial_hidden)
+        else:
+            initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
+            y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa)
+
         loss = compute_unconditional_loss(targets, y_hat, mask)
 
         # Output gradient clipping
@@ -72,14 +84,27 @@ def validation(model, valid_loader, device, epoch):
     model.eval()
 
     with torch.no_grad():
-        for i, (inputs, targets, mask) in enumerate(valid_loader):
+        for i, mini_batch in enumerate(valid_loader):
+        	if isinstance(HandWritingPredictionNet):
+                inputs, targets, mask = mini_batch
+            else:
+                inputs, targets, mask, text, text_mask = mini_batch
+                text = text.to(device)
+                text_mask = text_mask.to(device)
+
             inputs = inputs.to(device)
             targets = targets.to(device)
             mask = mask.to(device)
+
             batch_size = inputs.shape[0]
-            initial_hidden = model.init_hidden(batch_size)
-            initial_hidden = tuple([h.to(device) for h in initial_hidden])
-            y_hat, state = model.forward(inputs, initial_hidden)
+
+            if isinstance(HandWritingPredictionNet):
+                initial_hidden = model.init_hidden(batch_size, device)
+                y_hat, state = model.forward(inputs, initial_hidden)
+            else:
+                initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
+                y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa)
+
             loss = compute_unconditional_loss(targets, y_hat, mask)
             avg_loss += loss.item()
 
@@ -141,4 +166,8 @@ if __name__ == "__main__":
         model = HandWritingPredictionNet(hidden_size=400, n_layers=3, output_size=121, input_size=3)
         model = train(model, train_loader, valid_loader, batch_size, n_epochs, device)
     elif model == 'synthesis':
-        print("")
+        model = HandWritingSynthesisNet(hidden_size=400,
+                                        n_layers=3,
+                                        output_size=121,
+                                        window_size=train_dataset.vocab_size)
+        model = train(model, train_loader, valid_loader, batch_size, n_epochs, device)

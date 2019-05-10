@@ -37,9 +37,9 @@ class HandWritingPredictionNet(nn.Module):
 
         return y_hat, hidden_cell_state
 
-    def init_hidden(self, batch_size):
-        initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size),
-                          torch.zeros(self.n_layers, batch_size, self.hidden_size))
+    def init_hidden(self, batch_size, device):
+        initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device),
+                          torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device))
         return initial_hidden
 
     def init_weight(self):
@@ -68,16 +68,69 @@ class HandWritingSynthesisNet(nn.Module):
         self.window_layer = nn.Linear(hidden, 3 * K)
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
 
-    def init_hidden(self, batch_size):
-        initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size),
-                          torch.zeros(self.n_layers, batch_size, self.hidden_size))
-        window_vector = torch.zeros(batch_size, self.vocab_size)
-        return initial_hidden,
+    def init_hidden(self, batch_size, device):
+        initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device),
+                          torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device))
+        window_vector = torch.zeros(batch_size, 1, self.vocab_size, device=devcie)
+        kappa = torch.zeros(batch_size, 10, device=device)
+        return initial_hidden, window_vector, kappa
 
     def one_hot_encoding(self, text):
-        encoding = text.new_zeros((len(text), self.vocab_size))
-        encoding[torch.arange(len(text)), text] = 1.
+        N = text.shape[0]
+        U = text.shape[1]
+        encoding = text.new_zeros((N, U, self.vocab_size))
+        for i in range(N):
+            encoding[i, torch.arange(U), text[i]] = 1.
         return encoding
 
-    def forward(self, inputs, targets, text):
-        return 2
+    def compute_window_vector(self, mix_params, prev_kappa, text, text_mask):
+        encoding = self.one_hot_encoding(text)
+        mix_params = torch.exp(mix_params)
+        alpha, beta, kappa = mix_params.split(10, dim=1)
+        kappa += prev_kappa
+        prev_kappa = kappa
+        u = text.new_tensor(torch.arange(text.shape[1]))
+        phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
+        window_vec = torch.sum(phi * text_mask * encoding, dim=1, keep_dim=True)
+        return window_vec, prev_kappa
+
+    def forward(self, inputs, text, text_mask, initial_hidden, prev_window_vec, prev_kappa):
+
+        hid_1 = []
+        window_vec = []
+
+        state_1 = (initial_hidden[0][0:1], initial_hidden[1][0:1])
+
+        for t in range(inputs.shape[1]):
+            inp = torch.cat((inputs[:, t:t + 1, :], prev_window_vec), dim=2)
+
+            hid_1_t, state_1 = self.lstm_1(inp, state_1)
+            hid_1.append(hid_1_t)
+
+            mix_params = self.window_layer(hid_1_t)
+            window, kappa = self.compute_window_vector(mix_params.squeeze().unsqueeze(2),
+                                                       prev_kappa,
+                                                       text,
+                                                       text_mask)
+
+            prev_window_vec = window
+            prev_kappa = kappa
+            window_vec.append(window)
+
+        hid_1 = torch.cat(hid_1, dim=1)
+        window_vec = torch.cat(window_vec, dim=1)
+
+        inp = torch.cat((inputs, hid_1, window_vec), dim=2)
+        state_2 = (initial_hidden[0][1:2], initial_hidden[1][1:2])
+
+        hid_2, state_2 = self.lstm_2(inp, state_2)
+
+        inp = torch.cat((inputs, hid_2, window_vec), dim=2)
+        state_3 = (initial_hidden[0][2:], initial_hidden[1][2:])
+
+        hid_3, state_3 = self.lstm_3(inp, state_3)
+
+        inp = torch.cat([hid_1, hid_2, hid_3], dim=2)
+        y_hat = self.output_layer(inp)
+
+        return y_hat, [state_1, state_2, state_3]

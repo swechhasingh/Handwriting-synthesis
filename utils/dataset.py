@@ -57,6 +57,7 @@ class HandwritingDataset(Dataset):
 
         # create vocab
         self.id_to_char, self.char_to_id = self.build_vocab(inp_text)
+        self.vocab_size = len(self.id_to_char)
 
         idx_permute = np.random.permutation(n_total)
         data = data[idx_permute]

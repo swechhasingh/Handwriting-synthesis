@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import numpy as np
+import argparse
 
 from torch.utils import data
 from torch.utils.data import DataLoader
@@ -18,11 +19,12 @@ from utils.data_utils import train_offset_normalization, valid_offset_normalizat
 def argparser():
 
     parser = argparse.ArgumentParser(description='PyTorch Handwriting Synthesis Model')
-    parser.add_argument('--model', type=str, default='synthesis')
+    parser.add_argument('--model', type=str, default='prediction')
     parser.add_argument('--model_path', type=str, default='./trainedModels/best_model.pt')
     parser.add_argument('--seq_len', type=int, default=700)
     parser.add_argument('--char_seq', type=str, default='This is real handwriting')
     parser.add_argument('--seed', type=int, default=212, help='random seed')
+    parser.add_argument('--data_path', type=str, default='./data/')
     args = parser.parse_args()
 
     return args
@@ -124,7 +126,7 @@ if __name__ == '__main__':
 
     model_path = args.model_path
     model = args.model
-
+    train_dataset = HandwritingDataset(args.data_path, split='train')
     if model == 'prediction':
         gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
 
@@ -132,7 +134,7 @@ if __name__ == '__main__':
         gen_seq = generate_conditional_sequence(model_path, args.char_seq, device)
 
     # denormalize the generated offsets using train set mean and std
-    gen_seq = data_denormalization(Global.mean, Global.std, gen_seq)
+    gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
 
     # plot the sequence
     plot_stroke(gen_seq[0], save_name="gen_seq.png")
