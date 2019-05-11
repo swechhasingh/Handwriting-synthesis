@@ -10,9 +10,11 @@ import torch.nn.functional as F
 
 from models.models import HandWritingPredictionNet, HandWritingSynthesisNet
 from utils import plot_stroke
+from utils.constants import Global
 from utils.dataset import HandwritingDataset
 from utils.model_utils import compute_unconditional_loss, stable_softmax
-from utils.data_utils import train_offset_normalization, valid_offset_normalization, data_denormalization
+from utils.data_utils import data_denormalization
+from generate.py import generate_conditional_sequence
 
 
 def argparser():
@@ -141,6 +143,19 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
         valid_losses.append(valid_loss)
         print('Epoch {}: Train: avg. loss: {:.3f}'.format(epoch + 1, train_loss))
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
+
+        if epoch % 2 == 0:
+        	torch.save(model.state_dict(), "best_model.pt")
+            gen_seq = generate_conditional_sequence("best_model.pt", 
+            	                                    "Hello world!", 
+            	                                    device, 
+            	                                    train_loader.dataset.char_to_id)
+
+            # denormalize the generated offsets using train set mean and std
+            gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
+
+            # plot the sequence
+            plot_stroke(gen_seq[0], save_name="gen_seq_"+str(epoch)+".png")
 
     torch.save(model.state_dict(), "best_model.pt")
 

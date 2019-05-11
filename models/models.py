@@ -60,6 +60,7 @@ class HandWritingSynthesisNet(nn.Module):
         self.output_size = output_size
         self.n_layers = n_layers
         K = 10
+        self.EOS = False
 
         self.lstm_1 = nn.LSTM(3 + self.vocab_size, hidden_size, batch_first=True)
         self.lstm_2 = nn.LSTM(3 + self.vocab_size + hidden_size, hidden_size, batch_first=True)
@@ -92,6 +93,8 @@ class HandWritingSynthesisNet(nn.Module):
         prev_kappa = kappa
         u = text.new_tensor(torch.arange(text.shape[1]), dtype=torch.float32)
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
+        if phi[0, -1] > torch.max(phi[0, :-1]):
+            self.EOS = True
         phi = (phi * text_mask).unsqueeze(2)
         window_vec = torch.sum(phi * encoding, dim=1, keepdim=True)
         return window_vec, prev_kappa
@@ -107,7 +110,7 @@ class HandWritingSynthesisNet(nn.Module):
         for param in self.lstm_3.parameters():
             nn.init.uniform_(param, a=-k, b=k)
 
-        nn.init.uniform_(self.window_layer.weight, a=-0.001, b=0.001)
+        nn.init.uniform_(self.window_layer.weight, a=-0.01, b=0.01)
         nn.init.constant_(self.window_layer.bias, 0.)
 
         nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)

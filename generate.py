@@ -23,6 +23,7 @@ def argparser():
     parser.add_argument('--model_path', type=str, default='./trainedModels/best_model.pt')
     parser.add_argument('--seq_len', type=int, default=700)
     parser.add_argument('--char_seq', type=str, default='This is real handwriting')
+    parser.add_argument('--text_req', action='store_true')
     parser.add_argument('--seed', type=int, default=212, help='random seed')
     parser.add_argument('--data_path', type=str, default='./data/')
     args = parser.parse_args()
@@ -110,8 +111,8 @@ def generate_unconditional_seq(model_path, seq_len, device):
     return gen_seq
 
 
-def generate_conditional_sequence(model_path, char_seq, device, chat_to_idx):
-    model = HandWritingSynthesisNet()
+def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
+    model = HandWritingSynthesisNet(window_size=len(char_to_id))
     # load the best model
     model.load_state_dict(torch.load(model_path, map_location=device))
 
@@ -124,20 +125,25 @@ def generate_conditional_sequence(model_path, char_seq, device, chat_to_idx):
     inp[0, 0, 1:] = co_offset
     inp = inp.to(device)
 
-    print("Input: ", inp)
+    print("Starting coordinates: ", inp)
 
-    char_seq = np.array(list(char_seq))
+    char_seq = np.array(list(char_seq + " "))
+
+    text = np.array([[char_to_id[char] for char in char_seq]]).astype(np.float32)
+    text = torch.from_numpy(text).to(device)
+
+    text_mask = torch.ones(1, len(text)).to(device)
 
     gen_seq = []
     batch_size = 1
 
-    initial_hidden = model.init_hidden(batch_size, device)
+    initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
 
     print("Generating sequence....")
     with torch.no_grad():
-        for i in range(seq_len):
+        while not model.EOS:
 
-            y_hat, state = model.forward(inp, hidden)
+            y_hat, state = model.forward(inp, text, text_mask, initial_hidden, window_vector, kappa)
 
             _hidden = torch.cat([s[0] for s in state], dim=0)
             _cell = torch.cat([s[1] for s in state], dim=0)
@@ -166,12 +172,14 @@ if __name__ == '__main__':
 
     model_path = args.model_path
     model = args.model
-    train_dataset = HandwritingDataset(args.data_path, split='train')
+
+    train_dataset = HandwritingDataset(args.data_path, split='train', text_req=args.text_req)
+
     if model == 'prediction':
         gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
 
     elif model == 'synthesis':
-        gen_seq = generate_conditional_sequence(model_path, args.char_seq, device)
+        gen_seq = generate_conditional_sequence(model_path, args.char_seq, device, train_dataset.char_to_id)
 
     # denormalize the generated offsets using train set mean and std
     gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
