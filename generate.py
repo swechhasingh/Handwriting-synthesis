@@ -127,7 +127,6 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
 
     print("Starting coordinates: ", inp)
 
-    char_to_id = torch.from_numpy(np.asarray(char_to_id)).to(device)
     char_seq = np.array(list(char_seq + " "))
 
     text = np.array([[char_to_id[char] for char in char_seq]]).astype(np.float32)
