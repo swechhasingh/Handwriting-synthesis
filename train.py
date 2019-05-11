@@ -127,7 +127,7 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
 
     model = model.to(device)
 
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
     train_losses = []
     valid_losses = []
