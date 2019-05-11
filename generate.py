@@ -115,7 +115,7 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
     model = HandWritingSynthesisNet(window_size=len(char_to_id))
     # load the best model
     model.load_state_dict(torch.load(model_path, map_location=device))
-
+    model = model.to(device)
     model.eval()
 
     # initial input
