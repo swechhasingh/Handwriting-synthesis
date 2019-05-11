@@ -88,7 +88,7 @@ class HandWritingSynthesisNet(nn.Module):
         encoding = self.one_hot_encoding(text)
         mix_params = torch.exp(mix_params)
         alpha, beta, kappa = mix_params.split(10, dim=1)
-        kappa += prev_kappa
+        kappa = kappa + prev_kappa
         prev_kappa = kappa
         u = text.new_tensor(torch.arange(text.shape[1]), dtype=torch.float32)
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
@@ -107,7 +107,7 @@ class HandWritingSynthesisNet(nn.Module):
         for param in self.lstm_3.parameters():
             nn.init.uniform_(param, a=-k, b=k)
 
-        nn.init.uniform_(self.window_layer.weight, a=-0.1, b=0.1)
+        nn.init.uniform_(self.window_layer.weight, a=-0.001, b=0.001)
         nn.init.constant_(self.window_layer.bias, 0.)
 
         nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
