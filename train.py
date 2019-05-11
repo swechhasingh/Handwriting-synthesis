@@ -14,7 +14,7 @@ from utils.constants import Global
 from utils.dataset import HandwritingDataset
 from utils.model_utils import compute_unconditional_loss, stable_softmax
 from utils.data_utils import data_denormalization
-from generate.py import generate_conditional_sequence
+from generate import generate_conditional_sequence
 
 
 def argparser():
