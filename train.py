@@ -145,17 +145,17 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
 
         if epoch % 2 == 0:
-        	torch.save(model.state_dict(), "best_model.pt")
-            gen_seq = generate_conditional_sequence("best_model.pt", 
-            	                                    "Hello world!", 
-            	                                    device, 
-            	                                    train_loader.dataset.char_to_id)
+            torch.save(model.state_dict(), "best_model.pt")
+            gen_seq = generate_conditional_sequence("best_model.pt",
+                                                    "Hello world!",
+                                                    device,
+                                                    train_loader.dataset.char_to_id)
 
             # denormalize the generated offsets using train set mean and std
             gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
 
             # plot the sequence
-            plot_stroke(gen_seq[0], save_name="gen_seq_"+str(epoch)+".png")
+            plot_stroke(gen_seq[0], save_name="gen_seq_" + str(epoch) + ".png")
 
     torch.save(model.state_dict(), "best_model.pt")
 
