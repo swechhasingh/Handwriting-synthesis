@@ -57,7 +57,7 @@ def sample_from_out_dist(y_hat, bias=0.0):
     cov[1, 1] = std_2[K].pow(2)
     cov[0, 1], cov[1, 0] = correlations[K] * std_1[K] * std_2[K], correlations[K] * std_1[K] * std_2[K]
 
-    x = torch.normal(mean=torch.Tensor([0., 0.]), std=torch.Tensor([1., 1.])).to(device)
+    x = torch.normal(mean=torch.Tensor([0., 0.]), std=torch.Tensor([1., 1.])).to(y_hat.device)
     Z = mu_k + torch.mv(cov, x)
 
     sample = y_hat.new_zeros(1, 1, 3)
