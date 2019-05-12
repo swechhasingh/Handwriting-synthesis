@@ -130,7 +130,7 @@ class HandWritingSynthesisNet(nn.Module):
             hid_1.append(hid_1_t)
 
             mix_params = self.window_layer(hid_1_t)
-            window, kappa = self.compute_window_vector(mix_params.squeeze().unsqueeze(2),
+            window, kappa = self.compute_window_vector(mix_params.squeeze(dim=1).unsqueeze(2),
                                                        prev_kappa,
                                                        text,
                                                        text_mask)
