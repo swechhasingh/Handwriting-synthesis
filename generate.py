@@ -141,7 +141,7 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
     seq_len = 0
     print("Generating sequence....")
     with torch.no_grad():
-        while not model.EOS or seq_len < 600:
+        while seq_len < 600:
             print(seq_len)
             y_hat, state = model.forward(inp, text, text_mask, initial_hidden, window_vector, kappa)
 
