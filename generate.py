@@ -138,10 +138,10 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
     batch_size = 1
 
     initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
-
+    seq_len = 0
     print("Generating sequence....")
     with torch.no_grad():
-        while not model.EOS:
+        while not model.EOS or seq_len <= 600:
 
             y_hat, state = model.forward(inp, text, text_mask, initial_hidden, window_vector, kappa)
 
@@ -154,6 +154,7 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
             Z = sample_from_out_dist(y_hat)
             inp = Z
             gen_seq.append(Z)
+            seq_len += 1
 
     gen_seq = torch.cat(gen_seq, dim=1)
     gen_seq = gen_seq.detach().cpu().numpy()
