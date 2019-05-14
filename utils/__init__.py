@@ -1,4 +1,6 @@
 import numpy
+import matplotlib
+matplotlib.use('agg')
 from matplotlib import pyplot
 
 
