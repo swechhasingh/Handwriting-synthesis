@@ -68,7 +68,7 @@ class HandWritingSynthesisNet(nn.Module):
 
         self.window_layer = nn.Linear(hidden_size, 3 * K)
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
-        self.init_weight()
+        # self.init_weight()
 
     def init_hidden(self, batch_size, device):
         initial_hidden = (torch.zeros(self.n_layers, batch_size, self.hidden_size, device=device),
@@ -95,6 +95,7 @@ class HandWritingSynthesisNet(nn.Module):
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
         if phi[0, -1] > torch.max(phi[0, :-1]):
             self.EOS = True
+            print(self.EOS)
         phi = (phi * text_mask).unsqueeze(2)
         window_vec = torch.sum(phi * encoding, dim=1, keepdim=True)
         return window_vec, prev_kappa
