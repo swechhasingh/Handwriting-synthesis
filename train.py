@@ -8,6 +8,10 @@ from torch.utils.data import DataLoader
 from torch.distributions import bernoulli, uniform
 import torch.nn.functional as F
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 from models.models import HandWritingPredictionNet, HandWritingSynthesisNet
 from utils import plot_stroke
 from utils.constants import Global
@@ -58,7 +62,11 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
             y_hat, state = model.forward(inputs, initial_hidden)
         else:
             initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
-            y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa)
+            if epoch % 2 == 0:
+                model._phi = []
+                y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa, is_map=True)
+            else:
+                y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa)
 
         loss = compute_unconditional_loss(targets, y_hat, mask)
 
@@ -145,6 +153,12 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
 
         if epoch % 2 == 0:
+            phi = torch.cat(model._phi, dim=1).detach().cpu().numpy()
+            plt.imshow(phi, cmap='viridis')
+            plt.colorbar()
+            plt.savefig(
+                "heat_map" + str(epoch) + ".png")
+
             torch.save(model.state_dict(), "best_model.pt")
             gen_seq = generate_conditional_sequence("best_model.pt",
                                                     "Hello world!",

@@ -61,6 +61,7 @@ class HandWritingSynthesisNet(nn.Module):
         self.n_layers = n_layers
         K = 10
         self.EOS = False
+        self._phi = []
 
         self.lstm_1 = nn.LSTM(3 + self.vocab_size, hidden_size, batch_first=True)
         self.lstm_2 = nn.LSTM(3 + self.vocab_size + hidden_size, hidden_size, batch_first=True)
@@ -85,7 +86,7 @@ class HandWritingSynthesisNet(nn.Module):
             encoding[i, torch.arange(U), text[i].long()] = 1.
         return encoding
 
-    def compute_window_vector(self, mix_params, prev_kappa, text, text_mask):
+    def compute_window_vector(self, mix_params, prev_kappa, text, text_mask, is_map):
         encoding = self.one_hot_encoding(text)
         mix_params = torch.exp(mix_params)
         alpha, beta, kappa = mix_params.split(10, dim=1)
@@ -95,8 +96,11 @@ class HandWritingSynthesisNet(nn.Module):
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
         if phi[0, -1] > torch.max(phi[0, :-1]):
             self.EOS = True
-            print(self.EOS)
+            # print(self.EOS)
         phi = (phi * text_mask).unsqueeze(2)
+        if is_map:
+            self._phi.append(phi.squeeze(dim=2).unsqueeze(1))
+
         window_vec = torch.sum(phi * encoding, dim=1, keepdim=True)
         return window_vec, prev_kappa
 
@@ -117,7 +121,7 @@ class HandWritingSynthesisNet(nn.Module):
         nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
         nn.init.constant_(self.output_layer.bias, 0.)
 
-    def forward(self, inputs, text, text_mask, initial_hidden, prev_window_vec, prev_kappa):
+    def forward(self, inputs, text, text_mask, initial_hidden, prev_window_vec, prev_kappa, is_map=False):
 
         hid_1 = []
         window_vec = []
@@ -134,7 +138,8 @@ class HandWritingSynthesisNet(nn.Module):
             window, kappa = self.compute_window_vector(mix_params.squeeze(dim=1).unsqueeze(2),
                                                        prev_kappa,
                                                        text,
-                                                       text_mask)
+                                                       text_mask,
+                                                       is_map)
 
             prev_window_vec = window
             prev_kappa = kappa

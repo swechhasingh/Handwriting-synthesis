@@ -120,9 +120,9 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
 
     # initial input
     inp = torch.zeros(1, 1, 3)
-    p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
-    co_offset = p.sample()
-    inp[0, 0, 1:] = co_offset
+    # p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
+    # co_offset = p.sample()
+    # inp[0, 0, 1:] = co_offset
     inp = inp.to(device)
 
     print("Starting coordinates: ", inp)
@@ -141,7 +141,7 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
     seq_len = 0
     print("Generating sequence....")
     with torch.no_grad():
-        while not model.EOS and seq_len < 700:
+        while not model.EOS and seq_len < 2000:
             y_hat, state = model.forward(inp, text, text_mask, initial_hidden, window_vector, kappa)
 
             _hidden = torch.cat([s[0] for s in state], dim=0)
