@@ -26,7 +26,7 @@ def compute_unconditional_loss(targets, y_hat, mask, M=20):
 
     rho = F.tanh(y[6])
 
-    log_constant = log_mixture_weights - math.log(2 * math.pi) - logstd_1 - logstd_2 - 0.5 * math.log(1 - rho.pow(2))
+    log_constant = log_mixture_weights - math.log(2 * math.pi) - logstd_1 - logstd_2 - 0.5 * torch.log(1 - rho.pow(2))
 
     x1 = targets[:, :, 1:2]
     x2 = targets[:, :, 2:]
