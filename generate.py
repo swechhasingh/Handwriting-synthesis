@@ -90,8 +90,7 @@ def generate_unconditional_seq(model_path, seq_len, device):
     gen_seq = []
     batch_size = 1
 
-    initial_hidden = model.init_hidden(batch_size)
-    hidden = tuple([h.to(device) for h in initial_hidden])
+    initial_hidden = model.init_hidden(batch_size, device)
 
     print("Generating sequence....")
     with torch.no_grad():
