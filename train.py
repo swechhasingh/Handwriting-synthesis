@@ -16,7 +16,7 @@ from models.models import HandWritingPredictionNet, HandWritingSynthesisNet
 from utils import plot_stroke
 from utils.constants import Global
 from utils.dataset import HandwritingDataset
-from utils.model_utils import compute_unconditional_loss, stable_softmax
+from utils.model_utils import compute_unconditional_loss
 from utils.data_utils import data_denormalization
 from generate import generate_conditional_sequence
 
