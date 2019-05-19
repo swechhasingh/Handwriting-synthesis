@@ -13,7 +13,7 @@ def stable_softmax(X, dim=2):
 
 
 def compute_unconditional_loss(targets, y_hat, mask, M=20):
-	epsilon = 1e-6
+    epsilon = 1e-6
     split_sizes = [1] + [20] * 6
     y = torch.split(y_hat, split_sizes, dim=2)
 
@@ -28,7 +28,8 @@ def compute_unconditional_loss(targets, y_hat, mask, M=20):
 
     rho = F.tanh(y[6])
 
-    log_constant = log_mixture_weights - math.log(2 * math.pi) - logstd_1 - logstd_2 - 0.5 * torch.log(epsilon + 1 - rho.pow(2))
+    log_constant = log_mixture_weights - math.log(2 * math.pi) - logstd_1 - \
+        logstd_2 - 0.5 * torch.log(epsilon + 1 - rho.pow(2))
 
     x1 = targets[:, :, 1:2]
     x2 = targets[:, :, 2:]
