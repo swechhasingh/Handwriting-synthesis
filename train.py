@@ -202,8 +202,6 @@ if __name__ == "__main__":
 
     if model == 'prediction':
         model = HandWritingPredictionNet(hidden_size=400, n_layers=3, output_size=121, input_size=3)
-        # load the best model
-        model.load_state_dict(torch.load("best_model.pt", map_location=device))
         model = train(model, train_loader, valid_loader, batch_size, n_epochs, device)
     elif model == 'synthesis':
         model = HandWritingSynthesisNet(hidden_size=400,
