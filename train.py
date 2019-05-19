@@ -153,11 +153,12 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
 
         if epoch % 2 == 0:
-            phi = torch.cat(model._phi, dim=1).detach().cpu().numpy()
-            plt.imshow(phi[0], cmap='viridis')
-            plt.colorbar()
-            plt.savefig(
-                "heat_map" + str(epoch) + ".png")
+            if isinstance(model, HandWritingSynthesisNet):
+                phi = torch.cat(model._phi, dim=1).detach().cpu().numpy()
+                plt.imshow(phi[0], cmap='viridis')
+                plt.colorbar()
+                plt.savefig(
+                    "heat_map" + str(epoch) + ".png")
 
             torch.save(model.state_dict(), "best_model.pt")
             gen_seq = generate_conditional_sequence("best_model.pt",
