@@ -153,22 +153,21 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
 
         if epoch % 2 == 0:
-        	torch.save(model.state_dict(), "best_model.pt")
+            torch.save(model.state_dict(), "best_model.pt")
             if isinstance(model, HandWritingSynthesisNet):
                 phi = torch.cat(model._phi, dim=1).detach().cpu().numpy()
                 plt.imshow(phi[0], cmap='viridis')
                 plt.colorbar()
                 plt.savefig(
                     "heat_map" + str(epoch) + ".png")
-            
-            
+
                 gen_seq = generate_conditional_sequence("best_model.pt",
                                                         "Hello world!",
                                                         device,
                                                         train_loader.dataset.char_to_id)
             else:
-            	generate_unconditional_seq("best_model.pt", 700, device)
-            	
+                generate_unconditional_seq("best_model.pt", 700, device)
+
             # denormalize the generated offsets using train set mean and std
             gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
 
