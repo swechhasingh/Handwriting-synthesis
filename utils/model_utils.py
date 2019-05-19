@@ -3,6 +3,14 @@ import torch.nn.functional as F
 import math
 
 
+def stable_softmax(X, dim=2):
+    max_vec = torch.max(X, dim, keepdim=True)
+    exp_X = torch.exp(X - max_vec[0])
+    sum_exp_X = torch.sum(exp_X, dim, keepdim=True)
+    X_hat = exp_X / sum_exp_X
+    return X_hat
+
+
 def compute_unconditional_loss(targets, y_hat, mask, M=20):
     split_sizes = [1] + [20] * 6
     y = torch.split(y_hat, split_sizes, dim=2)
@@ -32,7 +40,6 @@ def compute_unconditional_loss(targets, y_hat, mask, M=20):
     X = -Z / (2 * (1 - rho.pow(2)))
 
     log_sum_exp = torch.logsumexp(log_constant + X, 2)
-
     BCE = nn.BCEWithLogitsLoss(reduction='none')
 
     loss_t = -log_sum_exp + BCE(eos_logit, targets[:, :, 0])
