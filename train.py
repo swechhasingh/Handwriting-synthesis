@@ -154,7 +154,7 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
 
         if epoch % 2 == 0:
             phi = torch.cat(model._phi, dim=1).detach().cpu().numpy()
-            plt.imshow(phi, cmap='viridis')
+            plt.imshow(phi[0], cmap='viridis')
             plt.colorbar()
             plt.savefig(
                 "heat_map" + str(epoch) + ".png")

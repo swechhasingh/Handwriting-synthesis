@@ -8,6 +8,10 @@ from torch.utils.data import DataLoader
 from torch.distributions import bernoulli, uniform
 import torch.nn.functional as F
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 from models.models import HandWritingPredictionNet, HandWritingSynthesisNet
 from utils import plot_stroke
 from utils.constants import Global
@@ -160,6 +164,45 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
 
     return gen_seq
 
+
+def plot_attention(trainset, model_path, device):
+
+    trainloader = DataLoader(trainset, batch_size=2, shuffle=True)
+
+    model = HandWritingSynthesisNet(window_size=len(trainset.char_to_id))
+    # load the best model
+    model.load_state_dict(torch.load(model_path, map_location=device))
+    model = model.to(device)
+    model.eval()
+
+    with torch.no_grad():
+        for i, mini_batch in enumerate(trainloader):
+            inputs, targets, mask, text, text_mask = mini_batch
+            text = text[0:1].to(device)
+            text_mask = text_mask[0:1].to(device)
+
+            inputs = inputs[0:1].to(device)
+            targets = targets[0:1].to(device)
+            mask = mask[0:1].to(device)
+
+            batch_size = inputs.shape[0]
+
+            initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
+            y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa, is_map=True)
+
+            length = len(text_mask.nonzero())
+            print("Input seq: ", "".join(trainset.idx_to_char(text[0].detach().cpu().numpy()))[:length])
+
+            phi = torch.cat(model._phi, dim=1).detach().cpu().numpy()
+            print("phi : ", phi[0][:, :length])
+            plt.imshow(phi[0][:, :length], cmap='viridis', aspect='auto')
+            plt.colorbar()
+            plt.savefig(
+                "heat_map.png")
+            plt.close()
+            break
+
+
 if __name__ == '__main__':
 
     args = argparser()
@@ -174,15 +217,15 @@ if __name__ == '__main__':
     model = args.model
 
     train_dataset = HandwritingDataset(args.data_path, split='train', text_req=args.text_req)
+    plot_attention(train_dataset, model_path, device)
+    # if model == 'prediction':
+    #     gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
 
-    if model == 'prediction':
-        gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
+    # elif model == 'synthesis':
+    #     gen_seq = generate_conditional_sequence(model_path, args.char_seq, device, train_dataset.char_to_id)
 
-    elif model == 'synthesis':
-        gen_seq = generate_conditional_sequence(model_path, args.char_seq, device, train_dataset.char_to_id)
+    # # denormalize the generated offsets using train set mean and std
+    # gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
 
-    # denormalize the generated offsets using train set mean and std
-    gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
-
-    # plot the sequence
-    plot_stroke(gen_seq[0], save_name="gen_seq.png")
+    # # plot the sequence
+    # plot_stroke(gen_seq[0], save_name="gen_seq.png")
