@@ -166,7 +166,7 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
                                                         device,
                                                         train_loader.dataset.char_to_id)
             else:
-                generate_unconditional_seq("best_model.pt", 700, device)
+                gen_seq = generate_unconditional_seq("best_model.pt", 700, device)
 
             # denormalize the generated offsets using train set mean and std
             gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
