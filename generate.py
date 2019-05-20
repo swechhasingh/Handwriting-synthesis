@@ -24,8 +24,8 @@ def argparser():
 
     parser = argparse.ArgumentParser(description='PyTorch Handwriting Synthesis Model')
     parser.add_argument('--model', type=str, default='prediction')
-    parser.add_argument('--model_path', type=str, default='./trainedModels/best_model.pt')
-    parser.add_argument('--seq_len', type=int, default=700)
+    parser.add_argument('--model_path', type=str, default='./trainedModels/best_model_prediction.pt')
+    parser.add_argument('--seq_len', type=int, default=400)
     parser.add_argument('--char_seq', type=str, default='This is real handwriting')
     parser.add_argument('--text_req', action='store_true')
     parser.add_argument('--seed', type=int, default=212, help='random seed')
@@ -217,15 +217,15 @@ if __name__ == '__main__':
     model = args.model
 
     train_dataset = HandwritingDataset(args.data_path, split='train', text_req=args.text_req)
-    plot_attention(train_dataset, model_path, device)
-    # if model == 'prediction':
-    #     gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
+    # plot_attention(train_dataset, model_path, device)
+    if model == 'prediction':
+        gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
 
-    # elif model == 'synthesis':
-    #     gen_seq = generate_conditional_sequence(model_path, args.char_seq, device, train_dataset.char_to_id)
+    elif model == 'synthesis':
+        gen_seq = generate_conditional_sequence(model_path, args.char_seq, device, train_dataset.char_to_id)
 
-    # # denormalize the generated offsets using train set mean and std
-    # gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
+    # denormalize the generated offsets using train set mean and std
+    gen_seq = data_denormalization(Global.train_mean, Global.train_std, gen_seq)
 
-    # # plot the sequence
-    # plot_stroke(gen_seq[0], save_name="gen_seq.png")
+    # plot the sequence
+    plot_stroke(gen_seq[0], save_name="gen_seq.png")
