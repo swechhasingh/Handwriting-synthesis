@@ -161,4 +161,4 @@ class HandWritingSynthesisNet(nn.Module):
         inp = torch.cat([hid_1, hid_2, hid_3], dim=2)
         y_hat = self.output_layer(inp)
 
-        return y_hat, [state_1, state_2, state_3]
+        return y_hat, [state_1, state_2, state_3], window_vec, prev_kappa

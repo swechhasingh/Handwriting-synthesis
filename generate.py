@@ -80,9 +80,9 @@ def generate_unconditional_seq(model_path, seq_len, device):
 
     # initial input
     inp = torch.zeros(1, 1, 3)
-    p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
-    co_offset = p.sample()
-    inp[0, 0, 1:] = co_offset
+    # p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
+    # co_offset = p.sample()
+    # inp[0, 0, 1:] = co_offset
     inp = inp.to(device)
 
     print("Input: ", inp)
@@ -122,6 +122,8 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
     model = model.to(device)
     model.eval()
 
+    trainset = HandwritingDataset('./data/', split='train', text_req=args.text_req)
+
     # initial input
     inp = torch.zeros(1, 1, 3)
     # p = uniform.Uniform(torch.tensor([-0.5, -0.5]), torch.tensor([0.5, 0.5]))
@@ -136,17 +138,20 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
     text = np.array([[char_to_id[char] for char in char_seq]]).astype(np.float32)
     text = torch.from_numpy(text).to(device)
 
-    text_mask = torch.ones(1, len(text)).to(device)
+    text_mask = torch.ones(1, text.shape[1]).to(device)
 
     gen_seq = []
     batch_size = 1
 
-    initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
+    hidden, window_vector, kappa = model.init_hidden(batch_size, device)
+
     seq_len = 0
     print("Generating sequence....")
-    with torch.no_grad():
-        while not model.EOS and seq_len < 2000:
-            y_hat, state = model.forward(inp, text, text_mask, initial_hidden, window_vector, kappa)
+
+    with torch.no_grad():  # not model.EOS and
+        while not model.EOS and seq_len < 700:
+            y_hat, state, window_vector, kappa = model.forward(
+                inp, text, text_mask, hidden, window_vector, kappa, is_map=True)
 
             _hidden = torch.cat([s[0] for s in state], dim=0)
             _cell = torch.cat([s[1] for s in state], dim=0)
@@ -159,8 +164,21 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
             gen_seq.append(Z)
             seq_len += 1
 
+        length = len(text_mask.nonzero())
+        print("Input seq: ", ''.join(trainset.idx_to_char(text[0].detach().cpu().numpy()))[:length])
+
+        phi = torch.cat(model._phi, dim=1).cpu().numpy()
+        print(phi.shape)
+
+        plt.imshow(phi[0], cmap='viridis', aspect='auto')
+        plt.colorbar()
+        plt.savefig("heat_map.png")
+        plt.close()
+        print("EOS:", model.EOS)
+        print("seq_len:", seq_len)
+
     gen_seq = torch.cat(gen_seq, dim=1)
-    gen_seq = gen_seq.detach().cpu().numpy()
+    gen_seq = gen_seq.cpu().numpy()
 
     return gen_seq
 

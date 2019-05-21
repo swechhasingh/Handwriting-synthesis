@@ -64,9 +64,11 @@ def train_epoch(model, optimizer, epoch, train_loader, device):
             initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
             if epoch % 2 == 0:
                 model._phi = []
-                y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa, is_map=True)
+                y_hat, state, window_vector, kappa = model.forward(
+                    inputs, text, text_mask, initial_hidden, window_vector, kappa, is_map=True)
             else:
-                y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa)
+                y_hat, state, window_vector, kappa = model.forward(
+                    inputs, text, text_mask, initial_hidden, window_vector, kappa)
 
         loss = compute_unconditional_loss(targets, y_hat, mask)
 

@@ -74,8 +74,8 @@ class HandwritingDataset(Dataset):
         n_train = int(0.9 * data.shape[0])
 
         if split == 'train':
-            self.dataset = data[:n_train, :300]
-            self.mask = mask[:n_train, :300]
+            self.dataset = data[:n_train]
+            self.mask = mask[:n_train]
             self.texts = inp_text[:n_train]
             self.char_mask = char_mask[:n_train]
             Global.train_mean, Global.train_std, self.dataset = train_offset_normalization(self.dataset)
