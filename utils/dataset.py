@@ -9,7 +9,7 @@ from utils.constants import Global
 class HandwritingDataset(Dataset):
     """Handwriting dataset."""
 
-    def __init__(self, data_path, split='train', text_req=False, debug=False):
+    def __init__(self, data_path, split='train', text_req=False, debug=False, max_seq_len=300):
         """
         Args:
             data_path (string): Path to the data folder.
@@ -25,9 +25,26 @@ class HandwritingDataset(Dataset):
         lengths = [len(stroke) for stroke in strokes]
         max_len = np.max(lengths)
         n_total = len(strokes)
+        self.count = 0
+        strokes = strokes.tolist()
+        for i, seq_len in enumerate(lengths):
+            s = 0
+            e = max_seq_len
+            if seq_len > max_seq_len:
+                s = np.random.randint(0, high=seq_len - max_seq_len, size=5)  # 5 starting positions
+                e = s + max_seq_len
+                strokes.extend([strokes[i][s[j]:e[j]] for j in range(5)])
+                texts.extend([texts[i]] * 5)
+                self.count += 1
 
+        # list of length of each stroke in strokes
+        lengths = [len(stroke) for stroke in strokes]
+        max_len = np.max(lengths)
+        n_total = len(strokes)
+        strokes = np.asarray(strokes)
         # Mask
-        mask_shape = (n_total, max_len)
+        # mask_shape = (n_total, max_len)
+        mask_shape = (n_total, max_seq_len)
         mask = np.zeros(mask_shape, dtype=np.float32)
 
         # Convert list of str into array of list of chars
@@ -46,12 +63,14 @@ class HandwritingDataset(Dataset):
         inp_text[:, :] = ' '
 
         # Convert list of stroke(array) into ndarray of size(n_total, max_len, 3)
-        data_shape = (n_total, max_len, 3)
+        data_shape = (n_total, max_seq_len, 3)
         data = np.zeros(data_shape, dtype=np.float32)
 
         for i, (seq_len, text_len) in enumerate(zip(lengths, char_lens)):
+            if seq_len > max_seq_len:
+                seq_len = max_seq_len
             mask[i, :seq_len] = 1.
-            data[i, :seq_len] = strokes[i]
+            data[i, :seq_len] = strokes[i][:seq_len]
             char_mask[i, :text_len] = 1.
             inp_text[i, :text_len] = char_seqs[i]
 
@@ -72,7 +91,7 @@ class HandwritingDataset(Dataset):
             char_mask = char_mask[:64]
 
         n_train = int(0.9 * data.shape[0])
-
+        self._data = data
         if split == 'train':
             self.dataset = data[:n_train]
             self.mask = mask[:n_train]
