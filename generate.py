@@ -39,13 +39,13 @@ def sample_from_out_dist(y_hat, bias=0.0):
     split_sizes = [1] + [20] * 6
     y = torch.split(y_hat, split_sizes, dim=0)
 
-    eos_prob = F.sigmoid(y[0])
+    eos_prob = torch.sigmoid(y[0])
     mixture_weights = stable_softmax(y[1] * (1 + bias), dim=0)
     mu_1 = y[2]
     mu_2 = y[3]
     std_1 = torch.exp(y[4] - bias)
     std_2 = torch.exp(y[5] - bias)
-    correlations = F.tanh(y[6])
+    correlations = torch.tanh(y[6])
 
     bernoulli_dist = bernoulli.Bernoulli(probs=eos_prob)
     eos_sample = bernoulli_dist.sample()

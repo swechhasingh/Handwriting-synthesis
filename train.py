@@ -121,7 +121,8 @@ def validation(model, valid_loader, device, epoch):
                 y_hat, state = model.forward(inputs, initial_hidden)
             else:
                 initial_hidden, window_vector, kappa = model.init_hidden(batch_size, device)
-                y_hat, state = model.forward(inputs, text, text_mask, initial_hidden, window_vector, kappa)
+                y_hat, state, window_vector, kappa = model.forward(
+                    inputs, text, text_mask, initial_hidden, window_vector, kappa)
 
             loss = compute_unconditional_loss(targets, y_hat, mask)
             avg_loss += loss.item()
