@@ -122,7 +122,7 @@ def generate_conditional_sequence(model_path, char_seq, device, char_to_id):
     model = model.to(device)
     model.eval()
 
-    trainset = HandwritingDataset('./data/', split='train', text_req=args.text_req)
+    trainset = HandwritingDataset('./data/', split='train', text_req=True)
 
     # initial input
     inp = torch.zeros(1, 1, 3)
