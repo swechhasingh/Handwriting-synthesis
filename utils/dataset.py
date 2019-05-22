@@ -112,26 +112,30 @@ class HandwritingDataset(Dataset):
 
         mask = torch.from_numpy(self.mask[idx])
 
-        seq_len = len(mask.nonzero())
-
-        start = 0
-        end = self.max_seq_len
-
-        if seq_len > self.max_seq_len:
-            start = np.random.randint(0, high=seq_len - self.max_seq_len)
-            end = start + self.max_seq_len
-
-        stroke = self.dataset[idx, start:end, :]
-
-        input_seq = torch.zeros(stroke.shape, dtype=torch.float32)
-        input_seq[1:, :] = torch.from_numpy(stroke[:-1, :])
-
-        target = torch.from_numpy(stroke)
-        mask = mask[start:end]
-
         if self.text_req:
+            input_seq = torch.zeros(self.dataset[idx].shape, dtype=torch.float32)
+            input_seq[1:, :] = torch.from_numpy(self.dataset[idx, :-1, :])
+
+            target = torch.from_numpy(self.dataset[idx])
             text = torch.from_numpy(self.char_to_idx(self.texts[idx]))
             char_mask = torch.from_numpy(self.char_mask[idx])
             return (input_seq, target, mask, text, char_mask)
         else:
+            seq_len = len(mask.nonzero())
+
+            start = 0
+            end = self.max_seq_len
+
+            if seq_len > self.max_seq_len:
+                start = np.random.randint(0, high=seq_len - self.max_seq_len)
+                end = start + self.max_seq_len
+
+            stroke = self.dataset[idx, start:end, :]
+
+            input_seq = torch.zeros(stroke.shape, dtype=torch.float32)
+            input_seq[1:, :] = torch.from_numpy(stroke[:-1, :])
+
+            target = torch.from_numpy(stroke)
+            mask = mask[start:end]
+
             return (input_seq, target, mask)
