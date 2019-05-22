@@ -16,6 +16,7 @@ class HandwritingDataset(Dataset):
             split (string): train or valid
         """
         self.text_req = text_req
+        self.max_seq_len = max_seq_len
 
         strokes = np.load(data_path + 'strokes.npy', allow_pickle=True, encoding='bytes')
         with open(data_path + 'sentences.txt') as file:
@@ -25,26 +26,9 @@ class HandwritingDataset(Dataset):
         lengths = [len(stroke) for stroke in strokes]
         max_len = np.max(lengths)
         n_total = len(strokes)
-        self.count = 0
-        strokes = strokes.tolist()
-        for i, seq_len in enumerate(lengths):
-            s = 0
-            e = max_seq_len
-            if seq_len > max_seq_len:
-                s = np.random.randint(0, high=seq_len - max_seq_len, size=5)  # 5 starting positions
-                e = s + max_seq_len
-                strokes.extend([strokes[i][s[j]:e[j]] for j in range(5)])
-                texts.extend([texts[i]] * 5)
-                self.count += 1
 
-        # list of length of each stroke in strokes
-        lengths = [len(stroke) for stroke in strokes]
-        max_len = np.max(lengths)
-        n_total = len(strokes)
-        strokes = np.asarray(strokes)
         # Mask
-        # mask_shape = (n_total, max_len)
-        mask_shape = (n_total, max_seq_len)
+        mask_shape = (n_total, max_len)
         mask = np.zeros(mask_shape, dtype=np.float32)
 
         # Convert list of str into array of list of chars
@@ -63,14 +47,12 @@ class HandwritingDataset(Dataset):
         inp_text[:, :] = ' '
 
         # Convert list of stroke(array) into ndarray of size(n_total, max_len, 3)
-        data_shape = (n_total, max_seq_len, 3)
+        data_shape = (n_total, max_len, 3)
         data = np.zeros(data_shape, dtype=np.float32)
 
         for i, (seq_len, text_len) in enumerate(zip(lengths, char_lens)):
-            if seq_len > max_seq_len:
-                seq_len = max_seq_len
             mask[i, :seq_len] = 1.
-            data[i, :seq_len] = strokes[i][:seq_len]
+            data[i, :seq_len] = strokes[i]
             char_mask[i, :text_len] = 1.
             inp_text[i, :text_len] = char_seqs[i]
 
@@ -106,13 +88,8 @@ class HandwritingDataset(Dataset):
             self.char_mask = char_mask[n_train:]
             self.dataset = valid_offset_normalization(Global.train_mean, Global.train_std, self.dataset)
 
-        # divide data into inputs and target seqs
-        self.input_data = np.zeros(self.dataset.shape, dtype=np.float32)
-        self.input_data[:, 1:, :] = self.dataset[:, :-1, :]
-        self.target_data = self.dataset
-
     def __len__(self):
-        return self.input_data.shape[0]
+        return self.dataset.shape[0]
 
     def idx_to_char(self, id_seq):
         return np.array([self.id_to_char[id] for id in id_seq])
@@ -132,9 +109,25 @@ class HandwritingDataset(Dataset):
         return id_to_char, char_to_id
 
     def __getitem__(self, idx):
-        input_seq = torch.from_numpy(self.input_data[idx])
-        target = torch.from_numpy(self.target_data[idx])
+
         mask = torch.from_numpy(self.mask[idx])
+
+        seq_len = len(mask.nonzero())
+
+        start = 0
+        end = self.max_seq_len
+
+        if seq_len > self.max_seq_len:
+            start = np.random.randint(0, high=seq_len - self.max_seq_len)
+            end = start + self.max_seq_len
+
+        stroke = self.dataset[idx, start:end, :]
+
+        input_seq = torch.zeros(stroke.shape, dtype=torch.float32)
+        input_seq[1:, :] = torch.from_numpy(stroke[:-1, :])
+
+        target = torch.from_numpy(stroke)
+        mask = mask[start:end]
 
         if self.text_req:
             text = torch.from_numpy(self.char_to_idx(self.texts[idx]))
