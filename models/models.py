@@ -89,10 +89,14 @@ class HandWritingSynthesisNet(nn.Module):
     def compute_window_vector(self, mix_params, prev_kappa, text, text_mask, is_map):
         encoding = self.one_hot_encoding(text)
         mix_params = torch.exp(mix_params)
+
         alpha, beta, kappa = mix_params.split(10, dim=1)
+
         kappa = kappa + prev_kappa
         prev_kappa = kappa
-        u = text.new_tensor(torch.arange(text.shape[1]), dtype=torch.float32)
+
+        u = torch.tensor(torch.arange(text.shape[1]), dtype=torch.float32, device=text.device)
+
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
         if phi[0, -1] > torch.max(phi[0, :-1]):
             self.EOS = True
