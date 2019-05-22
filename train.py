@@ -3,6 +3,7 @@ import torch.nn as nn
 import numpy as np
 import argparse
 import torch.optim as optim
+from torch.optim.lr_scheduler import StepLR
 from torch.utils import data
 from torch.utils.data import DataLoader
 from torch.distributions import bernoulli, uniform
@@ -140,7 +141,8 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
 
     model = model.to(device)
 
-    optimizer = optim.Adam(model.parameters(), lr=0.0001)
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    scheduler = StepLR(optimizer, step_size=30, gamma=0.1)
 
     train_losses = []
     valid_losses = []
@@ -148,12 +150,17 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, device):
     for epoch in range(n_epochs):
         print("training.....")
         train_loss = train_epoch(model, optimizer, epoch, train_loader, device)
+
         print("validation....")
         valid_loss = validation(model, valid_loader, device, epoch)
+
         train_losses.append(train_loss)
         valid_losses.append(valid_loss)
+
         print('Epoch {}: Train: avg. loss: {:.3f}'.format(epoch + 1, train_loss))
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
+
+        scheduler.step()
 
         if epoch % 2 == 0:
 
