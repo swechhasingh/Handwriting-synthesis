@@ -95,7 +95,7 @@ class HandWritingSynthesisNet(nn.Module):
         kappa = kappa + prev_kappa
         prev_kappa = kappa
 
-        u = torch.tensor(torch.arange(text.shape[1]), dtype=torch.float32, device=text.device)
+        u = torch.arange(text.shape[1], dtype=torch.float32, device=text.device)
 
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
         if phi[0, -1] > torch.max(phi[0, :-1]):
