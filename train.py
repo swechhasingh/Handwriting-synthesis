@@ -217,6 +217,7 @@ if __name__ == "__main__":
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+    print("Arguments: {}".format(args))
     model_type = args.model_type
     batch_size = args.batch_size
     n_epochs = args.n_epochs
