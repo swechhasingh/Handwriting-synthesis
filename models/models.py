@@ -1,6 +1,45 @@
 import torch
 import math
 import torch.nn as nn
+from torch.distributions import bernoulli, uniform
+from utils.model_utils import stable_softmax
+
+
+def sample_from_out_dist(y_hat, bias):
+    split_sizes = [1] + [20] * 6
+    y = torch.split(y_hat, split_sizes, dim=0)
+
+    eos_prob = torch.sigmoid(y[0])
+    mixture_weights = stable_softmax(y[1] * (1 + bias), dim=0)
+    mu_1 = y[2]
+    mu_2 = y[3]
+    std_1 = torch.exp(y[4] - bias)
+    std_2 = torch.exp(y[5] - bias)
+    correlations = torch.tanh(y[6])
+
+    bernoulli_dist = bernoulli.Bernoulli(probs=eos_prob)
+    eos_sample = bernoulli_dist.sample()
+
+    K = torch.multinomial(mixture_weights, 1)
+
+    mu_k = y_hat.new_zeros(2)
+
+    mu_k[0] = mu_1[K]
+    mu_k[1] = mu_2[K]
+    cov = y_hat.new_zeros(2, 2)
+    cov[0, 0] = std_1[K].pow(2)
+    cov[1, 1] = std_2[K].pow(2)
+    cov[0, 1], cov[1, 0] = correlations[K] * std_1[K] * \
+        std_2[K], correlations[K] * std_1[K] * std_2[K]
+
+    x = torch.normal(mean=torch.Tensor([0., 0.]),
+                     std=torch.Tensor([1., 1.])).to(y_hat.device)
+    Z = mu_k + torch.mv(cov, x)
+
+    sample = y_hat.new_zeros(1, 1, 3)
+    sample[0, 0, 0] = eos_sample.item()
+    sample[0, 0, 1:] = Z
+    return sample
 
 
 class HandWritingPredictionNet(nn.Module):
@@ -15,7 +54,8 @@ class HandWritingPredictionNet(nn.Module):
         self.LSTM_layers = nn.ModuleList()
         self.LSTM_layers.append(nn.LSTM(input_size, hidden_size, 1, batch_first=True))
         for i in range(n_layers - 1):
-            self.LSTM_layers.append(nn.LSTM(input_size + hidden_size, hidden_size, 1, batch_first=True))
+            self.LSTM_layers.append(
+                nn.LSTM(input_size + hidden_size, hidden_size, 1, batch_first=True))
 
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
 
@@ -24,12 +64,14 @@ class HandWritingPredictionNet(nn.Module):
     def forward(self, inputs, initial_hidden):
         hiddens = []
         hidden_cell_state = []  # list of tuple(hn,cn) for each layer
-        output, hidden = self.LSTM_layers[0](inputs, (initial_hidden[0][0:1], initial_hidden[1][0:1]))
+        output, hidden = self.LSTM_layers[0](
+            inputs, (initial_hidden[0][0:1], initial_hidden[1][0:1]))
         hiddens.append(output)
         hidden_cell_state.append(hidden)
         for i in range(1, self.n_layers):
             inp = torch.cat((inputs, output), dim=2)
-            output, hidden = self.LSTM_layers[i](inp, (initial_hidden[0][i:i + 1], initial_hidden[1][i:i + 1]))
+            output, hidden = self.LSTM_layers[i](
+                inp, (initial_hidden[0][i:i + 1], initial_hidden[1][i:i + 1]))
             hiddens.append(output)
             hidden_cell_state.append(hidden)
         inp = torch.cat(hiddens, dim=2)
@@ -50,6 +92,29 @@ class HandWritingPredictionNet(nn.Module):
         nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
         nn.init.constant_(self.output_layer.bias, 0.)
 
+    def generate(self, inp, hidden, seq_len, bias):
+        gen_seq = []
+
+        with torch.no_grad():
+            for i in range(seq_len):
+
+                y_hat, state = self.forward(inp, hidden)
+
+                _hidden = torch.cat([s[0] for s in state], dim=0)
+                _cell = torch.cat([s[1] for s in state], dim=0)
+                hidden = (_hidden, _cell)
+
+                y_hat = y_hat.squeeze()
+
+                Z = sample_from_out_dist(y_hat, bias)
+                inp = Z
+                gen_seq.append(Z)
+
+        gen_seq = torch.cat(gen_seq, dim=1)
+        gen_seq = gen_seq.detach().cpu().numpy()
+
+        return gen_seq
+
 
 class HandWritingSynthesisNet(nn.Module):
 
@@ -64,8 +129,10 @@ class HandWritingSynthesisNet(nn.Module):
         self._phi = []
 
         self.lstm_1 = nn.LSTM(3 + self.vocab_size, hidden_size, batch_first=True)
-        self.lstm_2 = nn.LSTM(3 + self.vocab_size + hidden_size, hidden_size, batch_first=True)
-        self.lstm_3 = nn.LSTM(3 + self.vocab_size + hidden_size, hidden_size, batch_first=True)
+        self.lstm_2 = nn.LSTM(3 + self.vocab_size + hidden_size,
+                              hidden_size, batch_first=True)
+        self.lstm_3 = nn.LSTM(3 + self.vocab_size + hidden_size,
+                              hidden_size, batch_first=True)
 
         self.window_layer = nn.Linear(hidden_size, 3 * K)
         self.output_layer = nn.Linear(n_layers * hidden_size, output_size)
@@ -100,7 +167,6 @@ class HandWritingSynthesisNet(nn.Module):
         phi = torch.sum(alpha * torch.exp(-beta * (kappa - u).pow(2)), dim=1)
         if phi[0, -1] > torch.max(phi[0, :-1]):
             self.EOS = True
-            # print(self.EOS)
         phi = (phi * text_mask).unsqueeze(2)
         if is_map:
             self._phi.append(phi.squeeze(dim=2).unsqueeze(1))
@@ -166,3 +232,31 @@ class HandWritingSynthesisNet(nn.Module):
         y_hat = self.output_layer(inp)
 
         return y_hat, [state_1, state_2, state_3], window_vec, prev_kappa
+
+    def generate(self, inp, text, text_mask, hidden, window_vector, kappa, bias, is_map=True):
+        seq_len = 0
+        gen_seq = []
+        with torch.no_grad():
+            while not self.EOS and seq_len < 2000:
+                y_hat, state, window_vector, kappa = self.forward(
+                    inp, text, text_mask, hidden, window_vector, kappa, is_map=is_map)
+
+                _hidden = torch.cat([s[0] for s in state], dim=0)
+                _cell = torch.cat([s[1] for s in state], dim=0)
+                hidden = (_hidden, _cell)
+
+                y_hat = y_hat.squeeze()
+
+                Z = sample_from_out_dist(y_hat, bias)
+                inp = Z
+                gen_seq.append(Z)
+
+                seq_len += 1
+
+        gen_seq = torch.cat(gen_seq, dim=1)
+        gen_seq = gen_seq.cpu().numpy()
+
+        print("EOS:", self.EOS)
+        print("seq_len:", seq_len)
+
+        return gen_seq

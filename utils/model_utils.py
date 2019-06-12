@@ -12,7 +12,7 @@ def stable_softmax(X, dim=2):
     return X_hat
 
 
-def compute_unconditional_loss(targets, y_hat, mask, M=20):
+def compute_nll_loss(targets, y_hat, mask, M=20):
     epsilon = 1e-6
     split_sizes = [1] + [20] * 6
     y = torch.split(y_hat, split_sizes, dim=2)
