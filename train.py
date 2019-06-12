@@ -144,7 +144,7 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, patience, dev
     model = model.to(device)
 
     optimizer = optim.Adam(model.parameters(), lr=0.001)
-    scheduler = StepLR(optimizer, step_size=15, gamma=0.1)
+    # scheduler = StepLR(optimizer, step_size=15, gamma=0.1)
 
     train_losses = []
     valid_losses = []
@@ -165,7 +165,7 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, patience, dev
         print('Epoch {}: Train: avg. loss: {:.3f}'.format(epoch + 1, train_loss))
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
 
-        scheduler.step()
+        # scheduler.step()
 
         if valid_loss < best_loss:
             best_loss = valid_loss
