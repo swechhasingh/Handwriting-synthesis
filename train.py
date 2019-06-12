@@ -31,6 +31,7 @@ def argparser():
     parser.add_argument('--n_layers', type=int, default=3)
     parser.add_argument('--batch_size', type=int, default=32)
     parser.add_argument('--n_epochs', type=int, default=100)
+    parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--patience', type=int, default=15)
     parser.add_argument('--model_type', type=str, default='prediction')
     parser.add_argument('--data_path', type=str, default='./data/')
@@ -139,11 +140,11 @@ def validation(model, valid_loader, device, epoch, model_type):
     return avg_loss
 
 
-def train(model, train_loader, valid_loader, batch_size, n_epochs, patience, device, model_type, save_path):
+def train(model, train_loader, valid_loader, batch_size, n_epochs, lr, patience, device, model_type, save_path):
     model_path = save_path + "best_model_" + model_type + ".pt"
     model = model.to(device)
 
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.parameters(), lr=lr)
     # scheduler = StepLR(optimizer, step_size=15, gamma=0.1)
 
     train_losses = []
@@ -237,5 +238,5 @@ if __name__ == "__main__":
                                         n_layers=3,
                                         output_size=121,
                                         window_size=train_dataset.vocab_size)
-    train(model, train_loader, valid_loader, batch_size, n_epochs, args.patience,
+    train(model, train_loader, valid_loader, batch_size, n_epochs, args.lr, args.patience,
           device, model_type, args.save_path)
