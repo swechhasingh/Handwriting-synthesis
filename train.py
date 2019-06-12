@@ -179,7 +179,8 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, lr, patience,
                 gen_seq, phi = generate_conditional_sequence(model_path,
                                                              "Hello world!",
                                                              device,
-                                                             train_loader.dataset.char_to_id)
+                                                             train_loader.dataset.char_to_id,
+                                                             train_loader.dataset.idx_to_char)
                 plt.imshow(phi, cmap='viridis', aspect='auto')
                 plt.colorbar()
                 plt.xlabel("time steps")
