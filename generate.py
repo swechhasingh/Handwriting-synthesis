@@ -14,9 +14,9 @@ from models.models import HandWritingPredictionNet, HandWritingSynthesisNet
 def argparser():
 
     parser = argparse.ArgumentParser(description='PyTorch Handwriting Synthesis Model')
-    parser.add_argument('--model', type=str, default='prediction')
+    parser.add_argument('--model', type=str, default='synthesis')
     parser.add_argument('--model_path', type=str,
-                        default='./trainedModels/best_model_prediction.pt')
+                        default='./saved_models/best_model_synthesis.pt')
     parser.add_argument('--seq_len', type=int, default=400)
     parser.add_argument('--bias', type=float, default=0.0, help='bias')
     parser.add_argument('--char_seq', type=str, default='This is real handwriting')
@@ -103,11 +103,11 @@ if __name__ == '__main__':
         args.data_path, split='train', text_req=args.text_req)
 
     if model == 'prediction':
-        gen_seq = generate_unconditional_seq(model_path, args.seq_len, device)
+        gen_seq = generate_unconditional_seq(model_path, args.seq_len, device, args.bias)
 
     elif model == 'synthesis':
         gen_seq, phi = generate_conditional_sequence(
-            model_path, args.char_seq, device, train_dataset.char_to_id, train_dataset.idx_to_char)
+            model_path, args.char_seq, device, train_dataset.char_to_id, train_dataset.idx_to_char, args.bias)
         plt.imshow(phi, cmap='viridis', aspect='auto')
         plt.colorbar()
         plt.xlabel("time steps")
