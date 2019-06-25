@@ -38,6 +38,7 @@ def argparser():
     parser.add_argument('--data_path', type=str, default='./data/')
     parser.add_argument('--save_path', type=str, default='./logs/')
     parser.add_argument('--text_req', action='store_true')
+    parser.add_argument('--data_aug', action='store_true')
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--seed', type=int, default=212, help='random seed')
     args = parser.parse_args()
@@ -175,13 +176,15 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, lr, patience,
             print('Saving best model at epoch {}'.format(epoch + 1))
             torch.save(model.state_dict(), model_path)
             if model_type == "prediction":
-                gen_seq = generate_unconditional_seq(model_path, 700, device)
+                gen_seq = generate_unconditional_seq(
+                    model_path, 700, device, 10., style=None, prime=False)
             else:
                 gen_seq, phi = generate_conditional_sequence(model_path,
                                                              "Hello world!",
                                                              device,
                                                              train_loader.dataset.char_to_id,
-                                                             train_loader.dataset.idx_to_char)
+                                                             train_loader.dataset.idx_to_char,
+                                                             bias=10., prime=False, prime_seq=None, real_text=None)
                 plt.imshow(phi, cmap='viridis', aspect='auto')
                 plt.colorbar()
                 plt.xlabel("time steps")
@@ -226,9 +229,9 @@ if __name__ == "__main__":
 
     # Load the data and text
     train_dataset = HandwritingDataset(
-        args.data_path, split='train', text_req=args.text_req, debug=args.debug)
+        args.data_path, split='train', text_req=args.text_req, debug=args.debug, data_aug=args.data_aug)
     valid_dataset = HandwritingDataset(
-        args.data_path, split='valid', text_req=args.text_req, debug=args.debug)
+        args.data_path, split='valid', text_req=args.text_req, debug=args.debug, data_aug=args.data_aug)
 
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False)

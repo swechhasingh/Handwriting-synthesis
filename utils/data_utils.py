@@ -32,3 +32,15 @@ def data_denormalization(mean, std, data):
     data[:, :, 1:] += mean
 
     return data
+
+
+def data_normalization(data):
+    """
+       Data denormalization using train set mean and std
+    """
+    mean = data[:, 1:].mean(axis=0)
+    data[:, 1:] -= mean
+    std = data[:, 1:].std(axis=0)
+    data[:, 1:] /= std
+
+    return mean, std, data

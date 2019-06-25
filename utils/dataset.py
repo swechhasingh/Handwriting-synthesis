@@ -9,7 +9,7 @@ from utils.constants import Global
 class HandwritingDataset(Dataset):
     """Handwriting dataset."""
 
-    def __init__(self, data_path, split='train', text_req=False, debug=False, max_seq_len=300):
+    def __init__(self, data_path, split='train', text_req=False, debug=False, max_seq_len=300, data_aug=False):
         """
         Args:
             data_path (string): Path to the data folder.
@@ -17,6 +17,7 @@ class HandwritingDataset(Dataset):
         """
         self.text_req = text_req
         self.max_seq_len = max_seq_len
+        self.data_aug = data_aug
 
         strokes = np.load(data_path + 'strokes.npy', allow_pickle=True, encoding='bytes')
         with open(data_path + 'sentences.txt') as file:
@@ -79,14 +80,16 @@ class HandwritingDataset(Dataset):
             self.mask = mask[:n_train]
             self.texts = inp_text[:n_train]
             self.char_mask = char_mask[:n_train]
-            Global.train_mean, Global.train_std, self.dataset = train_offset_normalization(self.dataset)
+            Global.train_mean, Global.train_std, self.dataset = train_offset_normalization(
+                self.dataset)
 
         elif split == 'valid':
             self.dataset = data[n_train:]
             self.mask = mask[n_train:]
             self.texts = inp_text[n_train:]
             self.char_mask = char_mask[n_train:]
-            self.dataset = valid_offset_normalization(Global.train_mean, Global.train_std, self.dataset)
+            self.dataset = valid_offset_normalization(
+                Global.train_mean, Global.train_std, self.dataset)
 
     def __len__(self):
         return self.dataset.shape[0]
@@ -120,9 +123,8 @@ class HandwritingDataset(Dataset):
             text = torch.from_numpy(self.char_to_idx(self.texts[idx]))
             char_mask = torch.from_numpy(self.char_mask[idx])
             return (input_seq, target, mask, text, char_mask)
-        else:
+        elif self.data_aug:
             seq_len = len(mask.nonzero())
-
             start = 0
             end = self.max_seq_len
 
@@ -138,4 +140,9 @@ class HandwritingDataset(Dataset):
             target = torch.from_numpy(stroke)
             mask = mask[start:end]
 
+            return (input_seq, target, mask)
+        else:
+            input_seq = torch.zeros(self.dataset[idx].shape, dtype=torch.float32)
+            input_seq[1:, :] = torch.from_numpy(self.dataset[idx, :-1, :])
+            target = torch.from_numpy(self.dataset[idx])
             return (input_seq, target, mask)

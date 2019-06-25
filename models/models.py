@@ -92,10 +92,26 @@ class HandWritingPredictionNet(nn.Module):
         nn.init.uniform_(self.output_layer.weight, a=-0.1, b=0.1)
         nn.init.constant_(self.output_layer.bias, 0.)
 
-    def generate(self, inp, hidden, seq_len, bias):
+    def generate(self, inp, hidden, seq_len, bias, style=None, prime=False):
         gen_seq = []
 
         with torch.no_grad():
+            if prime:
+                y_hat, state = self.forward(style, hidden)
+                _hidden = torch.cat([s[0] for s in state], dim=0)
+                _cell = torch.cat([s[1] for s in state], dim=0)
+                hidden = (_hidden, _cell)
+
+                y_hat = y_hat[:, -1, :]
+                y_hat = y_hat.squeeze()
+
+                for i in range(style.shape[1]):
+                    gen_seq.append(style[0:1, i:i + 1, :])
+
+                Z = sample_from_out_dist(y_hat, bias)
+                inp = Z
+                gen_seq.append(Z)
+
             for i in range(seq_len):
 
                 y_hat, state = self.forward(inp, hidden)
@@ -233,11 +249,34 @@ class HandWritingSynthesisNet(nn.Module):
 
         return y_hat, [state_1, state_2, state_3], window_vec, prev_kappa
 
-    def generate(self, inp, text, text_mask, hidden, window_vector, kappa, bias, is_map=True):
+    def generate(self, inp, text, text_mask, hidden, window_vector, kappa, bias,
+                 is_map=True, prime=False, prime_style=None, prime_seq=None, prime_mask=None):
         seq_len = 0
         gen_seq = []
         with torch.no_grad():
+            if prime:
+                y_hat, state, window_vector, kappa = self.forward(
+                    prime_style, prime_seq, prime_mask, hidden, window_vector, kappa, is_map=False)
+
+                _hidden = torch.cat([s[0] for s in state], dim=0)
+                _cell = torch.cat([s[1] for s in state], dim=0)
+                hidden = (_hidden, _cell)
+                window_vector = window_vector[:, -1:, :]
+                kappa = kappa[:, -1:, :]
+
+                # for i in range(inp.shape[1]):
+                #     gen_seq.append(inp[0:1, i:i + 1, :])
+
+                y_hat = y_hat[:, -1, :]
+                y_hat = y_hat.squeeze()
+                Z = sample_from_out_dist(y_hat, bias)
+                inp = Z
+                gen_seq.append(Z)
+                self.EOS = False
+
+            _, window_vector, kappa = self.init_hidden(1, inp.device)
             while not self.EOS and seq_len < 2000:
+                # print(seq_len)
                 y_hat, state, window_vector, kappa = self.forward(
                     inp, text, text_mask, hidden, window_vector, kappa, is_map=is_map)
 
@@ -254,6 +293,8 @@ class HandWritingSynthesisNet(nn.Module):
                 seq_len += 1
 
         gen_seq = torch.cat(gen_seq, dim=1)
+        if prime:
+            gen_seq = torch.cat((prime_style, gen_seq), dim=1)
         gen_seq = gen_seq.cpu().numpy()
 
         print("EOS:", self.EOS)
