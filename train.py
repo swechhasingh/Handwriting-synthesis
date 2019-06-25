@@ -168,7 +168,8 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, lr, patience,
         print('Epoch {}: Train: avg. loss: {:.3f}'.format(epoch + 1, train_loss))
         print('Epoch {}: Valid: avg. loss: {:.3f}'.format(epoch + 1, valid_loss))
 
-        scheduler.step()
+        if step_size != -1:
+            scheduler.step()
 
         if valid_loss < best_loss:
             best_loss = valid_loss
@@ -177,7 +178,8 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, lr, patience,
             torch.save(model.state_dict(), model_path)
             if model_type == "prediction":
                 gen_seq = generate_unconditional_seq(
-                    model_path, 700, device, 10., style=None, prime=False)
+                    model_path, 700, device, bias=10.0, style=None, prime=False)
+
             else:
                 gen_seq, phi = generate_conditional_sequence(model_path,
                                                              "Hello world!",
@@ -185,6 +187,7 @@ def train(model, train_loader, valid_loader, batch_size, n_epochs, lr, patience,
                                                              train_loader.dataset.char_to_id,
                                                              train_loader.dataset.idx_to_char,
                                                              bias=10., prime=False, prime_seq=None, real_text=None)
+
                 plt.imshow(phi, cmap='viridis', aspect='auto')
                 plt.colorbar()
                 plt.xlabel("time steps")
