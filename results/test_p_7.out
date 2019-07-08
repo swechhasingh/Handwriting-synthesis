@@ -1,0 +1,5829 @@
+Arguments: Namespace(batch_size=100, data_aug=True, data_path='./data/', debug=False, hidden_size=400, lr=0.001, model_type='prediction', n_epochs=1200, n_layers=3, patience=30, save_path='./logs/pre_exp_7/', seed=212, step_size=300, text_req=False)
+training.....
+[1,     1] loss: 1367.643
+[1,    11] loss: 641.513
+[1,    21] loss: 589.397
+[1,    31] loss: 458.222
+[1,    41] loss: 289.752
+[1,    51] loss: 215.128
+validation....
+[1,     1] loss: 123.768
+Epoch 1: Train: avg. loss: 526.171
+Epoch 1: Valid: avg. loss: 140.214
+Saving best model at epoch 1
+Generating sequence....
+training.....
+[2,     1] loss: 124.557
+[2,    11] loss: 79.798
+[2,    21] loss: 27.915
+[2,    31] loss: 19.437
+[2,    41] loss: -10.581
+[2,    51] loss: 31.878
+validation....
+[2,     1] loss: -19.115
+Epoch 2: Train: avg. loss: 51.920
+Epoch 2: Valid: avg. loss: -8.921
+Saving best model at epoch 2
+Generating sequence....
+training.....
+[3,     1] loss: -2.990
+[3,    11] loss: -2.635
+[3,    21] loss: -31.833
+[3,    31] loss: -7.492
+[3,    41] loss: -35.250
+[3,    51] loss: 19.267
+validation....
+[3,     1] loss: -35.835
+Epoch 3: Train: avg. loss: -12.075
+Epoch 3: Valid: avg. loss: -24.365
+Saving best model at epoch 3
+Generating sequence....
+training.....
+[4,     1] loss: -2.420
+[4,    11] loss: -22.273
+[4,    21] loss: -34.840
+[4,    31] loss: -62.497
+[4,    41] loss: -64.140
+[4,    51] loss: -62.088
+validation....
+[4,     1] loss: -75.696
+Epoch 4: Train: avg. loss: -47.212
+Epoch 4: Valid: avg. loss: -63.792
+Saving best model at epoch 4
+Generating sequence....
+training.....
+[5,     1] loss: -60.971
+[5,    11] loss: -51.679
+[5,    21] loss: -84.245
+[5,    31] loss: -61.464
+[5,    41] loss: -74.979
+[5,    51] loss: -95.901
+validation....
+[5,     1] loss: -104.166
+Epoch 5: Train: avg. loss: -74.087
+Epoch 5: Valid: avg. loss: -86.995
+Saving best model at epoch 5
+Generating sequence....
+training.....
+[6,     1] loss: -51.986
+[6,    11] loss: -101.313
+[6,    21] loss: -97.866
+[6,    31] loss: -120.649
+[6,    41] loss: -114.724
+[6,    51] loss: -68.772
+validation....
+[6,     1] loss: -117.652
+Epoch 6: Train: avg. loss: -96.218
+Epoch 6: Valid: avg. loss: -102.055
+Saving best model at epoch 6
+Generating sequence....
+training.....
+[7,     1] loss: -81.221
+[7,    11] loss: -124.818
+[7,    21] loss: -108.899
+[7,    31] loss: -108.141
+[7,    41] loss: -98.083
+[7,    51] loss: -147.514
+validation....
+[7,     1] loss: -134.980
+Epoch 7: Train: avg. loss: -111.720
+Epoch 7: Valid: avg. loss: -116.323
+Saving best model at epoch 7
+Generating sequence....
+training.....
+[8,     1] loss: -115.525
+[8,    11] loss: -148.327
+[8,    21] loss: -104.591
+[8,    31] loss: -138.999
+[8,    41] loss: -137.824
+[8,    51] loss: -121.111
+validation....
+[8,     1] loss: -135.343
+Epoch 8: Train: avg. loss: -123.276
+Epoch 8: Valid: avg. loss: -124.038
+Saving best model at epoch 8
+Generating sequence....
+training.....
+[9,     1] loss: -112.950
+[9,    11] loss: -102.833
+[9,    21] loss: -116.795
+[9,    31] loss: -143.891
+[9,    41] loss: -143.822
+[9,    51] loss: -135.379
+validation....
+[9,     1] loss: -143.069
+Epoch 9: Train: avg. loss: -131.978
+Epoch 9: Valid: avg. loss: -131.014
+Saving best model at epoch 9
+Generating sequence....
+training.....
+[10,     1] loss: -137.546
+[10,    11] loss: -153.720
+[10,    21] loss: -134.312
+[10,    31] loss: -123.318
+[10,    41] loss: -137.412
+[10,    51] loss: -132.929
+validation....
+[10,     1] loss: -148.814
+Epoch 10: Train: avg. loss: -140.453
+Epoch 10: Valid: avg. loss: -136.553
+Saving best model at epoch 10
+Generating sequence....
+training.....
+[11,     1] loss: -137.944
+[11,    11] loss: -158.594
+[11,    21] loss: -104.560
+[11,    31] loss: -135.989
+[11,    41] loss: -155.589
+[11,    51] loss: -165.033
+validation....
+[11,     1] loss: -160.663
+Epoch 11: Train: avg. loss: -145.783
+Epoch 11: Valid: avg. loss: -148.148
+Saving best model at epoch 11
+Generating sequence....
+training.....
+[12,     1] loss: -148.516
+[12,    11] loss: -139.017
+[12,    21] loss: -157.215
+[12,    31] loss: -180.608
+[12,    41] loss: -162.933
+[12,    51] loss: -136.607
+validation....
+[12,     1] loss: -180.917
+Epoch 12: Train: avg. loss: -153.299
+Epoch 12: Valid: avg. loss: -156.310
+Saving best model at epoch 12
+Generating sequence....
+training.....
+[13,     1] loss: -143.345
+[13,    11] loss: -151.032
+[13,    21] loss: -145.382
+[13,    31] loss: -143.168
+[13,    41] loss: -142.734
+[13,    51] loss: -167.576
+validation....
+[13,     1] loss: -181.600
+Epoch 13: Train: avg. loss: -157.815
+Epoch 13: Valid: avg. loss: -159.789
+Saving best model at epoch 13
+Generating sequence....
+training.....
+[14,     1] loss: -182.196
+[14,    11] loss: -157.565
+[14,    21] loss: -150.114
+[14,    31] loss: -170.369
+[14,    41] loss: -138.656
+[14,    51] loss: -188.238
+validation....
+[14,     1] loss: -179.954
+Epoch 14: Train: avg. loss: -161.355
+Epoch 14: Valid: avg. loss: -162.451
+Saving best model at epoch 14
+Generating sequence....
+training.....
+[15,     1] loss: -146.150
+[15,    11] loss: -169.237
+[15,    21] loss: -177.050
+[15,    31] loss: -166.448
+[15,    41] loss: -191.328
+[15,    51] loss: -181.488
+validation....
+[15,     1] loss: -174.572
+Epoch 15: Train: avg. loss: -167.572
+Epoch 15: Valid: avg. loss: -169.144
+Saving best model at epoch 15
+Generating sequence....
+training.....
+[16,     1] loss: -177.408
+[16,    11] loss: -180.311
+[16,    21] loss: -177.789
+[16,    31] loss: -165.265
+[16,    41] loss: -152.583
+[16,    51] loss: -176.550
+validation....
+[16,     1] loss: -193.493
+Epoch 16: Train: avg. loss: -174.483
+Epoch 16: Valid: avg. loss: -175.389
+Saving best model at epoch 16
+Generating sequence....
+training.....
+[17,     1] loss: -184.211
+[17,    11] loss: -189.588
+[17,    21] loss: -176.499
+[17,    31] loss: -174.062
+[17,    41] loss: -194.920
+[17,    51] loss: -169.056
+validation....
+[17,     1] loss: -192.424
+Epoch 17: Train: avg. loss: -176.621
+Epoch 17: Valid: avg. loss: -181.800
+Saving best model at epoch 17
+Generating sequence....
+training.....
+[18,     1] loss: -200.711
+[18,    11] loss: -187.011
+[18,    21] loss: -186.762
+[18,    31] loss: -177.805
+[18,    41] loss: -185.901
+[18,    51] loss: -177.630
+validation....
+[18,     1] loss: -188.478
+Epoch 18: Train: avg. loss: -180.641
+Epoch 18: Valid: avg. loss: -181.583
+training.....
+[19,     1] loss: -177.077
+[19,    11] loss: -171.224
+[19,    21] loss: -201.416
+[19,    31] loss: -195.062
+[19,    41] loss: -182.067
+[19,    51] loss: -174.179
+validation....
+[19,     1] loss: -199.409
+Epoch 19: Train: avg. loss: -185.519
+Epoch 19: Valid: avg. loss: -184.419
+Saving best model at epoch 19
+Generating sequence....
+training.....
+[20,     1] loss: -171.910
+[20,    11] loss: -202.055
+[20,    21] loss: -197.144
+[20,    31] loss: -178.643
+[20,    41] loss: -160.188
+[20,    51] loss: -207.165
+validation....
+[20,     1] loss: -197.275
+Epoch 20: Train: avg. loss: -189.425
+Epoch 20: Valid: avg. loss: -188.042
+Saving best model at epoch 20
+Generating sequence....
+training.....
+[21,     1] loss: -176.599
+[21,    11] loss: -198.459
+[21,    21] loss: -179.556
+[21,    31] loss: -203.446
+[21,    41] loss: -178.860
+[21,    51] loss: -188.004
+validation....
+[21,     1] loss: -202.625
+Epoch 21: Train: avg. loss: -191.397
+Epoch 21: Valid: avg. loss: -189.957
+Saving best model at epoch 21
+Generating sequence....
+training.....
+[22,     1] loss: -183.618
+[22,    11] loss: -168.407
+[22,    21] loss: -179.831
+[22,    31] loss: -190.763
+[22,    41] loss: -208.444
+[22,    51] loss: -209.280
+validation....
+[22,     1] loss: -201.884
+Epoch 22: Train: avg. loss: -192.695
+Epoch 22: Valid: avg. loss: -191.156
+Saving best model at epoch 22
+Generating sequence....
+training.....
+[23,     1] loss: -191.046
+[23,    11] loss: -194.037
+[23,    21] loss: -188.836
+[23,    31] loss: -203.026
+[23,    41] loss: -191.488
+[23,    51] loss: -207.387
+validation....
+[23,     1] loss: -211.545
+Epoch 23: Train: avg. loss: -196.434
+Epoch 23: Valid: avg. loss: -193.844
+Saving best model at epoch 23
+Generating sequence....
+training.....
+[24,     1] loss: -208.880
+[24,    11] loss: -208.018
+[24,    21] loss: -206.011
+[24,    31] loss: -202.466
+[24,    41] loss: -189.378
+[24,    51] loss: -211.876
+validation....
+[24,     1] loss: -210.422
+Epoch 24: Train: avg. loss: -199.666
+Epoch 24: Valid: avg. loss: -199.851
+Saving best model at epoch 24
+Generating sequence....
+training.....
+[25,     1] loss: -191.095
+[25,    11] loss: -205.914
+[25,    21] loss: -213.112
+[25,    31] loss: -211.394
+[25,    41] loss: -193.577
+[25,    51] loss: -210.301
+validation....
+[25,     1] loss: -217.282
+Epoch 25: Train: avg. loss: -202.404
+Epoch 25: Valid: avg. loss: -199.706
+training.....
+[26,     1] loss: -198.713
+[26,    11] loss: -225.426
+[26,    21] loss: -206.302
+[26,    31] loss: -223.127
+[26,    41] loss: -200.989
+[26,    51] loss: -209.547
+validation....
+[26,     1] loss: -216.816
+Epoch 26: Train: avg. loss: -206.418
+Epoch 26: Valid: avg. loss: -202.435
+Saving best model at epoch 26
+Generating sequence....
+training.....
+[27,     1] loss: -216.688
+[27,    11] loss: -187.938
+[27,    21] loss: -200.061
+[27,    31] loss: -208.246
+[27,    41] loss: -217.051
+[27,    51] loss: -211.912
+validation....
+[27,     1] loss: -223.479
+Epoch 27: Train: avg. loss: -205.703
+Epoch 27: Valid: avg. loss: -211.057
+Saving best model at epoch 27
+Generating sequence....
+training.....
+[28,     1] loss: -209.089
+[28,    11] loss: -200.663
+[28,    21] loss: -196.298
+[28,    31] loss: -204.069
+[28,    41] loss: -219.320
+[28,    51] loss: -208.412
+validation....
+[28,     1] loss: -220.431
+Epoch 28: Train: avg. loss: -209.350
+Epoch 28: Valid: avg. loss: -209.471
+training.....
+[29,     1] loss: -216.274
+[29,    11] loss: -215.807
+[29,    21] loss: -205.280
+[29,    31] loss: -216.651
+[29,    41] loss: -222.642
+[29,    51] loss: -242.980
+validation....
+[29,     1] loss: -221.992
+Epoch 29: Train: avg. loss: -213.584
+Epoch 29: Valid: avg. loss: -212.048
+Saving best model at epoch 29
+Generating sequence....
+training.....
+[30,     1] loss: -199.573
+[30,    11] loss: -212.207
+[30,    21] loss: -198.218
+[30,    31] loss: -202.955
+[30,    41] loss: -219.455
+[30,    51] loss: -220.822
+validation....
+[30,     1] loss: -230.167
+Epoch 30: Train: avg. loss: -215.962
+Epoch 30: Valid: avg. loss: -213.341
+Saving best model at epoch 30
+Generating sequence....
+training.....
+[31,     1] loss: -220.245
+[31,    11] loss: -189.925
+[31,    21] loss: -210.630
+[31,    31] loss: -205.652
+[31,    41] loss: -205.727
+[31,    51] loss: -234.274
+validation....
+[31,     1] loss: -231.900
+Epoch 31: Train: avg. loss: -218.765
+Epoch 31: Valid: avg. loss: -220.073
+Saving best model at epoch 31
+Generating sequence....
+training.....
+[32,     1] loss: -234.857
+[32,    11] loss: -233.707
+[32,    21] loss: -227.980
+[32,    31] loss: -211.773
+[32,    41] loss: -215.850
+[32,    51] loss: -222.785
+validation....
+[32,     1] loss: -242.059
+Epoch 32: Train: avg. loss: -223.602
+Epoch 32: Valid: avg. loss: -221.585
+Saving best model at epoch 32
+Generating sequence....
+training.....
+[33,     1] loss: -218.078
+[33,    11] loss: -234.307
+[33,    21] loss: -207.314
+[33,    31] loss: -226.129
+[33,    41] loss: -229.203
+[33,    51] loss: -232.272
+validation....
+[33,     1] loss: -241.711
+Epoch 33: Train: avg. loss: -225.048
+Epoch 33: Valid: avg. loss: -227.851
+Saving best model at epoch 33
+Generating sequence....
+training.....
+[34,     1] loss: -232.609
+[34,    11] loss: -213.146
+[34,    21] loss: -218.446
+[34,    31] loss: -219.218
+[34,    41] loss: -212.234
+[34,    51] loss: -225.656
+validation....
+[34,     1] loss: -239.531
+Epoch 34: Train: avg. loss: -226.895
+Epoch 34: Valid: avg. loss: -227.390
+training.....
+[35,     1] loss: -234.430
+[35,    11] loss: -250.025
+[35,    21] loss: -204.659
+[35,    31] loss: -220.483
+[35,    41] loss: -250.923
+[35,    51] loss: -249.294
+validation....
+[35,     1] loss: -243.274
+Epoch 35: Train: avg. loss: -230.924
+Epoch 35: Valid: avg. loss: -228.762
+Saving best model at epoch 35
+Generating sequence....
+training.....
+[36,     1] loss: -226.387
+[36,    11] loss: -254.354
+[36,    21] loss: -232.676
+[36,    31] loss: -229.468
+[36,    41] loss: -257.093
+[36,    51] loss: -229.342
+validation....
+[36,     1] loss: -239.067
+Epoch 36: Train: avg. loss: -232.126
+Epoch 36: Valid: avg. loss: -230.393
+Saving best model at epoch 36
+Generating sequence....
+training.....
+[37,     1] loss: -227.474
+[37,    11] loss: -217.893
+[37,    21] loss: -227.872
+[37,    31] loss: -231.578
+[37,    41] loss: -228.619
+[37,    51] loss: -236.210
+validation....
+[37,     1] loss: -235.703
+Epoch 37: Train: avg. loss: -233.042
+Epoch 37: Valid: avg. loss: -226.956
+training.....
+[38,     1] loss: -246.995
+[38,    11] loss: -226.095
+[38,    21] loss: -221.392
+[38,    31] loss: -221.225
+[38,    41] loss: -252.531
+[38,    51] loss: -240.864
+validation....
+[38,     1] loss: -251.381
+Epoch 38: Train: avg. loss: -233.716
+Epoch 38: Valid: avg. loss: -235.805
+Saving best model at epoch 38
+Generating sequence....
+training.....
+[39,     1] loss: -217.027
+[39,    11] loss: -243.769
+[39,    21] loss: -246.195
+[39,    31] loss: -242.849
+[39,    41] loss: -231.773
+[39,    51] loss: -234.991
+validation....
+[39,     1] loss: -255.301
+Epoch 39: Train: avg. loss: -237.313
+Epoch 39: Valid: avg. loss: -237.376
+Saving best model at epoch 39
+Generating sequence....
+training.....
+[40,     1] loss: -249.555
+[40,    11] loss: -228.440
+[40,    21] loss: -242.757
+[40,    31] loss: -253.754
+[40,    41] loss: -205.729
+[40,    51] loss: -230.108
+validation....
+[40,     1] loss: -243.071
+Epoch 40: Train: avg. loss: -237.231
+Epoch 40: Valid: avg. loss: -228.846
+training.....
+[41,     1] loss: -232.092
+[41,    11] loss: -241.091
+[41,    21] loss: -234.601
+[41,    31] loss: -253.036
+[41,    41] loss: -220.583
+[41,    51] loss: -239.221
+validation....
+[41,     1] loss: -253.384
+Epoch 41: Train: avg. loss: -239.200
+Epoch 41: Valid: avg. loss: -237.117
+training.....
+[42,     1] loss: -242.129
+[42,    11] loss: -232.339
+[42,    21] loss: -245.329
+[42,    31] loss: -222.381
+[42,    41] loss: -224.396
+[42,    51] loss: -242.534
+validation....
+[42,     1] loss: -259.211
+Epoch 42: Train: avg. loss: -241.671
+Epoch 42: Valid: avg. loss: -242.116
+Saving best model at epoch 42
+Generating sequence....
+training.....
+[43,     1] loss: -267.956
+[43,    11] loss: -238.324
+[43,    21] loss: -245.858
+[43,    31] loss: -223.656
+[43,    41] loss: -227.413
+[43,    51] loss: -245.572
+validation....
+[43,     1] loss: -248.132
+Epoch 43: Train: avg. loss: -242.151
+Epoch 43: Valid: avg. loss: -234.943
+training.....
+[44,     1] loss: -222.462
+[44,    11] loss: -232.994
+[44,    21] loss: -246.900
+[44,    31] loss: -248.334
+[44,    41] loss: -272.581
+[44,    51] loss: -220.086
+validation....
+[44,     1] loss: -260.451
+Epoch 44: Train: avg. loss: -243.393
+Epoch 44: Valid: avg. loss: -244.431
+Saving best model at epoch 44
+Generating sequence....
+training.....
+[45,     1] loss: -241.970
+[45,    11] loss: -223.041
+[45,    21] loss: -234.314
+[45,    31] loss: -219.693
+[45,    41] loss: -261.428
+[45,    51] loss: -228.046
+validation....
+[45,     1] loss: -255.372
+Epoch 45: Train: avg. loss: -242.517
+Epoch 45: Valid: avg. loss: -243.100
+training.....
+[46,     1] loss: -248.951
+[46,    11] loss: -225.810
+[46,    21] loss: -256.068
+[46,    31] loss: -245.152
+[46,    41] loss: -227.325
+[46,    51] loss: -227.819
+validation....
+[46,     1] loss: -255.259
+Epoch 46: Train: avg. loss: -247.386
+Epoch 46: Valid: avg. loss: -244.199
+training.....
+[47,     1] loss: -238.191
+[47,    11] loss: -258.769
+[47,    21] loss: -255.283
+[47,    31] loss: -238.982
+[47,    41] loss: -233.914
+[47,    51] loss: -242.059
+validation....
+[47,     1] loss: -256.573
+Epoch 47: Train: avg. loss: -245.355
+Epoch 47: Valid: avg. loss: -247.603
+Saving best model at epoch 47
+Generating sequence....
+training.....
+[48,     1] loss: -245.169
+[48,    11] loss: -257.824
+[48,    21] loss: -252.034
+[48,    31] loss: -241.876
+[48,    41] loss: -240.857
+[48,    51] loss: -234.092
+validation....
+[48,     1] loss: -258.814
+Epoch 48: Train: avg. loss: -247.465
+Epoch 48: Valid: avg. loss: -244.094
+training.....
+[49,     1] loss: -258.633
+[49,    11] loss: -278.988
+[49,    21] loss: -261.025
+[49,    31] loss: -254.909
+[49,    41] loss: -240.552
+[49,    51] loss: -278.330
+validation....
+[49,     1] loss: -257.266
+Epoch 49: Train: avg. loss: -249.176
+Epoch 49: Valid: avg. loss: -249.478
+Saving best model at epoch 49
+Generating sequence....
+training.....
+[50,     1] loss: -245.785
+[50,    11] loss: -264.480
+[50,    21] loss: -233.442
+[50,    31] loss: -242.156
+[50,    41] loss: -250.896
+[50,    51] loss: -241.952
+validation....
+[50,     1] loss: -268.346
+Epoch 50: Train: avg. loss: -249.948
+Epoch 50: Valid: avg. loss: -248.764
+training.....
+[51,     1] loss: -253.532
+[51,    11] loss: -238.568
+[51,    21] loss: -249.456
+[51,    31] loss: -285.091
+[51,    41] loss: -260.237
+[51,    51] loss: -221.390
+validation....
+[51,     1] loss: -261.474
+Epoch 51: Train: avg. loss: -251.464
+Epoch 51: Valid: avg. loss: -244.886
+training.....
+[52,     1] loss: -254.538
+[52,    11] loss: -261.754
+[52,    21] loss: -260.980
+[52,    31] loss: -250.932
+[52,    41] loss: -236.106
+[52,    51] loss: -249.136
+validation....
+[52,     1] loss: -272.678
+Epoch 52: Train: avg. loss: -251.670
+Epoch 52: Valid: avg. loss: -253.278
+Saving best model at epoch 52
+Generating sequence....
+training.....
+[53,     1] loss: -269.475
+[53,    11] loss: -269.293
+[53,    21] loss: -265.158
+[53,    31] loss: -275.432
+[53,    41] loss: -240.824
+[53,    51] loss: -242.851
+validation....
+[53,     1] loss: -260.103
+Epoch 53: Train: avg. loss: -253.670
+Epoch 53: Valid: avg. loss: -254.342
+Saving best model at epoch 53
+Generating sequence....
+training.....
+[54,     1] loss: -245.797
+[54,    11] loss: -246.372
+[54,    21] loss: -264.487
+[54,    31] loss: -267.954
+[54,    41] loss: -255.701
+[54,    51] loss: -248.058
+validation....
+[54,     1] loss: -270.922
+Epoch 54: Train: avg. loss: -254.297
+Epoch 54: Valid: avg. loss: -254.519
+Saving best model at epoch 54
+Generating sequence....
+training.....
+[55,     1] loss: -273.747
+[55,    11] loss: -226.635
+[55,    21] loss: -254.007
+[55,    31] loss: -254.454
+[55,    41] loss: -236.467
+[55,    51] loss: -232.577
+validation....
+[55,     1] loss: -272.167
+Epoch 55: Train: avg. loss: -254.569
+Epoch 55: Valid: avg. loss: -254.121
+training.....
+[56,     1] loss: -260.240
+[56,    11] loss: -265.227
+[56,    21] loss: -257.784
+[56,    31] loss: -252.517
+[56,    41] loss: -268.946
+[56,    51] loss: -247.353
+validation....
+[56,     1] loss: -278.424
+Epoch 56: Train: avg. loss: -254.536
+Epoch 56: Valid: avg. loss: -258.568
+Saving best model at epoch 56
+Generating sequence....
+training.....
+[57,     1] loss: -282.529
+[57,    11] loss: -271.721
+[57,    21] loss: -247.443
+[57,    31] loss: -245.410
+[57,    41] loss: -259.624
+[57,    51] loss: -253.357
+validation....
+[57,     1] loss: -266.889
+Epoch 57: Train: avg. loss: -256.881
+Epoch 57: Valid: avg. loss: -253.723
+training.....
+[58,     1] loss: -291.477
+[58,    11] loss: -263.630
+[58,    21] loss: -258.853
+[58,    31] loss: -255.275
+[58,    41] loss: -266.256
+[58,    51] loss: -255.890
+validation....
+[58,     1] loss: -273.454
+Epoch 58: Train: avg. loss: -256.706
+Epoch 58: Valid: avg. loss: -255.371
+training.....
+[59,     1] loss: -255.948
+[59,    11] loss: -254.166
+[59,    21] loss: -273.256
+[59,    31] loss: -264.435
+[59,    41] loss: -284.097
+[59,    51] loss: -271.501
+validation....
+[59,     1] loss: -276.057
+Epoch 59: Train: avg. loss: -260.118
+Epoch 59: Valid: avg. loss: -261.250
+Saving best model at epoch 59
+Generating sequence....
+training.....
+[60,     1] loss: -266.342
+[60,    11] loss: -271.384
+[60,    21] loss: -258.945
+[60,    31] loss: -259.809
+[60,    41] loss: -258.284
+[60,    51] loss: -272.814
+validation....
+[60,     1] loss: -273.169
+Epoch 60: Train: avg. loss: -259.357
+Epoch 60: Valid: avg. loss: -259.660
+training.....
+[61,     1] loss: -270.539
+[61,    11] loss: -273.793
+[61,    21] loss: -271.989
+[61,    31] loss: -260.965
+[61,    41] loss: -232.123
+[61,    51] loss: -267.989
+validation....
+[61,     1] loss: -266.816
+Epoch 61: Train: avg. loss: -260.099
+Epoch 61: Valid: avg. loss: -257.625
+training.....
+[62,     1] loss: -266.415
+[62,    11] loss: -267.422
+[62,    21] loss: -271.313
+[62,    31] loss: -257.424
+[62,    41] loss: -263.753
+[62,    51] loss: -255.879
+validation....
+[62,     1] loss: -277.288
+Epoch 62: Train: avg. loss: -262.861
+Epoch 62: Valid: avg. loss: -267.158
+Saving best model at epoch 62
+Generating sequence....
+training.....
+[63,     1] loss: -274.091
+[63,    11] loss: -274.018
+[63,    21] loss: -292.148
+[63,    31] loss: -266.780
+[63,    41] loss: -280.472
+[63,    51] loss: -262.427
+validation....
+[63,     1] loss: -274.667
+Epoch 63: Train: avg. loss: -267.377
+Epoch 63: Valid: avg. loss: -263.209
+training.....
+[64,     1] loss: -264.417
+[64,    11] loss: -269.447
+[64,    21] loss: -268.929
+[64,    31] loss: -271.726
+[64,    41] loss: -277.552
+[64,    51] loss: -270.459
+validation....
+[64,     1] loss: -280.332
+Epoch 64: Train: avg. loss: -268.487
+Epoch 64: Valid: avg. loss: -269.480
+Saving best model at epoch 64
+Generating sequence....
+training.....
+[65,     1] loss: -279.473
+[65,    11] loss: -289.656
+[65,    21] loss: -251.058
+[65,    31] loss: -283.653
+[65,    41] loss: -262.553
+[65,    51] loss: -269.480
+validation....
+[65,     1] loss: -282.393
+Epoch 65: Train: avg. loss: -268.864
+Epoch 65: Valid: avg. loss: -268.842
+training.....
+[66,     1] loss: -262.938
+[66,    11] loss: -279.823
+[66,    21] loss: -270.064
+[66,    31] loss: -267.125
+[66,    41] loss: -259.820
+[66,    51] loss: -256.226
+validation....
+[66,     1] loss: -275.791
+Epoch 66: Train: avg. loss: -268.767
+Epoch 66: Valid: avg. loss: -267.808
+training.....
+[67,     1] loss: -257.560
+[67,    11] loss: -267.370
+[67,    21] loss: -272.395
+[67,    31] loss: -266.306
+[67,    41] loss: -274.326
+[67,    51] loss: -278.936
+validation....
+[67,     1] loss: -284.568
+Epoch 67: Train: avg. loss: -270.267
+Epoch 67: Valid: avg. loss: -271.845
+Saving best model at epoch 67
+Generating sequence....
+training.....
+[68,     1] loss: -274.090
+[68,    11] loss: -261.661
+[68,    21] loss: -250.133
+[68,    31] loss: -257.992
+[68,    41] loss: -256.765
+[68,    51] loss: -282.829
+validation....
+[68,     1] loss: -280.502
+Epoch 68: Train: avg. loss: -272.061
+Epoch 68: Valid: avg. loss: -270.356
+training.....
+[69,     1] loss: -294.499
+[69,    11] loss: -267.480
+[69,    21] loss: -254.575
+[69,    31] loss: -287.109
+[69,    41] loss: -265.388
+[69,    51] loss: -279.807
+validation....
+[69,     1] loss: -286.008
+Epoch 69: Train: avg. loss: -273.797
+Epoch 69: Valid: avg. loss: -274.199
+Saving best model at epoch 69
+Generating sequence....
+training.....
+[70,     1] loss: -280.997
+[70,    11] loss: -274.523
+[70,    21] loss: -282.116
+[70,    31] loss: -271.994
+[70,    41] loss: -279.112
+[70,    51] loss: -266.045
+validation....
+[70,     1] loss: -287.338
+Epoch 70: Train: avg. loss: -273.575
+Epoch 70: Valid: avg. loss: -272.743
+training.....
+[71,     1] loss: -262.709
+[71,    11] loss: -287.881
+[71,    21] loss: -270.722
+[71,    31] loss: -280.628
+[71,    41] loss: -277.026
+[71,    51] loss: -291.512
+validation....
+[71,     1] loss: -284.301
+Epoch 71: Train: avg. loss: -274.976
+Epoch 71: Valid: avg. loss: -272.205
+training.....
+[72,     1] loss: -275.367
+[72,    11] loss: -301.940
+[72,    21] loss: -280.198
+[72,    31] loss: -279.103
+[72,    41] loss: -286.122
+[72,    51] loss: -258.362
+validation....
+[72,     1] loss: -281.109
+Epoch 72: Train: avg. loss: -275.440
+Epoch 72: Valid: avg. loss: -271.417
+training.....
+[73,     1] loss: -256.301
+[73,    11] loss: -295.049
+[73,    21] loss: -261.205
+[73,    31] loss: -264.047
+[73,    41] loss: -290.249
+[73,    51] loss: -273.557
+validation....
+[73,     1] loss: -288.775
+Epoch 73: Train: avg. loss: -276.486
+Epoch 73: Valid: avg. loss: -276.967
+Saving best model at epoch 73
+Generating sequence....
+training.....
+[74,     1] loss: -284.693
+[74,    11] loss: -298.976
+[74,    21] loss: -267.563
+[74,    31] loss: -279.697
+[74,    41] loss: -303.346
+[74,    51] loss: -278.950
+validation....
+[74,     1] loss: -292.706
+Epoch 74: Train: avg. loss: -277.898
+Epoch 74: Valid: avg. loss: -278.733
+Saving best model at epoch 74
+Generating sequence....
+training.....
+[75,     1] loss: -274.616
+[75,    11] loss: -272.343
+[75,    21] loss: -277.499
+[75,    31] loss: -299.340
+[75,    41] loss: -281.063
+[75,    51] loss: -278.951
+validation....
+[75,     1] loss: -285.079
+Epoch 75: Train: avg. loss: -278.216
+Epoch 75: Valid: avg. loss: -276.815
+training.....
+[76,     1] loss: -277.825
+[76,    11] loss: -269.727
+[76,    21] loss: -279.265
+[76,    31] loss: -283.734
+[76,    41] loss: -285.225
+[76,    51] loss: -275.699
+validation....
+[76,     1] loss: -287.689
+Epoch 76: Train: avg. loss: -278.606
+Epoch 76: Valid: avg. loss: -276.404
+training.....
+[77,     1] loss: -293.190
+[77,    11] loss: -269.599
+[77,    21] loss: -270.825
+[77,    31] loss: -292.777
+[77,    41] loss: -292.121
+[77,    51] loss: -293.566
+validation....
+[77,     1] loss: -296.990
+Epoch 77: Train: avg. loss: -279.560
+Epoch 77: Valid: avg. loss: -280.286
+Saving best model at epoch 77
+Generating sequence....
+training.....
+[78,     1] loss: -266.128
+[78,    11] loss: -283.408
+[78,    21] loss: -289.163
+[78,    31] loss: -305.980
+[78,    41] loss: -273.398
+[78,    51] loss: -269.622
+validation....
+[78,     1] loss: -291.272
+Epoch 78: Train: avg. loss: -280.344
+Epoch 78: Valid: avg. loss: -276.273
+training.....
+[79,     1] loss: -257.336
+[79,    11] loss: -285.714
+[79,    21] loss: -266.324
+[79,    31] loss: -276.363
+[79,    41] loss: -272.464
+[79,    51] loss: -280.354
+validation....
+[79,     1] loss: -294.683
+Epoch 79: Train: avg. loss: -279.984
+Epoch 79: Valid: avg. loss: -278.333
+training.....
+[80,     1] loss: -273.664
+[80,    11] loss: -304.031
+[80,    21] loss: -298.843
+[80,    31] loss: -269.239
+[80,    41] loss: -288.049
+[80,    51] loss: -284.757
+validation....
+[80,     1] loss: -291.431
+Epoch 80: Train: avg. loss: -280.647
+Epoch 80: Valid: avg. loss: -279.092
+training.....
+[81,     1] loss: -281.257
+[81,    11] loss: -290.512
+[81,    21] loss: -277.253
+[81,    31] loss: -258.965
+[81,    41] loss: -273.865
+[81,    51] loss: -293.985
+validation....
+[81,     1] loss: -290.147
+Epoch 81: Train: avg. loss: -279.775
+Epoch 81: Valid: avg. loss: -277.925
+training.....
+[82,     1] loss: -293.150
+[82,    11] loss: -294.674
+[82,    21] loss: -282.003
+[82,    31] loss: -265.952
+[82,    41] loss: -278.488
+[82,    51] loss: -254.330
+validation....
+[82,     1] loss: -291.589
+Epoch 82: Train: avg. loss: -281.199
+Epoch 82: Valid: avg. loss: -281.565
+Saving best model at epoch 82
+Generating sequence....
+training.....
+[83,     1] loss: -269.936
+[83,    11] loss: -271.977
+[83,    21] loss: -263.544
+[83,    31] loss: -281.858
+[83,    41] loss: -296.736
+[83,    51] loss: -257.093
+validation....
+[83,     1] loss: -295.285
+Epoch 83: Train: avg. loss: -282.194
+Epoch 83: Valid: avg. loss: -284.007
+Saving best model at epoch 83
+Generating sequence....
+training.....
+[84,     1] loss: -304.740
+[84,    11] loss: -307.629
+[84,    21] loss: -280.509
+[84,    31] loss: -265.972
+[84,    41] loss: -274.613
+[84,    51] loss: -282.146
+validation....
+[84,     1] loss: -297.895
+Epoch 84: Train: avg. loss: -280.753
+Epoch 84: Valid: avg. loss: -280.856
+training.....
+[85,     1] loss: -281.675
+[85,    11] loss: -272.672
+[85,    21] loss: -289.921
+[85,    31] loss: -283.093
+[85,    41] loss: -277.945
+[85,    51] loss: -303.245
+validation....
+[85,     1] loss: -292.606
+Epoch 85: Train: avg. loss: -284.747
+Epoch 85: Valid: avg. loss: -283.464
+training.....
+[86,     1] loss: -298.771
+[86,    11] loss: -287.247
+[86,    21] loss: -268.036
+[86,    31] loss: -287.870
+[86,    41] loss: -293.105
+[86,    51] loss: -297.213
+validation....
+[86,     1] loss: -298.710
+Epoch 86: Train: avg. loss: -284.544
+Epoch 86: Valid: avg. loss: -280.654
+training.....
+[87,     1] loss: -283.791
+[87,    11] loss: -303.271
+[87,    21] loss: -298.956
+[87,    31] loss: -275.010
+[87,    41] loss: -289.598
+[87,    51] loss: -284.782
+validation....
+[87,     1] loss: -293.920
+Epoch 87: Train: avg. loss: -285.958
+Epoch 87: Valid: avg. loss: -282.252
+training.....
+[88,     1] loss: -272.656
+[88,    11] loss: -273.462
+[88,    21] loss: -295.883
+[88,    31] loss: -286.880
+[88,    41] loss: -269.394
+[88,    51] loss: -318.597
+validation....
+[88,     1] loss: -297.347
+Epoch 88: Train: avg. loss: -286.001
+Epoch 88: Valid: avg. loss: -285.464
+Saving best model at epoch 88
+Generating sequence....
+training.....
+[89,     1] loss: -278.770
+[89,    11] loss: -273.922
+[89,    21] loss: -302.238
+[89,    31] loss: -293.413
+[89,    41] loss: -269.203
+[89,    51] loss: -317.110
+validation....
+[89,     1] loss: -287.807
+Epoch 89: Train: avg. loss: -286.678
+Epoch 89: Valid: avg. loss: -282.701
+training.....
+[90,     1] loss: -292.765
+[90,    11] loss: -287.748
+[90,    21] loss: -303.021
+[90,    31] loss: -275.586
+[90,    41] loss: -269.511
+[90,    51] loss: -298.580
+validation....
+[90,     1] loss: -296.272
+Epoch 90: Train: avg. loss: -286.709
+Epoch 90: Valid: avg. loss: -288.923
+Saving best model at epoch 90
+Generating sequence....
+training.....
+[91,     1] loss: -311.233
+[91,    11] loss: -281.066
+[91,    21] loss: -279.007
+[91,    31] loss: -280.180
+[91,    41] loss: -317.576
+[91,    51] loss: -283.517
+validation....
+[91,     1] loss: -295.434
+Epoch 91: Train: avg. loss: -289.305
+Epoch 91: Valid: avg. loss: -290.984
+Saving best model at epoch 91
+Generating sequence....
+training.....
+[92,     1] loss: -271.297
+[92,    11] loss: -301.097
+[92,    21] loss: -283.012
+[92,    31] loss: -281.697
+[92,    41] loss: -288.768
+[92,    51] loss: -296.709
+validation....
+[92,     1] loss: -304.295
+Epoch 92: Train: avg. loss: -289.673
+Epoch 92: Valid: avg. loss: -287.428
+training.....
+[93,     1] loss: -291.756
+[93,    11] loss: -272.303
+[93,    21] loss: -307.985
+[93,    31] loss: -300.827
+[93,    41] loss: -294.704
+[93,    51] loss: -270.936
+validation....
+[93,     1] loss: -301.692
+Epoch 93: Train: avg. loss: -288.965
+Epoch 93: Valid: avg. loss: -286.723
+training.....
+[94,     1] loss: -284.988
+[94,    11] loss: -284.546
+[94,    21] loss: -299.996
+[94,    31] loss: -290.984
+[94,    41] loss: -274.672
+[94,    51] loss: -295.637
+validation....
+[94,     1] loss: -300.065
+Epoch 94: Train: avg. loss: -288.409
+Epoch 94: Valid: avg. loss: -288.508
+training.....
+[95,     1] loss: -302.924
+[95,    11] loss: -292.504
+[95,    21] loss: -280.382
+[95,    31] loss: -293.223
+[95,    41] loss: -294.244
+[95,    51] loss: -308.024
+validation....
+[95,     1] loss: -306.345
+Epoch 95: Train: avg. loss: -291.129
+Epoch 95: Valid: avg. loss: -291.335
+Saving best model at epoch 95
+Generating sequence....
+training.....
+[96,     1] loss: -285.176
+[96,    11] loss: -303.843
+[96,    21] loss: -282.286
+[96,    31] loss: -293.567
+[96,    41] loss: -296.291
+[96,    51] loss: -289.722
+validation....
+[96,     1] loss: -302.193
+Epoch 96: Train: avg. loss: -291.515
+Epoch 96: Valid: avg. loss: -286.737
+training.....
+[97,     1] loss: -299.567
+[97,    11] loss: -304.366
+[97,    21] loss: -281.932
+[97,    31] loss: -290.815
+[97,    41] loss: -316.892
+[97,    51] loss: -298.307
+validation....
+[97,     1] loss: -302.369
+Epoch 97: Train: avg. loss: -292.113
+Epoch 97: Valid: avg. loss: -288.132
+training.....
+[98,     1] loss: -289.446
+[98,    11] loss: -295.088
+[98,    21] loss: -293.877
+[98,    31] loss: -273.466
+[98,    41] loss: -289.023
+[98,    51] loss: -278.776
+validation....
+[98,     1] loss: -298.107
+Epoch 98: Train: avg. loss: -290.069
+Epoch 98: Valid: avg. loss: -285.718
+training.....
+[99,     1] loss: -304.878
+[99,    11] loss: -284.605
+[99,    21] loss: -281.634
+[99,    31] loss: -275.385
+[99,    41] loss: -264.508
+[99,    51] loss: -321.377
+validation....
+[99,     1] loss: -303.162
+Epoch 99: Train: avg. loss: -289.454
+Epoch 99: Valid: avg. loss: -291.600
+Saving best model at epoch 99
+Generating sequence....
+training.....
+[100,     1] loss: -316.984
+[100,    11] loss: -309.539
+[100,    21] loss: -282.734
+[100,    31] loss: -294.968
+[100,    41] loss: -290.836
+[100,    51] loss: -297.465
+validation....
+[100,     1] loss: -303.265
+Epoch 100: Train: avg. loss: -294.996
+Epoch 100: Valid: avg. loss: -290.064
+training.....
+[101,     1] loss: -271.125
+[101,    11] loss: -307.678
+[101,    21] loss: -300.163
+[101,    31] loss: -303.146
+[101,    41] loss: -304.831
+[101,    51] loss: -288.442
+validation....
+[101,     1] loss: -305.434
+Epoch 101: Train: avg. loss: -295.262
+Epoch 101: Valid: avg. loss: -293.254
+Saving best model at epoch 101
+Generating sequence....
+training.....
+[102,     1] loss: -298.299
+[102,    11] loss: -288.788
+[102,    21] loss: -296.377
+[102,    31] loss: -318.202
+[102,    41] loss: -308.378
+[102,    51] loss: -290.973
+validation....
+[102,     1] loss: -302.750
+Epoch 102: Train: avg. loss: -295.998
+Epoch 102: Valid: avg. loss: -296.371
+Saving best model at epoch 102
+Generating sequence....
+training.....
+[103,     1] loss: -307.507
+[103,    11] loss: -299.282
+[103,    21] loss: -289.213
+[103,    31] loss: -314.307
+[103,    41] loss: -273.577
+[103,    51] loss: -278.525
+validation....
+[103,     1] loss: -302.579
+Epoch 103: Train: avg. loss: -295.849
+Epoch 103: Valid: avg. loss: -292.445
+training.....
+[104,     1] loss: -315.363
+[104,    11] loss: -294.432
+[104,    21] loss: -292.261
+[104,    31] loss: -292.376
+[104,    41] loss: -307.002
+[104,    51] loss: -287.061
+validation....
+[104,     1] loss: -304.080
+Epoch 104: Train: avg. loss: -297.214
+Epoch 104: Valid: avg. loss: -296.896
+Saving best model at epoch 104
+Generating sequence....
+training.....
+[105,     1] loss: -308.168
+[105,    11] loss: -298.404
+[105,    21] loss: -289.938
+[105,    31] loss: -304.394
+[105,    41] loss: -312.177
+[105,    51] loss: -288.836
+validation....
+[105,     1] loss: -305.271
+Epoch 105: Train: avg. loss: -298.069
+Epoch 105: Valid: avg. loss: -293.341
+training.....
+[106,     1] loss: -301.541
+[106,    11] loss: -293.420
+[106,    21] loss: -300.711
+[106,    31] loss: -288.492
+[106,    41] loss: -298.322
+[106,    51] loss: -292.030
+validation....
+[106,     1] loss: -303.699
+Epoch 106: Train: avg. loss: -298.644
+Epoch 106: Valid: avg. loss: -292.734
+training.....
+[107,     1] loss: -311.513
+[107,    11] loss: -311.353
+[107,    21] loss: -273.278
+[107,    31] loss: -309.631
+[107,    41] loss: -294.765
+[107,    51] loss: -288.561
+validation....
+[107,     1] loss: -303.014
+Epoch 107: Train: avg. loss: -296.700
+Epoch 107: Valid: avg. loss: -294.266
+training.....
+[108,     1] loss: -295.827
+[108,    11] loss: -293.417
+[108,    21] loss: -265.744
+[108,    31] loss: -293.522
+[108,    41] loss: -299.484
+[108,    51] loss: -314.311
+validation....
+[108,     1] loss: -303.778
+Epoch 108: Train: avg. loss: -300.239
+Epoch 108: Valid: avg. loss: -295.776
+training.....
+[109,     1] loss: -306.331
+[109,    11] loss: -300.977
+[109,    21] loss: -289.923
+[109,    31] loss: -318.281
+[109,    41] loss: -271.309
+[109,    51] loss: -297.499
+validation....
+[109,     1] loss: -313.370
+Epoch 109: Train: avg. loss: -299.292
+Epoch 109: Valid: avg. loss: -296.668
+training.....
+[110,     1] loss: -318.209
+[110,    11] loss: -306.119
+[110,    21] loss: -296.319
+[110,    31] loss: -298.071
+[110,    41] loss: -292.933
+[110,    51] loss: -292.921
+validation....
+[110,     1] loss: -314.462
+Epoch 110: Train: avg. loss: -300.350
+Epoch 110: Valid: avg. loss: -298.754
+Saving best model at epoch 110
+Generating sequence....
+training.....
+[111,     1] loss: -324.594
+[111,    11] loss: -294.041
+[111,    21] loss: -317.628
+[111,    31] loss: -286.480
+[111,    41] loss: -285.269
+[111,    51] loss: -303.036
+validation....
+[111,     1] loss: -312.050
+Epoch 111: Train: avg. loss: -302.021
+Epoch 111: Valid: avg. loss: -298.450
+training.....
+[112,     1] loss: -321.823
+[112,    11] loss: -283.864
+[112,    21] loss: -306.801
+[112,    31] loss: -312.699
+[112,    41] loss: -313.593
+[112,    51] loss: -312.913
+validation....
+[112,     1] loss: -314.263
+Epoch 112: Train: avg. loss: -301.901
+Epoch 112: Valid: avg. loss: -300.036
+Saving best model at epoch 112
+Generating sequence....
+training.....
+[113,     1] loss: -317.335
+[113,    11] loss: -292.930
+[113,    21] loss: -313.999
+[113,    31] loss: -300.430
+[113,    41] loss: -300.785
+[113,    51] loss: -305.554
+validation....
+[113,     1] loss: -316.774
+Epoch 113: Train: avg. loss: -302.055
+Epoch 113: Valid: avg. loss: -303.275
+Saving best model at epoch 113
+Generating sequence....
+training.....
+[114,     1] loss: -325.682
+[114,    11] loss: -300.270
+[114,    21] loss: -320.943
+[114,    31] loss: -291.032
+[114,    41] loss: -289.610
+[114,    51] loss: -296.029
+validation....
+[114,     1] loss: -315.446
+Epoch 114: Train: avg. loss: -304.731
+Epoch 114: Valid: avg. loss: -301.294
+training.....
+[115,     1] loss: -321.560
+[115,    11] loss: -309.541
+[115,    21] loss: -309.952
+[115,    31] loss: -311.715
+[115,    41] loss: -301.939
+[115,    51] loss: -298.935
+validation....
+[115,     1] loss: -317.863
+Epoch 115: Train: avg. loss: -304.223
+Epoch 115: Valid: avg. loss: -304.872
+Saving best model at epoch 115
+Generating sequence....
+training.....
+[116,     1] loss: -310.709
+[116,    11] loss: -305.154
+[116,    21] loss: -293.576
+[116,    31] loss: -312.836
+[116,    41] loss: -312.043
+[116,    51] loss: -309.318
+validation....
+[116,     1] loss: -320.164
+Epoch 116: Train: avg. loss: -304.840
+Epoch 116: Valid: avg. loss: -303.391
+training.....
+[117,     1] loss: -300.621
+[117,    11] loss: -289.914
+[117,    21] loss: -314.107
+[117,    31] loss: -288.491
+[117,    41] loss: -316.428
+[117,    51] loss: -313.855
+validation....
+[117,     1] loss: -315.668
+Epoch 117: Train: avg. loss: -305.850
+Epoch 117: Valid: avg. loss: -301.716
+training.....
+[118,     1] loss: -317.431
+[118,    11] loss: -299.022
+[118,    21] loss: -314.518
+[118,    31] loss: -328.683
+[118,    41] loss: -316.378
+[118,    51] loss: -304.181
+validation....
+[118,     1] loss: -312.009
+Epoch 118: Train: avg. loss: -305.268
+Epoch 118: Valid: avg. loss: -303.419
+training.....
+[119,     1] loss: -300.511
+[119,    11] loss: -330.484
+[119,    21] loss: -320.306
+[119,    31] loss: -319.845
+[119,    41] loss: -312.773
+[119,    51] loss: -298.409
+validation....
+[119,     1] loss: -315.729
+Epoch 119: Train: avg. loss: -306.288
+Epoch 119: Valid: avg. loss: -304.825
+training.....
+[120,     1] loss: -313.279
+[120,    11] loss: -294.072
+[120,    21] loss: -302.281
+[120,    31] loss: -306.726
+[120,    41] loss: -311.635
+[120,    51] loss: -335.285
+validation....
+[120,     1] loss: -325.945
+Epoch 120: Train: avg. loss: -308.140
+Epoch 120: Valid: avg. loss: -305.620
+Saving best model at epoch 120
+Generating sequence....
+training.....
+[121,     1] loss: -319.844
+[121,    11] loss: -302.600
+[121,    21] loss: -325.979
+[121,    31] loss: -311.903
+[121,    41] loss: -298.375
+[121,    51] loss: -308.239
+validation....
+[121,     1] loss: -315.099
+Epoch 121: Train: avg. loss: -310.118
+Epoch 121: Valid: avg. loss: -305.711
+Saving best model at epoch 121
+Generating sequence....
+training.....
+[122,     1] loss: -329.196
+[122,    11] loss: -325.897
+[122,    21] loss: -313.824
+[122,    31] loss: -303.621
+[122,    41] loss: -298.966
+[122,    51] loss: -298.296
+validation....
+[122,     1] loss: -319.336
+Epoch 122: Train: avg. loss: -309.054
+Epoch 122: Valid: avg. loss: -308.669
+Saving best model at epoch 122
+Generating sequence....
+training.....
+[123,     1] loss: -309.969
+[123,    11] loss: -314.333
+[123,    21] loss: -324.468
+[123,    31] loss: -287.440
+[123,    41] loss: -312.665
+[123,    51] loss: -310.253
+validation....
+[123,     1] loss: -320.793
+Epoch 123: Train: avg. loss: -309.119
+Epoch 123: Valid: avg. loss: -307.120
+training.....
+[124,     1] loss: -321.564
+[124,    11] loss: -336.419
+[124,    21] loss: -314.097
+[124,    31] loss: -313.296
+[124,    41] loss: -308.883
+[124,    51] loss: -295.508
+validation....
+[124,     1] loss: -322.061
+Epoch 124: Train: avg. loss: -310.892
+Epoch 124: Valid: avg. loss: -310.164
+Saving best model at epoch 124
+Generating sequence....
+training.....
+[125,     1] loss: -320.214
+[125,    11] loss: -304.684
+[125,    21] loss: -293.083
+[125,    31] loss: -313.195
+[125,    41] loss: -296.872
+[125,    51] loss: -314.477
+validation....
+[125,     1] loss: -328.580
+Epoch 125: Train: avg. loss: -310.464
+Epoch 125: Valid: avg. loss: -312.914
+Saving best model at epoch 125
+Generating sequence....
+training.....
+[126,     1] loss: -323.393
+[126,    11] loss: -319.888
+[126,    21] loss: -321.356
+[126,    31] loss: -281.949
+[126,    41] loss: -327.985
+[126,    51] loss: -309.234
+validation....
+[126,     1] loss: -320.741
+Epoch 126: Train: avg. loss: -312.110
+Epoch 126: Valid: avg. loss: -307.996
+training.....
+[127,     1] loss: -298.210
+[127,    11] loss: -329.639
+[127,    21] loss: -320.865
+[127,    31] loss: -310.348
+[127,    41] loss: -333.094
+[127,    51] loss: -311.466
+validation....
+[127,     1] loss: -326.583
+Epoch 127: Train: avg. loss: -313.036
+Epoch 127: Valid: avg. loss: -312.140
+training.....
+[128,     1] loss: -313.361
+[128,    11] loss: -314.418
+[128,    21] loss: -338.991
+[128,    31] loss: -323.941
+[128,    41] loss: -313.134
+[128,    51] loss: -310.948
+validation....
+[128,     1] loss: -310.687
+Epoch 128: Train: avg. loss: -312.650
+Epoch 128: Valid: avg. loss: -307.926
+training.....
+[129,     1] loss: -313.451
+[129,    11] loss: -327.536
+[129,    21] loss: -308.580
+[129,    31] loss: -307.923
+[129,    41] loss: -332.750
+[129,    51] loss: -303.781
+validation....
+[129,     1] loss: -318.556
+Epoch 129: Train: avg. loss: -312.575
+Epoch 129: Valid: avg. loss: -312.115
+training.....
+[130,     1] loss: -297.583
+[130,    11] loss: -288.400
+[130,    21] loss: -308.519
+[130,    31] loss: -329.081
+[130,    41] loss: -302.702
+[130,    51] loss: -311.802
+validation....
+[130,     1] loss: -321.640
+Epoch 130: Train: avg. loss: -313.400
+Epoch 130: Valid: avg. loss: -311.633
+training.....
+[131,     1] loss: -332.801
+[131,    11] loss: -315.541
+[131,    21] loss: -301.617
+[131,    31] loss: -320.615
+[131,    41] loss: -308.976
+[131,    51] loss: -316.569
+validation....
+[131,     1] loss: -327.434
+Epoch 131: Train: avg. loss: -315.712
+Epoch 131: Valid: avg. loss: -312.212
+training.....
+[132,     1] loss: -326.380
+[132,    11] loss: -317.824
+[132,    21] loss: -319.820
+[132,    31] loss: -290.115
+[132,    41] loss: -311.736
+[132,    51] loss: -298.419
+validation....
+[132,     1] loss: -334.139
+Epoch 132: Train: avg. loss: -315.631
+Epoch 132: Valid: avg. loss: -313.729
+Saving best model at epoch 132
+Generating sequence....
+training.....
+[133,     1] loss: -310.857
+[133,    11] loss: -324.560
+[133,    21] loss: -312.668
+[133,    31] loss: -316.258
+[133,    41] loss: -317.166
+[133,    51] loss: -306.805
+validation....
+[133,     1] loss: -330.973
+Epoch 133: Train: avg. loss: -317.337
+Epoch 133: Valid: avg. loss: -313.555
+training.....
+[134,     1] loss: -343.178
+[134,    11] loss: -320.449
+[134,    21] loss: -326.073
+[134,    31] loss: -314.890
+[134,    41] loss: -305.467
+[134,    51] loss: -298.976
+validation....
+[134,     1] loss: -325.307
+Epoch 134: Train: avg. loss: -316.222
+Epoch 134: Valid: avg. loss: -313.611
+training.....
+[135,     1] loss: -305.992
+[135,    11] loss: -320.307
+[135,    21] loss: -323.684
+[135,    31] loss: -319.478
+[135,    41] loss: -321.397
+[135,    51] loss: -297.862
+validation....
+[135,     1] loss: -331.997
+Epoch 135: Train: avg. loss: -317.134
+Epoch 135: Valid: avg. loss: -315.547
+Saving best model at epoch 135
+Generating sequence....
+training.....
+[136,     1] loss: -307.004
+[136,    11] loss: -321.106
+[136,    21] loss: -299.583
+[136,    31] loss: -312.214
+[136,    41] loss: -314.802
+[136,    51] loss: -315.423
+validation....
+[136,     1] loss: -332.580
+Epoch 136: Train: avg. loss: -318.475
+Epoch 136: Valid: avg. loss: -316.074
+Saving best model at epoch 136
+Generating sequence....
+training.....
+[137,     1] loss: -326.067
+[137,    11] loss: -308.311
+[137,    21] loss: -312.779
+[137,    31] loss: -321.194
+[137,    41] loss: -318.806
+[137,    51] loss: -335.772
+validation....
+[137,     1] loss: -327.270
+Epoch 137: Train: avg. loss: -319.734
+Epoch 137: Valid: avg. loss: -311.965
+training.....
+[138,     1] loss: -317.695
+[138,    11] loss: -306.972
+[138,    21] loss: -317.778
+[138,    31] loss: -324.796
+[138,    41] loss: -328.206
+[138,    51] loss: -306.746
+validation....
+[138,     1] loss: -325.591
+Epoch 138: Train: avg. loss: -318.837
+Epoch 138: Valid: avg. loss: -317.009
+Saving best model at epoch 138
+Generating sequence....
+training.....
+[139,     1] loss: -326.633
+[139,    11] loss: -315.318
+[139,    21] loss: -321.365
+[139,    31] loss: -294.669
+[139,    41] loss: -288.215
+[139,    51] loss: -306.457
+validation....
+[139,     1] loss: -320.390
+Epoch 139: Train: avg. loss: -316.358
+Epoch 139: Valid: avg. loss: -313.031
+training.....
+[140,     1] loss: -318.942
+[140,    11] loss: -328.506
+[140,    21] loss: -314.620
+[140,    31] loss: -316.148
+[140,    41] loss: -346.377
+[140,    51] loss: -339.734
+validation....
+[140,     1] loss: -316.717
+Epoch 140: Train: avg. loss: -321.186
+Epoch 140: Valid: avg. loss: -312.056
+training.....
+[141,     1] loss: -320.156
+[141,    11] loss: -314.617
+[141,    21] loss: -321.663
+[141,    31] loss: -296.599
+[141,    41] loss: -313.679
+[141,    51] loss: -315.458
+validation....
+[141,     1] loss: -333.493
+Epoch 141: Train: avg. loss: -321.411
+Epoch 141: Valid: avg. loss: -319.872
+Saving best model at epoch 141
+Generating sequence....
+training.....
+[142,     1] loss: -340.330
+[142,    11] loss: -323.848
+[142,    21] loss: -313.940
+[142,    31] loss: -311.682
+[142,    41] loss: -332.511
+[142,    51] loss: -319.383
+validation....
+[142,     1] loss: -329.813
+Epoch 142: Train: avg. loss: -322.824
+Epoch 142: Valid: avg. loss: -319.557
+training.....
+[143,     1] loss: -317.526
+[143,    11] loss: -331.779
+[143,    21] loss: -323.714
+[143,    31] loss: -330.933
+[143,    41] loss: -337.173
+[143,    51] loss: -330.968
+validation....
+[143,     1] loss: -330.191
+Epoch 143: Train: avg. loss: -323.718
+Epoch 143: Valid: avg. loss: -321.289
+Saving best model at epoch 143
+Generating sequence....
+training.....
+[144,     1] loss: -326.424
+[144,    11] loss: -333.682
+[144,    21] loss: -318.595
+[144,    31] loss: -320.313
+[144,    41] loss: -336.209
+[144,    51] loss: -323.468
+validation....
+[144,     1] loss: -341.054
+Epoch 144: Train: avg. loss: -324.662
+Epoch 144: Valid: avg. loss: -323.695
+Saving best model at epoch 144
+Generating sequence....
+training.....
+[145,     1] loss: -332.945
+[145,    11] loss: -336.044
+[145,    21] loss: -322.387
+[145,    31] loss: -324.986
+[145,    41] loss: -332.417
+[145,    51] loss: -312.446
+validation....
+[145,     1] loss: -329.036
+Epoch 145: Train: avg. loss: -325.502
+Epoch 145: Valid: avg. loss: -319.036
+training.....
+[146,     1] loss: -346.061
+[146,    11] loss: -324.471
+[146,    21] loss: -322.482
+[146,    31] loss: -331.169
+[146,    41] loss: -319.759
+[146,    51] loss: -327.427
+validation....
+[146,     1] loss: -332.428
+Epoch 146: Train: avg. loss: -325.855
+Epoch 146: Valid: avg. loss: -319.657
+training.....
+[147,     1] loss: -321.164
+[147,    11] loss: -321.795
+[147,    21] loss: -319.070
+[147,    31] loss: -349.176
+[147,    41] loss: -322.093
+[147,    51] loss: -335.137
+validation....
+[147,     1] loss: -336.200
+Epoch 147: Train: avg. loss: -325.934
+Epoch 147: Valid: avg. loss: -321.489
+training.....
+[148,     1] loss: -348.571
+[148,    11] loss: -307.043
+[148,    21] loss: -335.783
+[148,    31] loss: -331.080
+[148,    41] loss: -310.230
+[148,    51] loss: -309.653
+validation....
+[148,     1] loss: -334.060
+Epoch 148: Train: avg. loss: -326.551
+Epoch 148: Valid: avg. loss: -321.502
+training.....
+[149,     1] loss: -350.389
+[149,    11] loss: -324.159
+[149,    21] loss: -317.692
+[149,    31] loss: -327.924
+[149,    41] loss: -324.850
+[149,    51] loss: -332.753
+validation....
+[149,     1] loss: -338.831
+Epoch 149: Train: avg. loss: -327.366
+Epoch 149: Valid: avg. loss: -322.687
+training.....
+[150,     1] loss: -304.614
+[150,    11] loss: -336.548
+[150,    21] loss: -316.279
+[150,    31] loss: -324.134
+[150,    41] loss: -327.448
+[150,    51] loss: -342.973
+validation....
+[150,     1] loss: -336.801
+Epoch 150: Train: avg. loss: -325.013
+Epoch 150: Valid: avg. loss: -320.238
+training.....
+[151,     1] loss: -329.507
+[151,    11] loss: -296.168
+[151,    21] loss: -342.295
+[151,    31] loss: -337.848
+[151,    41] loss: -330.505
+[151,    51] loss: -315.015
+validation....
+[151,     1] loss: -322.077
+Epoch 151: Train: avg. loss: -326.919
+Epoch 151: Valid: avg. loss: -311.388
+training.....
+[152,     1] loss: -312.564
+[152,    11] loss: -340.008
+[152,    21] loss: -323.027
+[152,    31] loss: -320.018
+[152,    41] loss: -311.322
+[152,    51] loss: -329.956
+validation....
+[152,     1] loss: -344.177
+Epoch 152: Train: avg. loss: -327.616
+Epoch 152: Valid: avg. loss: -325.399
+Saving best model at epoch 152
+Generating sequence....
+training.....
+[153,     1] loss: -326.127
+[153,    11] loss: -352.681
+[153,    21] loss: -328.232
+[153,    31] loss: -345.390
+[153,    41] loss: -329.264
+[153,    51] loss: -312.176
+validation....
+[153,     1] loss: -340.513
+Epoch 153: Train: avg. loss: -329.518
+Epoch 153: Valid: avg. loss: -326.357
+Saving best model at epoch 153
+Generating sequence....
+training.....
+[154,     1] loss: -335.794
+[154,    11] loss: -351.900
+[154,    21] loss: -317.323
+[154,    31] loss: -339.265
+[154,    41] loss: -338.966
+[154,    51] loss: -337.030
+validation....
+[154,     1] loss: -338.123
+Epoch 154: Train: avg. loss: -331.899
+Epoch 154: Valid: avg. loss: -328.106
+Saving best model at epoch 154
+Generating sequence....
+training.....
+[155,     1] loss: -356.852
+[155,    11] loss: -331.288
+[155,    21] loss: -345.456
+[155,    31] loss: -325.628
+[155,    41] loss: -318.391
+[155,    51] loss: -303.420
+validation....
+[155,     1] loss: -341.798
+Epoch 155: Train: avg. loss: -330.843
+Epoch 155: Valid: avg. loss: -329.567
+Saving best model at epoch 155
+Generating sequence....
+training.....
+[156,     1] loss: -322.817
+[156,    11] loss: -330.921
+[156,    21] loss: -340.973
+[156,    31] loss: -337.512
+[156,    41] loss: -332.132
+[156,    51] loss: -320.889
+validation....
+[156,     1] loss: -335.509
+Epoch 156: Train: avg. loss: -330.522
+Epoch 156: Valid: avg. loss: -323.166
+training.....
+[157,     1] loss: -331.265
+[157,    11] loss: -333.108
+[157,    21] loss: -333.231
+[157,    31] loss: -331.654
+[157,    41] loss: -327.355
+[157,    51] loss: -318.597
+validation....
+[157,     1] loss: -340.868
+Epoch 157: Train: avg. loss: -332.606
+Epoch 157: Valid: avg. loss: -327.263
+training.....
+[158,     1] loss: -334.193
+[158,    11] loss: -338.133
+[158,    21] loss: -317.513
+[158,    31] loss: -330.352
+[158,    41] loss: -345.037
+[158,    51] loss: -315.788
+validation....
+[158,     1] loss: -339.217
+Epoch 158: Train: avg. loss: -335.252
+Epoch 158: Valid: avg. loss: -330.229
+Saving best model at epoch 158
+Generating sequence....
+training.....
+[159,     1] loss: -345.056
+[159,    11] loss: -330.007
+[159,    21] loss: -327.756
+[159,    31] loss: -334.289
+[159,    41] loss: -332.624
+[159,    51] loss: -323.991
+validation....
+[159,     1] loss: -337.478
+Epoch 159: Train: avg. loss: -334.122
+Epoch 159: Valid: avg. loss: -327.819
+training.....
+[160,     1] loss: -314.410
+[160,    11] loss: -340.185
+[160,    21] loss: -352.471
+[160,    31] loss: -341.154
+[160,    41] loss: -343.526
+[160,    51] loss: -349.523
+validation....
+[160,     1] loss: -343.858
+Epoch 160: Train: avg. loss: -336.320
+Epoch 160: Valid: avg. loss: -333.522
+Saving best model at epoch 160
+Generating sequence....
+training.....
+[161,     1] loss: -330.759
+[161,    11] loss: -341.809
+[161,    21] loss: -343.464
+[161,    31] loss: -317.408
+[161,    41] loss: -338.979
+[161,    51] loss: -322.594
+validation....
+[161,     1] loss: -338.899
+Epoch 161: Train: avg. loss: -337.439
+Epoch 161: Valid: avg. loss: -330.943
+training.....
+[162,     1] loss: -345.792
+[162,    11] loss: -317.781
+[162,    21] loss: -333.968
+[162,    31] loss: -348.223
+[162,    41] loss: -340.934
+[162,    51] loss: -343.427
+validation....
+[162,     1] loss: -342.415
+Epoch 162: Train: avg. loss: -337.670
+Epoch 162: Valid: avg. loss: -331.111
+training.....
+[163,     1] loss: -337.342
+[163,    11] loss: -344.901
+[163,    21] loss: -356.256
+[163,    31] loss: -332.807
+[163,    41] loss: -332.293
+[163,    51] loss: -336.310
+validation....
+[163,     1] loss: -343.347
+Epoch 163: Train: avg. loss: -338.063
+Epoch 163: Valid: avg. loss: -335.818
+Saving best model at epoch 163
+Generating sequence....
+training.....
+[164,     1] loss: -337.223
+[164,    11] loss: -357.267
+[164,    21] loss: -335.264
+[164,    31] loss: -354.258
+[164,    41] loss: -350.204
+[164,    51] loss: -340.383
+validation....
+[164,     1] loss: -341.541
+Epoch 164: Train: avg. loss: -338.166
+Epoch 164: Valid: avg. loss: -330.973
+training.....
+[165,     1] loss: -361.471
+[165,    11] loss: -345.224
+[165,    21] loss: -325.558
+[165,    31] loss: -330.265
+[165,    41] loss: -345.671
+[165,    51] loss: -333.923
+validation....
+[165,     1] loss: -346.965
+Epoch 165: Train: avg. loss: -337.342
+Epoch 165: Valid: avg. loss: -332.800
+training.....
+[166,     1] loss: -344.695
+[166,    11] loss: -338.851
+[166,    21] loss: -344.167
+[166,    31] loss: -363.527
+[166,    41] loss: -347.848
+[166,    51] loss: -346.601
+validation....
+[166,     1] loss: -347.741
+Epoch 166: Train: avg. loss: -341.090
+Epoch 166: Valid: avg. loss: -333.606
+training.....
+[167,     1] loss: -335.709
+[167,    11] loss: -338.133
+[167,    21] loss: -356.850
+[167,    31] loss: -340.665
+[167,    41] loss: -345.702
+[167,    51] loss: -347.205
+validation....
+[167,     1] loss: -352.594
+Epoch 167: Train: avg. loss: -339.507
+Epoch 167: Valid: avg. loss: -336.702
+Saving best model at epoch 167
+Generating sequence....
+training.....
+[168,     1] loss: -340.321
+[168,    11] loss: -360.770
+[168,    21] loss: -332.919
+[168,    31] loss: -338.099
+[168,    41] loss: -349.566
+[168,    51] loss: -335.349
+validation....
+[168,     1] loss: -344.162
+Epoch 168: Train: avg. loss: -341.487
+Epoch 168: Valid: avg. loss: -332.640
+training.....
+[169,     1] loss: -339.397
+[169,    11] loss: -360.919
+[169,    21] loss: -334.582
+[169,    31] loss: -355.233
+[169,    41] loss: -339.715
+[169,    51] loss: -349.557
+validation....
+[169,     1] loss: -346.243
+Epoch 169: Train: avg. loss: -342.155
+Epoch 169: Valid: avg. loss: -336.565
+training.....
+[170,     1] loss: -337.108
+[170,    11] loss: -347.617
+[170,    21] loss: -350.097
+[170,    31] loss: -356.230
+[170,    41] loss: -373.933
+[170,    51] loss: -350.323
+validation....
+[170,     1] loss: -353.601
+Epoch 170: Train: avg. loss: -343.130
+Epoch 170: Valid: avg. loss: -338.261
+Saving best model at epoch 170
+Generating sequence....
+training.....
+[171,     1] loss: -329.027
+[171,    11] loss: -345.779
+[171,    21] loss: -340.669
+[171,    31] loss: -347.360
+[171,    41] loss: -331.993
+[171,    51] loss: -328.642
+validation....
+[171,     1] loss: -355.444
+Epoch 171: Train: avg. loss: -343.381
+Epoch 171: Valid: avg. loss: -343.190
+Saving best model at epoch 171
+Generating sequence....
+training.....
+[172,     1] loss: -365.543
+[172,    11] loss: -335.124
+[172,    21] loss: -343.875
+[172,    31] loss: -349.595
+[172,    41] loss: -344.732
+[172,    51] loss: -327.739
+validation....
+[172,     1] loss: -355.747
+Epoch 172: Train: avg. loss: -344.811
+Epoch 172: Valid: avg. loss: -341.222
+training.....
+[173,     1] loss: -370.273
+[173,    11] loss: -351.416
+[173,    21] loss: -332.051
+[173,    31] loss: -359.083
+[173,    41] loss: -326.767
+[173,    51] loss: -347.896
+validation....
+[173,     1] loss: -347.643
+Epoch 173: Train: avg. loss: -344.793
+Epoch 173: Valid: avg. loss: -339.637
+training.....
+[174,     1] loss: -347.217
+[174,    11] loss: -361.553
+[174,    21] loss: -363.834
+[174,    31] loss: -352.539
+[174,    41] loss: -364.668
+[174,    51] loss: -337.765
+validation....
+[174,     1] loss: -352.999
+Epoch 174: Train: avg. loss: -346.252
+Epoch 174: Valid: avg. loss: -337.414
+training.....
+[175,     1] loss: -320.335
+[175,    11] loss: -339.291
+[175,    21] loss: -346.469
+[175,    31] loss: -338.111
+[175,    41] loss: -341.078
+[175,    51] loss: -341.604
+validation....
+[175,     1] loss: -352.027
+Epoch 175: Train: avg. loss: -345.521
+Epoch 175: Valid: avg. loss: -340.730
+training.....
+[176,     1] loss: -353.979
+[176,    11] loss: -353.250
+[176,    21] loss: -353.845
+[176,    31] loss: -348.117
+[176,    41] loss: -334.133
+[176,    51] loss: -346.966
+validation....
+[176,     1] loss: -353.157
+Epoch 176: Train: avg. loss: -347.486
+Epoch 176: Valid: avg. loss: -340.661
+training.....
+[177,     1] loss: -360.120
+[177,    11] loss: -379.502
+[177,    21] loss: -348.844
+[177,    31] loss: -356.016
+[177,    41] loss: -355.520
+[177,    51] loss: -350.208
+validation....
+[177,     1] loss: -350.180
+Epoch 177: Train: avg. loss: -348.231
+Epoch 177: Valid: avg. loss: -341.076
+training.....
+[178,     1] loss: -350.970
+[178,    11] loss: -352.027
+[178,    21] loss: -355.823
+[178,    31] loss: -347.918
+[178,    41] loss: -347.293
+[178,    51] loss: -339.306
+validation....
+[178,     1] loss: -360.786
+Epoch 178: Train: avg. loss: -348.503
+Epoch 178: Valid: avg. loss: -344.826
+Saving best model at epoch 178
+Generating sequence....
+training.....
+[179,     1] loss: -348.552
+[179,    11] loss: -354.792
+[179,    21] loss: -370.409
+[179,    31] loss: -353.984
+[179,    41] loss: -352.623
+[179,    51] loss: -342.332
+validation....
+[179,     1] loss: -353.850
+Epoch 179: Train: avg. loss: -348.936
+Epoch 179: Valid: avg. loss: -339.597
+training.....
+[180,     1] loss: -365.667
+[180,    11] loss: -340.169
+[180,    21] loss: -362.132
+[180,    31] loss: -341.946
+[180,    41] loss: -352.414
+[180,    51] loss: -340.385
+validation....
+[180,     1] loss: -353.556
+Epoch 180: Train: avg. loss: -349.174
+Epoch 180: Valid: avg. loss: -344.224
+training.....
+[181,     1] loss: -349.847
+[181,    11] loss: -362.652
+[181,    21] loss: -358.529
+[181,    31] loss: -352.246
+[181,    41] loss: -341.204
+[181,    51] loss: -338.727
+validation....
+[181,     1] loss: -348.211
+Epoch 181: Train: avg. loss: -349.443
+Epoch 181: Valid: avg. loss: -340.411
+training.....
+[182,     1] loss: -345.956
+[182,    11] loss: -352.782
+[182,    21] loss: -359.778
+[182,    31] loss: -347.030
+[182,    41] loss: -358.254
+[182,    51] loss: -369.988
+validation....
+[182,     1] loss: -356.232
+Epoch 182: Train: avg. loss: -350.341
+Epoch 182: Valid: avg. loss: -346.063
+Saving best model at epoch 182
+Generating sequence....
+training.....
+[183,     1] loss: -344.790
+[183,    11] loss: -344.462
+[183,    21] loss: -354.336
+[183,    31] loss: -361.746
+[183,    41] loss: -352.524
+[183,    51] loss: -340.943
+validation....
+[183,     1] loss: -355.288
+Epoch 183: Train: avg. loss: -350.812
+Epoch 183: Valid: avg. loss: -344.319
+training.....
+[184,     1] loss: -345.461
+[184,    11] loss: -359.441
+[184,    21] loss: -355.505
+[184,    31] loss: -349.291
+[184,    41] loss: -365.992
+[184,    51] loss: -355.263
+validation....
+[184,     1] loss: -357.645
+Epoch 184: Train: avg. loss: -352.772
+Epoch 184: Valid: avg. loss: -348.265
+Saving best model at epoch 184
+Generating sequence....
+training.....
+[185,     1] loss: -362.529
+[185,    11] loss: -358.843
+[185,    21] loss: -352.910
+[185,    31] loss: -343.027
+[185,    41] loss: -358.394
+[185,    51] loss: -365.539
+validation....
+[185,     1] loss: -366.026
+Epoch 185: Train: avg. loss: -353.740
+Epoch 185: Valid: avg. loss: -347.582
+training.....
+[186,     1] loss: -368.300
+[186,    11] loss: -363.752
+[186,    21] loss: -356.115
+[186,    31] loss: -346.569
+[186,    41] loss: -351.148
+[186,    51] loss: -349.588
+validation....
+[186,     1] loss: -364.303
+Epoch 186: Train: avg. loss: -353.344
+Epoch 186: Valid: avg. loss: -348.328
+Saving best model at epoch 186
+Generating sequence....
+training.....
+[187,     1] loss: -354.567
+[187,    11] loss: -349.297
+[187,    21] loss: -347.497
+[187,    31] loss: -363.378
+[187,    41] loss: -343.034
+[187,    51] loss: -348.087
+validation....
+[187,     1] loss: -358.067
+Epoch 187: Train: avg. loss: -354.574
+Epoch 187: Valid: avg. loss: -348.328
+training.....
+[188,     1] loss: -347.940
+[188,    11] loss: -351.019
+[188,    21] loss: -362.003
+[188,    31] loss: -345.771
+[188,    41] loss: -336.810
+[188,    51] loss: -344.563
+validation....
+[188,     1] loss: -356.246
+Epoch 188: Train: avg. loss: -356.535
+Epoch 188: Valid: avg. loss: -346.037
+training.....
+[189,     1] loss: -345.913
+[189,    11] loss: -357.579
+[189,    21] loss: -349.681
+[189,    31] loss: -348.854
+[189,    41] loss: -354.303
+[189,    51] loss: -373.999
+validation....
+[189,     1] loss: -360.473
+Epoch 189: Train: avg. loss: -356.070
+Epoch 189: Valid: avg. loss: -347.914
+training.....
+[190,     1] loss: -367.684
+[190,    11] loss: -350.578
+[190,    21] loss: -353.921
+[190,    31] loss: -356.546
+[190,    41] loss: -350.027
+[190,    51] loss: -358.411
+validation....
+[190,     1] loss: -366.995
+Epoch 190: Train: avg. loss: -356.958
+Epoch 190: Valid: avg. loss: -350.756
+Saving best model at epoch 190
+Generating sequence....
+training.....
+[191,     1] loss: -349.134
+[191,    11] loss: -369.185
+[191,    21] loss: -357.667
+[191,    31] loss: -362.141
+[191,    41] loss: -362.547
+[191,    51] loss: -370.633
+validation....
+[191,     1] loss: -360.600
+Epoch 191: Train: avg. loss: -357.814
+Epoch 191: Valid: avg. loss: -346.940
+training.....
+[192,     1] loss: -365.962
+[192,    11] loss: -356.339
+[192,    21] loss: -354.348
+[192,    31] loss: -353.514
+[192,    41] loss: -354.190
+[192,    51] loss: -358.360
+validation....
+[192,     1] loss: -370.626
+Epoch 192: Train: avg. loss: -358.485
+Epoch 192: Valid: avg. loss: -354.467
+Saving best model at epoch 192
+Generating sequence....
+training.....
+[193,     1] loss: -355.892
+[193,    11] loss: -360.112
+[193,    21] loss: -368.317
+[193,    31] loss: -355.204
+[193,    41] loss: -356.061
+[193,    51] loss: -349.544
+validation....
+[193,     1] loss: -367.993
+Epoch 193: Train: avg. loss: -359.615
+Epoch 193: Valid: avg. loss: -350.919
+training.....
+[194,     1] loss: -353.020
+[194,    11] loss: -352.694
+[194,    21] loss: -367.033
+[194,    31] loss: -368.475
+[194,    41] loss: -349.642
+[194,    51] loss: -353.231
+validation....
+[194,     1] loss: -356.569
+Epoch 194: Train: avg. loss: -357.536
+Epoch 194: Valid: avg. loss: -346.747
+training.....
+[195,     1] loss: -356.868
+[195,    11] loss: -363.904
+[195,    21] loss: -369.071
+[195,    31] loss: -362.593
+[195,    41] loss: -343.621
+[195,    51] loss: -354.628
+validation....
+[195,     1] loss: -369.425
+Epoch 195: Train: avg. loss: -360.351
+Epoch 195: Valid: avg. loss: -354.315
+training.....
+[196,     1] loss: -363.697
+[196,    11] loss: -357.069
+[196,    21] loss: -360.032
+[196,    31] loss: -356.676
+[196,    41] loss: -363.306
+[196,    51] loss: -357.228
+validation....
+[196,     1] loss: -372.965
+Epoch 196: Train: avg. loss: -361.729
+Epoch 196: Valid: avg. loss: -354.911
+Saving best model at epoch 196
+Generating sequence....
+training.....
+[197,     1] loss: -374.667
+[197,    11] loss: -358.644
+[197,    21] loss: -375.624
+[197,    31] loss: -362.043
+[197,    41] loss: -360.402
+[197,    51] loss: -353.592
+validation....
+[197,     1] loss: -367.992
+Epoch 197: Train: avg. loss: -361.236
+Epoch 197: Valid: avg. loss: -355.806
+Saving best model at epoch 197
+Generating sequence....
+training.....
+[198,     1] loss: -363.842
+[198,    11] loss: -342.389
+[198,    21] loss: -354.371
+[198,    31] loss: -358.036
+[198,    41] loss: -363.895
+[198,    51] loss: -385.591
+validation....
+[198,     1] loss: -368.798
+Epoch 198: Train: avg. loss: -362.638
+Epoch 198: Valid: avg. loss: -352.396
+training.....
+[199,     1] loss: -360.930
+[199,    11] loss: -374.544
+[199,    21] loss: -359.346
+[199,    31] loss: -375.101
+[199,    41] loss: -359.469
+[199,    51] loss: -343.385
+validation....
+[199,     1] loss: -371.244
+Epoch 199: Train: avg. loss: -363.728
+Epoch 199: Valid: avg. loss: -356.057
+Saving best model at epoch 199
+Generating sequence....
+training.....
+[200,     1] loss: -355.743
+[200,    11] loss: -356.936
+[200,    21] loss: -370.005
+[200,    31] loss: -360.130
+[200,    41] loss: -355.243
+[200,    51] loss: -370.958
+validation....
+[200,     1] loss: -369.881
+Epoch 200: Train: avg. loss: -363.728
+Epoch 200: Valid: avg. loss: -355.097
+training.....
+[201,     1] loss: -374.853
+[201,    11] loss: -361.260
+[201,    21] loss: -369.770
+[201,    31] loss: -374.438
+[201,    41] loss: -364.529
+[201,    51] loss: -355.244
+validation....
+[201,     1] loss: -375.358
+Epoch 201: Train: avg. loss: -365.180
+Epoch 201: Valid: avg. loss: -358.267
+Saving best model at epoch 201
+Generating sequence....
+training.....
+[202,     1] loss: -365.759
+[202,    11] loss: -344.326
+[202,    21] loss: -366.993
+[202,    31] loss: -359.660
+[202,    41] loss: -365.457
+[202,    51] loss: -350.362
+validation....
+[202,     1] loss: -365.320
+Epoch 202: Train: avg. loss: -361.530
+Epoch 202: Valid: avg. loss: -356.819
+training.....
+[203,     1] loss: -374.982
+[203,    11] loss: -363.808
+[203,    21] loss: -391.725
+[203,    31] loss: -362.366
+[203,    41] loss: -357.933
+[203,    51] loss: -349.900
+validation....
+[203,     1] loss: -374.110
+Epoch 203: Train: avg. loss: -365.190
+Epoch 203: Valid: avg. loss: -354.389
+training.....
+[204,     1] loss: -381.459
+[204,    11] loss: -375.749
+[204,    21] loss: -353.492
+[204,    31] loss: -364.000
+[204,    41] loss: -357.667
+[204,    51] loss: -359.273
+validation....
+[204,     1] loss: -370.875
+Epoch 204: Train: avg. loss: -365.859
+Epoch 204: Valid: avg. loss: -356.127
+training.....
+[205,     1] loss: -375.962
+[205,    11] loss: -382.601
+[205,    21] loss: -354.751
+[205,    31] loss: -370.345
+[205,    41] loss: -377.396
+[205,    51] loss: -368.853
+validation....
+[205,     1] loss: -373.086
+Epoch 205: Train: avg. loss: -368.077
+Epoch 205: Valid: avg. loss: -359.013
+Saving best model at epoch 205
+Generating sequence....
+training.....
+[206,     1] loss: -382.531
+[206,    11] loss: -377.010
+[206,    21] loss: -362.702
+[206,    31] loss: -371.737
+[206,    41] loss: -356.048
+[206,    51] loss: -371.628
+validation....
+[206,     1] loss: -370.622
+Epoch 206: Train: avg. loss: -368.484
+Epoch 206: Valid: avg. loss: -357.176
+training.....
+[207,     1] loss: -371.107
+[207,    11] loss: -375.885
+[207,    21] loss: -379.860
+[207,    31] loss: -368.663
+[207,    41] loss: -365.110
+[207,    51] loss: -368.131
+validation....
+[207,     1] loss: -371.927
+Epoch 207: Train: avg. loss: -369.075
+Epoch 207: Valid: avg. loss: -357.396
+training.....
+[208,     1] loss: -377.888
+[208,    11] loss: -386.414
+[208,    21] loss: -374.964
+[208,    31] loss: -381.331
+[208,    41] loss: -380.125
+[208,    51] loss: -356.980
+validation....
+[208,     1] loss: -374.658
+Epoch 208: Train: avg. loss: -368.577
+Epoch 208: Valid: avg. loss: -360.215
+Saving best model at epoch 208
+Generating sequence....
+training.....
+[209,     1] loss: -361.379
+[209,    11] loss: -374.169
+[209,    21] loss: -374.563
+[209,    31] loss: -374.647
+[209,    41] loss: -373.273
+[209,    51] loss: -368.732
+validation....
+[209,     1] loss: -370.959
+Epoch 209: Train: avg. loss: -369.772
+Epoch 209: Valid: avg. loss: -356.886
+training.....
+[210,     1] loss: -346.978
+[210,    11] loss: -370.362
+[210,    21] loss: -370.251
+[210,    31] loss: -367.433
+[210,    41] loss: -363.016
+[210,    51] loss: -362.084
+validation....
+[210,     1] loss: -380.537
+Epoch 210: Train: avg. loss: -370.169
+Epoch 210: Valid: avg. loss: -362.966
+Saving best model at epoch 210
+Generating sequence....
+training.....
+[211,     1] loss: -385.819
+[211,    11] loss: -368.460
+[211,    21] loss: -383.187
+[211,    31] loss: -380.324
+[211,    41] loss: -371.312
+[211,    51] loss: -369.184
+validation....
+[211,     1] loss: -374.457
+Epoch 211: Train: avg. loss: -371.614
+Epoch 211: Valid: avg. loss: -358.117
+training.....
+[212,     1] loss: -356.953
+[212,    11] loss: -375.689
+[212,    21] loss: -370.423
+[212,    31] loss: -382.529
+[212,    41] loss: -363.908
+[212,    51] loss: -372.689
+validation....
+[212,     1] loss: -367.229
+Epoch 212: Train: avg. loss: -370.887
+Epoch 212: Valid: avg. loss: -357.465
+training.....
+[213,     1] loss: -385.393
+[213,    11] loss: -365.680
+[213,    21] loss: -381.635
+[213,    31] loss: -368.859
+[213,    41] loss: -375.275
+[213,    51] loss: -372.083
+validation....
+[213,     1] loss: -374.206
+Epoch 213: Train: avg. loss: -372.413
+Epoch 213: Valid: avg. loss: -362.729
+training.....
+[214,     1] loss: -373.036
+[214,    11] loss: -372.774
+[214,    21] loss: -381.265
+[214,    31] loss: -370.331
+[214,    41] loss: -364.643
+[214,    51] loss: -383.597
+validation....
+[214,     1] loss: -372.361
+Epoch 214: Train: avg. loss: -372.315
+Epoch 214: Valid: avg. loss: -361.547
+training.....
+[215,     1] loss: -375.600
+[215,    11] loss: -374.088
+[215,    21] loss: -379.735
+[215,    31] loss: -362.282
+[215,    41] loss: -385.663
+[215,    51] loss: -356.653
+validation....
+[215,     1] loss: -368.767
+Epoch 215: Train: avg. loss: -375.355
+Epoch 215: Valid: avg. loss: -363.371
+Saving best model at epoch 215
+Generating sequence....
+training.....
+[216,     1] loss: -368.238
+[216,    11] loss: -369.514
+[216,    21] loss: -380.475
+[216,    31] loss: -356.340
+[216,    41] loss: -363.357
+[216,    51] loss: -367.639
+validation....
+[216,     1] loss: -374.776
+Epoch 216: Train: avg. loss: -375.029
+Epoch 216: Valid: avg. loss: -363.378
+Saving best model at epoch 216
+Generating sequence....
+training.....
+[217,     1] loss: -371.130
+[217,    11] loss: -367.814
+[217,    21] loss: -380.607
+[217,    31] loss: -377.050
+[217,    41] loss: -373.913
+[217,    51] loss: -362.006
+validation....
+[217,     1] loss: -383.891
+Epoch 217: Train: avg. loss: -373.620
+Epoch 217: Valid: avg. loss: -365.319
+Saving best model at epoch 217
+Generating sequence....
+training.....
+[218,     1] loss: -386.210
+[218,    11] loss: -368.422
+[218,    21] loss: -384.337
+[218,    31] loss: -388.005
+[218,    41] loss: -377.886
+[218,    51] loss: -377.791
+validation....
+[218,     1] loss: -383.837
+Epoch 218: Train: avg. loss: -376.045
+Epoch 218: Valid: avg. loss: -365.725
+Saving best model at epoch 218
+Generating sequence....
+training.....
+[219,     1] loss: -384.289
+[219,    11] loss: -372.686
+[219,    21] loss: -391.220
+[219,    31] loss: -388.991
+[219,    41] loss: -379.487
+[219,    51] loss: -371.494
+validation....
+[219,     1] loss: -373.300
+Epoch 219: Train: avg. loss: -378.070
+Epoch 219: Valid: avg. loss: -364.950
+training.....
+[220,     1] loss: -360.021
+[220,    11] loss: -385.131
+[220,    21] loss: -382.496
+[220,    31] loss: -372.925
+[220,    41] loss: -361.709
+[220,    51] loss: -367.983
+validation....
+[220,     1] loss: -378.487
+Epoch 220: Train: avg. loss: -377.200
+Epoch 220: Valid: avg. loss: -367.095
+Saving best model at epoch 220
+Generating sequence....
+training.....
+[221,     1] loss: -393.017
+[221,    11] loss: -379.187
+[221,    21] loss: -376.201
+[221,    31] loss: -376.085
+[221,    41] loss: -366.373
+[221,    51] loss: -371.545
+validation....
+[221,     1] loss: -382.515
+Epoch 221: Train: avg. loss: -377.502
+Epoch 221: Valid: avg. loss: -370.017
+Saving best model at epoch 221
+Generating sequence....
+training.....
+[222,     1] loss: -371.598
+[222,    11] loss: -382.166
+[222,    21] loss: -382.886
+[222,    31] loss: -387.525
+[222,    41] loss: -363.283
+[222,    51] loss: -379.144
+validation....
+[222,     1] loss: -387.997
+Epoch 222: Train: avg. loss: -377.375
+Epoch 222: Valid: avg. loss: -367.941
+training.....
+[223,     1] loss: -377.394
+[223,    11] loss: -377.288
+[223,    21] loss: -382.415
+[223,    31] loss: -389.832
+[223,    41] loss: -373.385
+[223,    51] loss: -397.749
+validation....
+[223,     1] loss: -376.295
+Epoch 223: Train: avg. loss: -380.108
+Epoch 223: Valid: avg. loss: -363.858
+training.....
+[224,     1] loss: -395.235
+[224,    11] loss: -372.573
+[224,    21] loss: -395.420
+[224,    31] loss: -386.427
+[224,    41] loss: -368.895
+[224,    51] loss: -371.985
+validation....
+[224,     1] loss: -379.820
+Epoch 224: Train: avg. loss: -379.524
+Epoch 224: Valid: avg. loss: -370.284
+Saving best model at epoch 224
+Generating sequence....
+training.....
+[225,     1] loss: -382.482
+[225,    11] loss: -382.874
+[225,    21] loss: -387.795
+[225,    31] loss: -378.028
+[225,    41] loss: -377.656
+[225,    51] loss: -377.776
+validation....
+[225,     1] loss: -376.449
+Epoch 225: Train: avg. loss: -380.769
+Epoch 225: Valid: avg. loss: -367.530
+training.....
+[226,     1] loss: -385.378
+[226,    11] loss: -375.241
+[226,    21] loss: -398.355
+[226,    31] loss: -369.844
+[226,    41] loss: -376.951
+[226,    51] loss: -367.962
+validation....
+[226,     1] loss: -381.071
+Epoch 226: Train: avg. loss: -380.350
+Epoch 226: Valid: avg. loss: -371.349
+Saving best model at epoch 226
+Generating sequence....
+training.....
+[227,     1] loss: -382.580
+[227,    11] loss: -376.864
+[227,    21] loss: -382.642
+[227,    31] loss: -367.803
+[227,    41] loss: -387.541
+[227,    51] loss: -373.897
+validation....
+[227,     1] loss: -382.526
+Epoch 227: Train: avg. loss: -382.545
+Epoch 227: Valid: avg. loss: -370.884
+training.....
+[228,     1] loss: -387.125
+[228,    11] loss: -387.714
+[228,    21] loss: -376.913
+[228,    31] loss: -381.869
+[228,    41] loss: -376.776
+[228,    51] loss: -360.560
+validation....
+[228,     1] loss: -382.428
+Epoch 228: Train: avg. loss: -382.936
+Epoch 228: Valid: avg. loss: -369.130
+training.....
+[229,     1] loss: -372.720
+[229,    11] loss: -366.873
+[229,    21] loss: -379.369
+[229,    31] loss: -385.022
+[229,    41] loss: -390.378
+[229,    51] loss: -369.539
+validation....
+[229,     1] loss: -390.461
+Epoch 229: Train: avg. loss: -382.958
+Epoch 229: Valid: avg. loss: -371.074
+training.....
+[230,     1] loss: -386.271
+[230,    11] loss: -375.070
+[230,    21] loss: -387.687
+[230,    31] loss: -366.222
+[230,    41] loss: -390.039
+[230,    51] loss: -367.926
+validation....
+[230,     1] loss: -378.685
+Epoch 230: Train: avg. loss: -382.974
+Epoch 230: Valid: avg. loss: -371.387
+Saving best model at epoch 230
+Generating sequence....
+training.....
+[231,     1] loss: -392.063
+[231,    11] loss: -371.262
+[231,    21] loss: -389.761
+[231,    31] loss: -381.232
+[231,    41] loss: -394.446
+[231,    51] loss: -385.278
+validation....
+[231,     1] loss: -381.422
+Epoch 231: Train: avg. loss: -382.131
+Epoch 231: Valid: avg. loss: -368.473
+training.....
+[232,     1] loss: -380.549
+[232,    11] loss: -384.736
+[232,    21] loss: -373.790
+[232,    31] loss: -391.778
+[232,    41] loss: -378.003
+[232,    51] loss: -383.245
+validation....
+[232,     1] loss: -390.235
+Epoch 232: Train: avg. loss: -384.052
+Epoch 232: Valid: avg. loss: -374.282
+Saving best model at epoch 232
+Generating sequence....
+training.....
+[233,     1] loss: -387.444
+[233,    11] loss: -392.484
+[233,    21] loss: -392.484
+[233,    31] loss: -366.853
+[233,    41] loss: -378.902
+[233,    51] loss: -377.490
+validation....
+[233,     1] loss: -382.331
+Epoch 233: Train: avg. loss: -384.353
+Epoch 233: Valid: avg. loss: -368.601
+training.....
+[234,     1] loss: -380.386
+[234,    11] loss: -371.128
+[234,    21] loss: -380.863
+[234,    31] loss: -385.127
+[234,    41] loss: -382.170
+[234,    51] loss: -392.299
+validation....
+[234,     1] loss: -389.480
+Epoch 234: Train: avg. loss: -383.523
+Epoch 234: Valid: avg. loss: -377.185
+Saving best model at epoch 234
+Generating sequence....
+training.....
+[235,     1] loss: -396.653
+[235,    11] loss: -401.100
+[235,    21] loss: -385.757
+[235,    31] loss: -390.014
+[235,    41] loss: -384.410
+[235,    51] loss: -377.204
+validation....
+[235,     1] loss: -386.214
+Epoch 235: Train: avg. loss: -387.173
+Epoch 235: Valid: avg. loss: -374.462
+training.....
+[236,     1] loss: -388.829
+[236,    11] loss: -400.168
+[236,    21] loss: -394.949
+[236,    31] loss: -383.936
+[236,    41] loss: -381.391
+[236,    51] loss: -388.219
+validation....
+[236,     1] loss: -379.905
+Epoch 236: Train: avg. loss: -386.379
+Epoch 236: Valid: avg. loss: -372.301
+training.....
+[237,     1] loss: -399.082
+[237,    11] loss: -382.134
+[237,    21] loss: -378.685
+[237,    31] loss: -381.736
+[237,    41] loss: -371.723
+[237,    51] loss: -387.644
+validation....
+[237,     1] loss: -383.244
+Epoch 237: Train: avg. loss: -386.249
+Epoch 237: Valid: avg. loss: -370.795
+training.....
+[238,     1] loss: -392.327
+[238,    11] loss: -377.453
+[238,    21] loss: -391.045
+[238,    31] loss: -387.906
+[238,    41] loss: -375.168
+[238,    51] loss: -397.853
+validation....
+[238,     1] loss: -380.968
+Epoch 238: Train: avg. loss: -388.351
+Epoch 238: Valid: avg. loss: -374.695
+training.....
+[239,     1] loss: -396.236
+[239,    11] loss: -391.292
+[239,    21] loss: -388.149
+[239,    31] loss: -394.482
+[239,    41] loss: -380.943
+[239,    51] loss: -383.885
+validation....
+[239,     1] loss: -383.614
+Epoch 239: Train: avg. loss: -390.458
+Epoch 239: Valid: avg. loss: -374.103
+training.....
+[240,     1] loss: -402.989
+[240,    11] loss: -410.583
+[240,    21] loss: -374.755
+[240,    31] loss: -369.729
+[240,    41] loss: -397.113
+[240,    51] loss: -394.277
+validation....
+[240,     1] loss: -385.728
+Epoch 240: Train: avg. loss: -389.136
+Epoch 240: Valid: avg. loss: -373.414
+training.....
+[241,     1] loss: -402.682
+[241,    11] loss: -402.649
+[241,    21] loss: -383.707
+[241,    31] loss: -388.189
+[241,    41] loss: -383.378
+[241,    51] loss: -390.888
+validation....
+[241,     1] loss: -390.979
+Epoch 241: Train: avg. loss: -390.367
+Epoch 241: Valid: avg. loss: -379.913
+Saving best model at epoch 241
+Generating sequence....
+training.....
+[242,     1] loss: -397.140
+[242,    11] loss: -377.288
+[242,    21] loss: -391.974
+[242,    31] loss: -381.907
+[242,    41] loss: -409.852
+[242,    51] loss: -382.753
+validation....
+[242,     1] loss: -382.315
+Epoch 242: Train: avg. loss: -391.478
+Epoch 242: Valid: avg. loss: -376.737
+training.....
+[243,     1] loss: -422.382
+[243,    11] loss: -394.394
+[243,    21] loss: -389.152
+[243,    31] loss: -389.559
+[243,    41] loss: -389.642
+[243,    51] loss: -405.038
+validation....
+[243,     1] loss: -386.487
+Epoch 243: Train: avg. loss: -393.991
+Epoch 243: Valid: avg. loss: -375.763
+training.....
+[244,     1] loss: -401.471
+[244,    11] loss: -401.318
+[244,    21] loss: -396.988
+[244,    31] loss: -384.545
+[244,    41] loss: -390.992
+[244,    51] loss: -378.773
+validation....
+[244,     1] loss: -396.902
+Epoch 244: Train: avg. loss: -392.772
+Epoch 244: Valid: avg. loss: -381.796
+Saving best model at epoch 244
+Generating sequence....
+training.....
+[245,     1] loss: -400.454
+[245,    11] loss: -388.644
+[245,    21] loss: -396.594
+[245,    31] loss: -389.889
+[245,    41] loss: -395.805
+[245,    51] loss: -399.573
+validation....
+[245,     1] loss: -395.060
+Epoch 245: Train: avg. loss: -393.349
+Epoch 245: Valid: avg. loss: -381.983
+Saving best model at epoch 245
+Generating sequence....
+training.....
+[246,     1] loss: -406.851
+[246,    11] loss: -410.822
+[246,    21] loss: -393.684
+[246,    31] loss: -378.285
+[246,    41] loss: -388.172
+[246,    51] loss: -377.398
+validation....
+[246,     1] loss: -386.014
+Epoch 246: Train: avg. loss: -394.036
+Epoch 246: Valid: avg. loss: -381.311
+training.....
+[247,     1] loss: -406.887
+[247,    11] loss: -382.560
+[247,    21] loss: -403.937
+[247,    31] loss: -387.944
+[247,    41] loss: -389.297
+[247,    51] loss: -392.519
+validation....
+[247,     1] loss: -396.256
+Epoch 247: Train: avg. loss: -395.562
+Epoch 247: Valid: avg. loss: -380.397
+training.....
+[248,     1] loss: -409.976
+[248,    11] loss: -402.382
+[248,    21] loss: -390.758
+[248,    31] loss: -382.330
+[248,    41] loss: -405.783
+[248,    51] loss: -383.430
+validation....
+[248,     1] loss: -394.470
+Epoch 248: Train: avg. loss: -396.479
+Epoch 248: Valid: avg. loss: -380.999
+training.....
+[249,     1] loss: -405.289
+[249,    11] loss: -385.601
+[249,    21] loss: -383.694
+[249,    31] loss: -408.209
+[249,    41] loss: -372.624
+[249,    51] loss: -390.035
+validation....
+[249,     1] loss: -393.689
+Epoch 249: Train: avg. loss: -396.569
+Epoch 249: Valid: avg. loss: -381.164
+training.....
+[250,     1] loss: -404.682
+[250,    11] loss: -388.895
+[250,    21] loss: -399.231
+[250,    31] loss: -392.123
+[250,    41] loss: -403.594
+[250,    51] loss: -408.452
+validation....
+[250,     1] loss: -404.113
+Epoch 250: Train: avg. loss: -396.349
+Epoch 250: Valid: avg. loss: -381.578
+training.....
+[251,     1] loss: -412.903
+[251,    11] loss: -408.873
+[251,    21] loss: -396.421
+[251,    31] loss: -389.047
+[251,    41] loss: -405.652
+[251,    51] loss: -403.272
+validation....
+[251,     1] loss: -400.425
+Epoch 251: Train: avg. loss: -397.370
+Epoch 251: Valid: avg. loss: -385.063
+Saving best model at epoch 251
+Generating sequence....
+training.....
+[252,     1] loss: -396.917
+[252,    11] loss: -399.201
+[252,    21] loss: -397.561
+[252,    31] loss: -402.403
+[252,    41] loss: -409.539
+[252,    51] loss: -404.381
+validation....
+[252,     1] loss: -398.016
+Epoch 252: Train: avg. loss: -398.053
+Epoch 252: Valid: avg. loss: -378.527
+training.....
+[253,     1] loss: -386.522
+[253,    11] loss: -410.971
+[253,    21] loss: -398.729
+[253,    31] loss: -393.876
+[253,    41] loss: -394.184
+[253,    51] loss: -397.781
+validation....
+[253,     1] loss: -395.532
+Epoch 253: Train: avg. loss: -397.197
+Epoch 253: Valid: avg. loss: -381.563
+training.....
+[254,     1] loss: -393.516
+[254,    11] loss: -402.022
+[254,    21] loss: -399.144
+[254,    31] loss: -394.568
+[254,    41] loss: -400.606
+[254,    51] loss: -411.324
+validation....
+[254,     1] loss: -407.378
+Epoch 254: Train: avg. loss: -399.699
+Epoch 254: Valid: avg. loss: -383.921
+training.....
+[255,     1] loss: -392.164
+[255,    11] loss: -405.442
+[255,    21] loss: -400.708
+[255,    31] loss: -403.140
+[255,    41] loss: -398.852
+[255,    51] loss: -388.135
+validation....
+[255,     1] loss: -400.325
+Epoch 255: Train: avg. loss: -399.636
+Epoch 255: Valid: avg. loss: -384.255
+training.....
+[256,     1] loss: -401.159
+[256,    11] loss: -404.483
+[256,    21] loss: -402.331
+[256,    31] loss: -400.837
+[256,    41] loss: -400.609
+[256,    51] loss: -398.142
+validation....
+[256,     1] loss: -395.110
+Epoch 256: Train: avg. loss: -399.321
+Epoch 256: Valid: avg. loss: -384.785
+training.....
+[257,     1] loss: -406.779
+[257,    11] loss: -388.065
+[257,    21] loss: -401.423
+[257,    31] loss: -385.976
+[257,    41] loss: -400.136
+[257,    51] loss: -402.847
+validation....
+[257,     1] loss: -391.613
+Epoch 257: Train: avg. loss: -398.092
+Epoch 257: Valid: avg. loss: -384.585
+training.....
+[258,     1] loss: -410.390
+[258,    11] loss: -403.632
+[258,    21] loss: -392.916
+[258,    31] loss: -397.279
+[258,    41] loss: -403.260
+[258,    51] loss: -387.224
+validation....
+[258,     1] loss: -394.587
+Epoch 258: Train: avg. loss: -399.289
+Epoch 258: Valid: avg. loss: -382.800
+training.....
+[259,     1] loss: -390.930
+[259,    11] loss: -406.632
+[259,    21] loss: -393.087
+[259,    31] loss: -403.562
+[259,    41] loss: -402.654
+[259,    51] loss: -415.686
+validation....
+[259,     1] loss: -403.767
+Epoch 259: Train: avg. loss: -400.935
+Epoch 259: Valid: avg. loss: -386.414
+Saving best model at epoch 259
+Generating sequence....
+training.....
+[260,     1] loss: -405.776
+[260,    11] loss: -391.433
+[260,    21] loss: -401.871
+[260,    31] loss: -411.071
+[260,    41] loss: -406.201
+[260,    51] loss: -390.335
+validation....
+[260,     1] loss: -390.147
+Epoch 260: Train: avg. loss: -402.298
+Epoch 260: Valid: avg. loss: -382.534
+training.....
+[261,     1] loss: -400.875
+[261,    11] loss: -405.252
+[261,    21] loss: -411.752
+[261,    31] loss: -413.620
+[261,    41] loss: -400.564
+[261,    51] loss: -390.166
+validation....
+[261,     1] loss: -400.087
+Epoch 261: Train: avg. loss: -403.400
+Epoch 261: Valid: avg. loss: -384.800
+training.....
+[262,     1] loss: -392.873
+[262,    11] loss: -412.573
+[262,    21] loss: -411.768
+[262,    31] loss: -380.600
+[262,    41] loss: -404.497
+[262,    51] loss: -374.554
+validation....
+[262,     1] loss: -407.199
+Epoch 262: Train: avg. loss: -403.464
+Epoch 262: Valid: avg. loss: -388.452
+Saving best model at epoch 262
+Generating sequence....
+training.....
+[263,     1] loss: -409.297
+[263,    11] loss: -404.831
+[263,    21] loss: -412.621
+[263,    31] loss: -392.343
+[263,    41] loss: -408.593
+[263,    51] loss: -409.665
+validation....
+[263,     1] loss: -400.095
+Epoch 263: Train: avg. loss: -405.320
+Epoch 263: Valid: avg. loss: -387.463
+training.....
+[264,     1] loss: -411.848
+[264,    11] loss: -411.274
+[264,    21] loss: -414.276
+[264,    31] loss: -395.563
+[264,    41] loss: -404.164
+[264,    51] loss: -412.338
+validation....
+[264,     1] loss: -398.464
+Epoch 264: Train: avg. loss: -405.272
+Epoch 264: Valid: avg. loss: -386.858
+training.....
+[265,     1] loss: -410.317
+[265,    11] loss: -400.231
+[265,    21] loss: -408.126
+[265,    31] loss: -402.308
+[265,    41] loss: -408.785
+[265,    51] loss: -420.261
+validation....
+[265,     1] loss: -406.551
+Epoch 265: Train: avg. loss: -405.695
+Epoch 265: Valid: avg. loss: -389.944
+Saving best model at epoch 265
+Generating sequence....
+training.....
+[266,     1] loss: -399.740
+[266,    11] loss: -397.802
+[266,    21] loss: -400.557
+[266,    31] loss: -401.737
+[266,    41] loss: -407.938
+[266,    51] loss: -419.141
+validation....
+[266,     1] loss: -405.012
+Epoch 266: Train: avg. loss: -405.393
+Epoch 266: Valid: avg. loss: -393.077
+Saving best model at epoch 266
+Generating sequence....
+training.....
+[267,     1] loss: -410.171
+[267,    11] loss: -418.772
+[267,    21] loss: -402.942
+[267,    31] loss: -401.301
+[267,    41] loss: -375.499
+[267,    51] loss: -419.455
+validation....
+[267,     1] loss: -403.536
+Epoch 267: Train: avg. loss: -405.798
+Epoch 267: Valid: avg. loss: -390.426
+training.....
+[268,     1] loss: -420.665
+[268,    11] loss: -405.437
+[268,    21] loss: -403.531
+[268,    31] loss: -401.186
+[268,    41] loss: -389.521
+[268,    51] loss: -401.630
+validation....
+[268,     1] loss: -399.548
+Epoch 268: Train: avg. loss: -406.053
+Epoch 268: Valid: avg. loss: -388.800
+training.....
+[269,     1] loss: -400.980
+[269,    11] loss: -405.404
+[269,    21] loss: -413.286
+[269,    31] loss: -397.635
+[269,    41] loss: -401.210
+[269,    51] loss: -407.775
+validation....
+[269,     1] loss: -401.096
+Epoch 269: Train: avg. loss: -406.186
+Epoch 269: Valid: avg. loss: -387.008
+training.....
+[270,     1] loss: -426.946
+[270,    11] loss: -411.621
+[270,    21] loss: -405.828
+[270,    31] loss: -389.890
+[270,    41] loss: -394.932
+[270,    51] loss: -418.096
+validation....
+[270,     1] loss: -401.609
+Epoch 270: Train: avg. loss: -408.524
+Epoch 270: Valid: avg. loss: -388.934
+training.....
+[271,     1] loss: -435.881
+[271,    11] loss: -413.161
+[271,    21] loss: -406.050
+[271,    31] loss: -396.492
+[271,    41] loss: -414.954
+[271,    51] loss: -415.545
+validation....
+[271,     1] loss: -404.359
+Epoch 271: Train: avg. loss: -408.575
+Epoch 271: Valid: avg. loss: -389.900
+training.....
+[272,     1] loss: -416.983
+[272,    11] loss: -418.893
+[272,    21] loss: -429.618
+[272,    31] loss: -404.661
+[272,    41] loss: -410.528
+[272,    51] loss: -416.713
+validation....
+[272,     1] loss: -412.166
+Epoch 272: Train: avg. loss: -410.025
+Epoch 272: Valid: avg. loss: -393.326
+Saving best model at epoch 272
+Generating sequence....
+training.....
+[273,     1] loss: -415.197
+[273,    11] loss: -410.802
+[273,    21] loss: -402.504
+[273,    31] loss: -414.240
+[273,    41] loss: -407.891
+[273,    51] loss: -402.672
+validation....
+[273,     1] loss: -407.840
+Epoch 273: Train: avg. loss: -410.289
+Epoch 273: Valid: avg. loss: -396.077
+Saving best model at epoch 273
+Generating sequence....
+training.....
+[274,     1] loss: -411.245
+[274,    11] loss: -402.034
+[274,    21] loss: -412.112
+[274,    31] loss: -381.851
+[274,    41] loss: -409.750
+[274,    51] loss: -418.296
+validation....
+[274,     1] loss: -420.249
+Epoch 274: Train: avg. loss: -409.043
+Epoch 274: Valid: avg. loss: -396.556
+Saving best model at epoch 274
+Generating sequence....
+training.....
+[275,     1] loss: -413.770
+[275,    11] loss: -423.020
+[275,    21] loss: -410.345
+[275,    31] loss: -409.349
+[275,    41] loss: -410.082
+[275,    51] loss: -403.402
+validation....
+[275,     1] loss: -404.668
+Epoch 275: Train: avg. loss: -411.124
+Epoch 275: Valid: avg. loss: -394.701
+training.....
+[276,     1] loss: -420.741
+[276,    11] loss: -416.721
+[276,    21] loss: -398.161
+[276,    31] loss: -414.928
+[276,    41] loss: -408.572
+[276,    51] loss: -427.215
+validation....
+[276,     1] loss: -411.167
+Epoch 276: Train: avg. loss: -412.110
+Epoch 276: Valid: avg. loss: -395.212
+training.....
+[277,     1] loss: -410.788
+[277,    11] loss: -407.013
+[277,    21] loss: -435.576
+[277,    31] loss: -417.780
+[277,    41] loss: -406.163
+[277,    51] loss: -407.423
+validation....
+[277,     1] loss: -400.222
+Epoch 277: Train: avg. loss: -412.493
+Epoch 277: Valid: avg. loss: -394.763
+training.....
+[278,     1] loss: -423.747
+[278,    11] loss: -412.487
+[278,    21] loss: -396.872
+[278,    31] loss: -402.404
+[278,    41] loss: -421.246
+[278,    51] loss: -403.403
+validation....
+[278,     1] loss: -408.066
+Epoch 278: Train: avg. loss: -412.565
+Epoch 278: Valid: avg. loss: -398.226
+Saving best model at epoch 278
+Generating sequence....
+training.....
+[279,     1] loss: -427.068
+[279,    11] loss: -420.971
+[279,    21] loss: -421.087
+[279,    31] loss: -429.133
+[279,    41] loss: -428.407
+[279,    51] loss: -412.268
+validation....
+[279,     1] loss: -409.832
+Epoch 279: Train: avg. loss: -412.850
+Epoch 279: Valid: avg. loss: -392.389
+training.....
+[280,     1] loss: -412.290
+[280,    11] loss: -403.836
+[280,    21] loss: -411.522
+[280,    31] loss: -416.824
+[280,    41] loss: -406.008
+[280,    51] loss: -427.524
+validation....
+[280,     1] loss: -413.421
+Epoch 280: Train: avg. loss: -413.961
+Epoch 280: Valid: avg. loss: -394.057
+training.....
+[281,     1] loss: -419.230
+[281,    11] loss: -401.254
+[281,    21] loss: -415.274
+[281,    31] loss: -425.049
+[281,    41] loss: -407.851
+[281,    51] loss: -406.980
+validation....
+[281,     1] loss: -404.174
+Epoch 281: Train: avg. loss: -413.634
+Epoch 281: Valid: avg. loss: -394.468
+training.....
+[282,     1] loss: -429.792
+[282,    11] loss: -404.941
+[282,    21] loss: -414.741
+[282,    31] loss: -407.575
+[282,    41] loss: -416.518
+[282,    51] loss: -411.686
+validation....
+[282,     1] loss: -414.606
+Epoch 282: Train: avg. loss: -412.759
+Epoch 282: Valid: avg. loss: -395.629
+training.....
+[283,     1] loss: -411.065
+[283,    11] loss: -437.912
+[283,    21] loss: -417.465
+[283,    31] loss: -413.597
+[283,    41] loss: -427.181
+[283,    51] loss: -414.768
+validation....
+[283,     1] loss: -412.317
+Epoch 283: Train: avg. loss: -414.994
+Epoch 283: Valid: avg. loss: -400.001
+Saving best model at epoch 283
+Generating sequence....
+training.....
+[284,     1] loss: -428.007
+[284,    11] loss: -414.487
+[284,    21] loss: -410.892
+[284,    31] loss: -420.959
+[284,    41] loss: -405.953
+[284,    51] loss: -416.672
+validation....
+[284,     1] loss: -408.245
+Epoch 284: Train: avg. loss: -415.699
+Epoch 284: Valid: avg. loss: -395.440
+training.....
+[285,     1] loss: -410.572
+[285,    11] loss: -416.787
+[285,    21] loss: -421.836
+[285,    31] loss: -414.203
+[285,    41] loss: -425.533
+[285,    51] loss: -411.156
+validation....
+[285,     1] loss: -414.262
+Epoch 285: Train: avg. loss: -416.440
+Epoch 285: Valid: avg. loss: -399.819
+training.....
+[286,     1] loss: -423.295
+[286,    11] loss: -421.790
+[286,    21] loss: -400.586
+[286,    31] loss: -414.236
+[286,    41] loss: -399.681
+[286,    51] loss: -420.599
+validation....
+[286,     1] loss: -412.171
+Epoch 286: Train: avg. loss: -417.034
+Epoch 286: Valid: avg. loss: -398.042
+training.....
+[287,     1] loss: -411.671
+[287,    11] loss: -421.509
+[287,    21] loss: -435.435
+[287,    31] loss: -408.292
+[287,    41] loss: -425.213
+[287,    51] loss: -416.413
+validation....
+[287,     1] loss: -421.770
+Epoch 287: Train: avg. loss: -418.349
+Epoch 287: Valid: avg. loss: -402.771
+Saving best model at epoch 287
+Generating sequence....
+training.....
+[288,     1] loss: -416.815
+[288,    11] loss: -422.153
+[288,    21] loss: -416.570
+[288,    31] loss: -418.225
+[288,    41] loss: -434.190
+[288,    51] loss: -423.692
+validation....
+[288,     1] loss: -415.172
+Epoch 288: Train: avg. loss: -418.080
+Epoch 288: Valid: avg. loss: -402.664
+training.....
+[289,     1] loss: -433.333
+[289,    11] loss: -428.154
+[289,    21] loss: -413.494
+[289,    31] loss: -424.026
+[289,    41] loss: -395.561
+[289,    51] loss: -404.692
+validation....
+[289,     1] loss: -413.186
+Epoch 289: Train: avg. loss: -418.326
+Epoch 289: Valid: avg. loss: -402.220
+training.....
+[290,     1] loss: -426.803
+[290,    11] loss: -419.312
+[290,    21] loss: -410.887
+[290,    31] loss: -428.385
+[290,    41] loss: -417.401
+[290,    51] loss: -433.197
+validation....
+[290,     1] loss: -413.797
+Epoch 290: Train: avg. loss: -418.956
+Epoch 290: Valid: avg. loss: -399.494
+training.....
+[291,     1] loss: -418.045
+[291,    11] loss: -414.145
+[291,    21] loss: -424.539
+[291,    31] loss: -423.943
+[291,    41] loss: -414.957
+[291,    51] loss: -415.511
+validation....
+[291,     1] loss: -416.941
+Epoch 291: Train: avg. loss: -419.621
+Epoch 291: Valid: avg. loss: -401.952
+training.....
+[292,     1] loss: -431.893
+[292,    11] loss: -420.122
+[292,    21] loss: -422.036
+[292,    31] loss: -423.518
+[292,    41] loss: -423.024
+[292,    51] loss: -414.480
+validation....
+[292,     1] loss: -417.512
+Epoch 292: Train: avg. loss: -420.829
+Epoch 292: Valid: avg. loss: -397.222
+training.....
+[293,     1] loss: -410.706
+[293,    11] loss: -434.389
+[293,    21] loss: -431.346
+[293,    31] loss: -423.749
+[293,    41] loss: -438.833
+[293,    51] loss: -425.218
+validation....
+[293,     1] loss: -417.807
+Epoch 293: Train: avg. loss: -421.921
+Epoch 293: Valid: avg. loss: -403.837
+Saving best model at epoch 293
+Generating sequence....
+training.....
+[294,     1] loss: -432.285
+[294,    11] loss: -433.032
+[294,    21] loss: -420.256
+[294,    31] loss: -426.314
+[294,    41] loss: -424.108
+[294,    51] loss: -402.008
+validation....
+[294,     1] loss: -416.807
+Epoch 294: Train: avg. loss: -421.441
+Epoch 294: Valid: avg. loss: -403.920
+Saving best model at epoch 294
+Generating sequence....
+training.....
+[295,     1] loss: -426.776
+[295,    11] loss: -409.688
+[295,    21] loss: -420.065
+[295,    31] loss: -423.028
+[295,    41] loss: -418.018
+[295,    51] loss: -409.991
+validation....
+[295,     1] loss: -411.359
+Epoch 295: Train: avg. loss: -421.186
+Epoch 295: Valid: avg. loss: -402.098
+training.....
+[296,     1] loss: -426.129
+[296,    11] loss: -430.523
+[296,    21] loss: -416.807
+[296,    31] loss: -418.201
+[296,    41] loss: -422.989
+[296,    51] loss: -420.091
+validation....
+[296,     1] loss: -412.365
+Epoch 296: Train: avg. loss: -421.956
+Epoch 296: Valid: avg. loss: -404.366
+Saving best model at epoch 296
+Generating sequence....
+training.....
+[297,     1] loss: -419.331
+[297,    11] loss: -423.483
+[297,    21] loss: -434.178
+[297,    31] loss: -409.963
+[297,    41] loss: -429.155
+[297,    51] loss: -426.605
+validation....
+[297,     1] loss: -420.366
+Epoch 297: Train: avg. loss: -424.064
+Epoch 297: Valid: avg. loss: -404.739
+Saving best model at epoch 297
+Generating sequence....
+training.....
+[298,     1] loss: -415.305
+[298,    11] loss: -422.141
+[298,    21] loss: -429.775
+[298,    31] loss: -411.893
+[298,    41] loss: -412.569
+[298,    51] loss: -414.363
+validation....
+[298,     1] loss: -415.910
+Epoch 298: Train: avg. loss: -423.779
+Epoch 298: Valid: avg. loss: -399.532
+training.....
+[299,     1] loss: -429.824
+[299,    11] loss: -426.364
+[299,    21] loss: -421.356
+[299,    31] loss: -417.204
+[299,    41] loss: -423.456
+[299,    51] loss: -430.793
+validation....
+[299,     1] loss: -423.439
+Epoch 299: Train: avg. loss: -422.925
+Epoch 299: Valid: avg. loss: -404.689
+training.....
+[300,     1] loss: -426.600
+[300,    11] loss: -434.068
+[300,    21] loss: -411.221
+[300,    31] loss: -426.158
+[300,    41] loss: -424.444
+[300,    51] loss: -418.989
+validation....
+[300,     1] loss: -414.087
+Epoch 300: Train: avg. loss: -424.168
+Epoch 300: Valid: avg. loss: -404.050
+training.....
+[301,     1] loss: -426.789
+[301,    11] loss: -433.562
+[301,    21] loss: -398.817
+[301,    31] loss: -421.428
+[301,    41] loss: -412.984
+[301,    51] loss: -423.635
+validation....
+[301,     1] loss: -423.740
+Epoch 301: Train: avg. loss: -425.550
+Epoch 301: Valid: avg. loss: -404.859
+Saving best model at epoch 301
+Generating sequence....
+training.....
+[302,     1] loss: -435.670
+[302,    11] loss: -449.050
+[302,    21] loss: -436.991
+[302,    31] loss: -453.016
+[302,    41] loss: -455.539
+[302,    51] loss: -442.658
+validation....
+[302,     1] loss: -438.146
+Epoch 302: Train: avg. loss: -446.261
+Epoch 302: Valid: avg. loss: -426.408
+Saving best model at epoch 302
+Generating sequence....
+training.....
+[303,     1] loss: -460.974
+[303,    11] loss: -463.206
+[303,    21] loss: -470.773
+[303,    31] loss: -447.359
+[303,    41] loss: -458.510
+[303,    51] loss: -455.460
+validation....
+[303,     1] loss: -441.467
+Epoch 303: Train: avg. loss: -455.487
+Epoch 303: Valid: avg. loss: -431.052
+Saving best model at epoch 303
+Generating sequence....
+training.....
+[304,     1] loss: -474.346
+[304,    11] loss: -478.844
+[304,    21] loss: -452.136
+[304,    31] loss: -454.694
+[304,    41] loss: -463.995
+[304,    51] loss: -470.249
+validation....
+[304,     1] loss: -452.079
+Epoch 304: Train: avg. loss: -461.785
+Epoch 304: Valid: avg. loss: -434.109
+Saving best model at epoch 304
+Generating sequence....
+training.....
+[305,     1] loss: -474.105
+[305,    11] loss: -471.062
+[305,    21] loss: -467.521
+[305,    31] loss: -449.619
+[305,    41] loss: -457.858
+[305,    51] loss: -473.808
+validation....
+[305,     1] loss: -451.157
+Epoch 305: Train: avg. loss: -464.650
+Epoch 305: Valid: avg. loss: -437.578
+Saving best model at epoch 305
+Generating sequence....
+training.....
+[306,     1] loss: -476.668
+[306,    11] loss: -470.425
+[306,    21] loss: -470.582
+[306,    31] loss: -443.852
+[306,    41] loss: -475.570
+[306,    51] loss: -464.383
+validation....
+[306,     1] loss: -451.219
+Epoch 306: Train: avg. loss: -467.853
+Epoch 306: Valid: avg. loss: -438.921
+Saving best model at epoch 306
+Generating sequence....
+training.....
+[307,     1] loss: -475.858
+[307,    11] loss: -467.263
+[307,    21] loss: -458.807
+[307,    31] loss: -459.824
+[307,    41] loss: -465.115
+[307,    51] loss: -474.311
+validation....
+[307,     1] loss: -457.828
+Epoch 307: Train: avg. loss: -471.233
+Epoch 307: Valid: avg. loss: -439.502
+Saving best model at epoch 307
+Generating sequence....
+training.....
+[308,     1] loss: -481.906
+[308,    11] loss: -474.720
+[308,    21] loss: -480.853
+[308,    31] loss: -467.708
+[308,    41] loss: -444.756
+[308,    51] loss: -473.165
+validation....
+[308,     1] loss: -453.733
+Epoch 308: Train: avg. loss: -472.502
+Epoch 308: Valid: avg. loss: -440.004
+Saving best model at epoch 308
+Generating sequence....
+training.....
+[309,     1] loss: -466.495
+[309,    11] loss: -465.249
+[309,    21] loss: -480.842
+[309,    31] loss: -484.290
+[309,    41] loss: -474.966
+[309,    51] loss: -464.157
+validation....
+[309,     1] loss: -459.186
+Epoch 309: Train: avg. loss: -473.922
+Epoch 309: Valid: avg. loss: -440.720
+Saving best model at epoch 309
+Generating sequence....
+training.....
+[310,     1] loss: -482.013
+[310,    11] loss: -485.337
+[310,    21] loss: -479.258
+[310,    31] loss: -468.899
+[310,    41] loss: -461.235
+[310,    51] loss: -475.534
+validation....
+[310,     1] loss: -468.244
+Epoch 310: Train: avg. loss: -475.590
+Epoch 310: Valid: avg. loss: -447.221
+Saving best model at epoch 310
+Generating sequence....
+training.....
+[311,     1] loss: -477.666
+[311,    11] loss: -482.452
+[311,    21] loss: -486.462
+[311,    31] loss: -485.043
+[311,    41] loss: -462.586
+[311,    51] loss: -456.674
+validation....
+[311,     1] loss: -457.126
+Epoch 311: Train: avg. loss: -476.872
+Epoch 311: Valid: avg. loss: -444.542
+training.....
+[312,     1] loss: -493.887
+[312,    11] loss: -470.971
+[312,    21] loss: -465.530
+[312,    31] loss: -493.618
+[312,    41] loss: -476.403
+[312,    51] loss: -467.368
+validation....
+[312,     1] loss: -464.461
+Epoch 312: Train: avg. loss: -477.137
+Epoch 312: Valid: avg. loss: -445.067
+training.....
+[313,     1] loss: -468.505
+[313,    11] loss: -481.685
+[313,    21] loss: -488.897
+[313,    31] loss: -478.279
+[313,    41] loss: -468.534
+[313,    51] loss: -477.152
+validation....
+[313,     1] loss: -466.902
+Epoch 313: Train: avg. loss: -478.156
+Epoch 313: Valid: avg. loss: -443.594
+training.....
+[314,     1] loss: -494.233
+[314,    11] loss: -473.603
+[314,    21] loss: -497.132
+[314,    31] loss: -480.997
+[314,    41] loss: -478.834
+[314,    51] loss: -478.337
+validation....
+[314,     1] loss: -457.274
+Epoch 314: Train: avg. loss: -480.278
+Epoch 314: Valid: avg. loss: -445.022
+training.....
+[315,     1] loss: -483.676
+[315,    11] loss: -448.330
+[315,    21] loss: -462.621
+[315,    31] loss: -481.086
+[315,    41] loss: -481.531
+[315,    51] loss: -464.184
+validation....
+[315,     1] loss: -460.273
+Epoch 315: Train: avg. loss: -479.274
+Epoch 315: Valid: avg. loss: -446.145
+training.....
+[316,     1] loss: -464.960
+[316,    11] loss: -478.327
+[316,    21] loss: -490.466
+[316,    31] loss: -483.506
+[316,    41] loss: -464.674
+[316,    51] loss: -487.053
+validation....
+[316,     1] loss: -471.889
+Epoch 316: Train: avg. loss: -480.999
+Epoch 316: Valid: avg. loss: -449.747
+Saving best model at epoch 316
+Generating sequence....
+training.....
+[317,     1] loss: -471.379
+[317,    11] loss: -485.243
+[317,    21] loss: -507.082
+[317,    31] loss: -494.098
+[317,    41] loss: -478.589
+[317,    51] loss: -501.454
+validation....
+[317,     1] loss: -466.238
+Epoch 317: Train: avg. loss: -480.842
+Epoch 317: Valid: avg. loss: -448.099
+training.....
+[318,     1] loss: -477.357
+[318,    11] loss: -488.355
+[318,    21] loss: -490.928
+[318,    31] loss: -470.561
+[318,    41] loss: -464.805
+[318,    51] loss: -498.728
+validation....
+[318,     1] loss: -478.119
+Epoch 318: Train: avg. loss: -482.975
+Epoch 318: Valid: avg. loss: -447.944
+training.....
+[319,     1] loss: -496.209
+[319,    11] loss: -489.684
+[319,    21] loss: -497.035
+[319,    31] loss: -470.708
+[319,    41] loss: -458.209
+[319,    51] loss: -458.294
+validation....
+[319,     1] loss: -462.116
+Epoch 319: Train: avg. loss: -483.466
+Epoch 319: Valid: avg. loss: -448.400
+training.....
+[320,     1] loss: -478.040
+[320,    11] loss: -478.769
+[320,    21] loss: -460.984
+[320,    31] loss: -483.177
+[320,    41] loss: -478.794
+[320,    51] loss: -500.751
+validation....
+[320,     1] loss: -459.501
+Epoch 320: Train: avg. loss: -484.184
+Epoch 320: Valid: avg. loss: -449.946
+Saving best model at epoch 320
+Generating sequence....
+training.....
+[321,     1] loss: -480.720
+[321,    11] loss: -475.491
+[321,    21] loss: -508.197
+[321,    31] loss: -484.181
+[321,    41] loss: -466.678
+[321,    51] loss: -492.757
+validation....
+[321,     1] loss: -473.979
+Epoch 321: Train: avg. loss: -486.723
+Epoch 321: Valid: avg. loss: -446.642
+training.....
+[322,     1] loss: -496.793
+[322,    11] loss: -463.830
+[322,    21] loss: -497.410
+[322,    31] loss: -501.051
+[322,    41] loss: -497.724
+[322,    51] loss: -480.366
+validation....
+[322,     1] loss: -468.677
+Epoch 322: Train: avg. loss: -485.790
+Epoch 322: Valid: avg. loss: -448.986
+training.....
+[323,     1] loss: -471.166
+[323,    11] loss: -482.252
+[323,    21] loss: -480.640
+[323,    31] loss: -474.678
+[323,    41] loss: -493.228
+[323,    51] loss: -492.859
+validation....
+[323,     1] loss: -473.471
+Epoch 323: Train: avg. loss: -487.415
+Epoch 323: Valid: avg. loss: -448.966
+training.....
+[324,     1] loss: -491.574
+[324,    11] loss: -502.256
+[324,    21] loss: -495.991
+[324,    31] loss: -496.306
+[324,    41] loss: -480.248
+[324,    51] loss: -469.724
+validation....
+[324,     1] loss: -464.928
+Epoch 324: Train: avg. loss: -487.154
+Epoch 324: Valid: avg. loss: -447.566
+training.....
+[325,     1] loss: -489.967
+[325,    11] loss: -507.893
+[325,    21] loss: -511.923
+[325,    31] loss: -460.760
+[325,    41] loss: -495.633
+[325,    51] loss: -490.041
+validation....
+[325,     1] loss: -472.296
+Epoch 325: Train: avg. loss: -489.815
+Epoch 325: Valid: avg. loss: -453.156
+Saving best model at epoch 325
+Generating sequence....
+training.....
+[326,     1] loss: -512.454
+[326,    11] loss: -498.503
+[326,    21] loss: -485.444
+[326,    31] loss: -507.539
+[326,    41] loss: -527.034
+[326,    51] loss: -493.681
+validation....
+[326,     1] loss: -468.946
+Epoch 326: Train: avg. loss: -488.853
+Epoch 326: Valid: avg. loss: -450.300
+training.....
+[327,     1] loss: -514.427
+[327,    11] loss: -523.250
+[327,    21] loss: -480.698
+[327,    31] loss: -483.648
+[327,    41] loss: -498.241
+[327,    51] loss: -500.956
+validation....
+[327,     1] loss: -477.444
+Epoch 327: Train: avg. loss: -489.734
+Epoch 327: Valid: avg. loss: -452.684
+training.....
+[328,     1] loss: -483.782
+[328,    11] loss: -510.710
+[328,    21] loss: -499.740
+[328,    31] loss: -482.173
+[328,    41] loss: -465.238
+[328,    51] loss: -507.754
+validation....
+[328,     1] loss: -473.424
+Epoch 328: Train: avg. loss: -489.289
+Epoch 328: Valid: avg. loss: -448.962
+training.....
+[329,     1] loss: -462.605
+[329,    11] loss: -520.077
+[329,    21] loss: -493.254
+[329,    31] loss: -491.567
+[329,    41] loss: -492.330
+[329,    51] loss: -483.854
+validation....
+[329,     1] loss: -472.219
+Epoch 329: Train: avg. loss: -490.453
+Epoch 329: Valid: avg. loss: -451.780
+training.....
+[330,     1] loss: -477.067
+[330,    11] loss: -469.608
+[330,    21] loss: -488.717
+[330,    31] loss: -464.402
+[330,    41] loss: -480.079
+[330,    51] loss: -493.209
+validation....
+[330,     1] loss: -475.290
+Epoch 330: Train: avg. loss: -490.149
+Epoch 330: Valid: avg. loss: -455.193
+Saving best model at epoch 330
+Generating sequence....
+training.....
+[331,     1] loss: -493.417
+[331,    11] loss: -497.990
+[331,    21] loss: -498.180
+[331,    31] loss: -474.175
+[331,    41] loss: -500.257
+[331,    51] loss: -462.620
+validation....
+[331,     1] loss: -477.654
+Epoch 331: Train: avg. loss: -492.528
+Epoch 331: Valid: avg. loss: -454.326
+training.....
+[332,     1] loss: -479.616
+[332,    11] loss: -479.100
+[332,    21] loss: -514.813
+[332,    31] loss: -466.998
+[332,    41] loss: -490.715
+[332,    51] loss: -476.160
+validation....
+[332,     1] loss: -488.157
+Epoch 332: Train: avg. loss: -490.970
+Epoch 332: Valid: avg. loss: -454.013
+training.....
+[333,     1] loss: -491.217
+[333,    11] loss: -501.491
+[333,    21] loss: -474.048
+[333,    31] loss: -494.856
+[333,    41] loss: -475.280
+[333,    51] loss: -474.056
+validation....
+[333,     1] loss: -480.680
+Epoch 333: Train: avg. loss: -491.901
+Epoch 333: Valid: avg. loss: -454.458
+training.....
+[334,     1] loss: -510.864
+[334,    11] loss: -505.030
+[334,    21] loss: -480.654
+[334,    31] loss: -492.927
+[334,    41] loss: -510.894
+[334,    51] loss: -507.426
+validation....
+[334,     1] loss: -472.595
+Epoch 334: Train: avg. loss: -492.848
+Epoch 334: Valid: avg. loss: -453.403
+training.....
+[335,     1] loss: -490.064
+[335,    11] loss: -504.190
+[335,    21] loss: -513.367
+[335,    31] loss: -522.703
+[335,    41] loss: -490.172
+[335,    51] loss: -488.097
+validation....
+[335,     1] loss: -472.673
+Epoch 335: Train: avg. loss: -493.609
+Epoch 335: Valid: avg. loss: -454.062
+training.....
+[336,     1] loss: -499.699
+[336,    11] loss: -504.620
+[336,    21] loss: -509.800
+[336,    31] loss: -481.542
+[336,    41] loss: -508.102
+[336,    51] loss: -506.941
+validation....
+[336,     1] loss: -466.700
+Epoch 336: Train: avg. loss: -494.519
+Epoch 336: Valid: avg. loss: -454.104
+training.....
+[337,     1] loss: -478.239
+[337,    11] loss: -524.207
+[337,    21] loss: -490.369
+[337,    31] loss: -496.441
+[337,    41] loss: -485.363
+[337,    51] loss: -503.576
+validation....
+[337,     1] loss: -475.789
+Epoch 337: Train: avg. loss: -494.474
+Epoch 337: Valid: avg. loss: -453.694
+training.....
+[338,     1] loss: -509.587
+[338,    11] loss: -521.957
+[338,    21] loss: -472.750
+[338,    31] loss: -503.992
+[338,    41] loss: -515.125
+[338,    51] loss: -479.393
+validation....
+[338,     1] loss: -479.592
+Epoch 338: Train: avg. loss: -493.155
+Epoch 338: Valid: avg. loss: -457.528
+Saving best model at epoch 338
+Generating sequence....
+training.....
+[339,     1] loss: -504.999
+[339,    11] loss: -492.781
+[339,    21] loss: -489.891
+[339,    31] loss: -484.150
+[339,    41] loss: -484.221
+[339,    51] loss: -521.659
+validation....
+[339,     1] loss: -478.728
+Epoch 339: Train: avg. loss: -494.586
+Epoch 339: Valid: avg. loss: -456.931
+training.....
+[340,     1] loss: -494.752
+[340,    11] loss: -509.227
+[340,    21] loss: -484.531
+[340,    31] loss: -513.422
+[340,    41] loss: -505.421
+[340,    51] loss: -478.804
+validation....
+[340,     1] loss: -480.474
+Epoch 340: Train: avg. loss: -496.037
+Epoch 340: Valid: avg. loss: -457.212
+training.....
+[341,     1] loss: -471.800
+[341,    11] loss: -530.778
+[341,    21] loss: -508.010
+[341,    31] loss: -492.398
+[341,    41] loss: -496.375
+[341,    51] loss: -491.778
+validation....
+[341,     1] loss: -482.503
+Epoch 341: Train: avg. loss: -495.695
+Epoch 341: Valid: avg. loss: -452.737
+training.....
+[342,     1] loss: -470.086
+[342,    11] loss: -489.201
+[342,    21] loss: -518.838
+[342,    31] loss: -507.877
+[342,    41] loss: -476.210
+[342,    51] loss: -518.325
+validation....
+[342,     1] loss: -477.899
+Epoch 342: Train: avg. loss: -495.680
+Epoch 342: Valid: avg. loss: -457.735
+Saving best model at epoch 342
+Generating sequence....
+training.....
+[343,     1] loss: -496.755
+[343,    11] loss: -499.754
+[343,    21] loss: -496.020
+[343,    31] loss: -507.027
+[343,    41] loss: -497.944
+[343,    51] loss: -492.757
+validation....
+[343,     1] loss: -482.603
+Epoch 343: Train: avg. loss: -497.523
+Epoch 343: Valid: avg. loss: -458.045
+Saving best model at epoch 343
+Generating sequence....
+training.....
+[344,     1] loss: -493.385
+[344,    11] loss: -478.341
+[344,    21] loss: -499.858
+[344,    31] loss: -517.855
+[344,    41] loss: -483.578
+[344,    51] loss: -510.197
+validation....
+[344,     1] loss: -477.521
+Epoch 344: Train: avg. loss: -496.465
+Epoch 344: Valid: avg. loss: -454.647
+training.....
+[345,     1] loss: -502.667
+[345,    11] loss: -512.586
+[345,    21] loss: -469.068
+[345,    31] loss: -503.231
+[345,    41] loss: -488.909
+[345,    51] loss: -534.725
+validation....
+[345,     1] loss: -485.114
+Epoch 345: Train: avg. loss: -496.658
+Epoch 345: Valid: avg. loss: -458.189
+Saving best model at epoch 345
+Generating sequence....
+training.....
+[346,     1] loss: -477.550
+[346,    11] loss: -471.173
+[346,    21] loss: -519.585
+[346,    31] loss: -522.610
+[346,    41] loss: -488.220
+[346,    51] loss: -511.288
+validation....
+[346,     1] loss: -480.368
+Epoch 346: Train: avg. loss: -497.546
+Epoch 346: Valid: avg. loss: -456.689
+training.....
+[347,     1] loss: -521.622
+[347,    11] loss: -482.279
+[347,    21] loss: -505.323
+[347,    31] loss: -507.904
+[347,    41] loss: -485.493
+[347,    51] loss: -510.630
+validation....
+[347,     1] loss: -483.344
+Epoch 347: Train: avg. loss: -499.278
+Epoch 347: Valid: avg. loss: -456.654
+training.....
+[348,     1] loss: -481.343
+[348,    11] loss: -482.553
+[348,    21] loss: -481.306
+[348,    31] loss: -515.374
+[348,    41] loss: -480.250
+[348,    51] loss: -498.083
+validation....
+[348,     1] loss: -487.414
+Epoch 348: Train: avg. loss: -498.900
+Epoch 348: Valid: avg. loss: -456.613
+training.....
+[349,     1] loss: -518.410
+[349,    11] loss: -488.660
+[349,    21] loss: -503.540
+[349,    31] loss: -497.203
+[349,    41] loss: -508.684
+[349,    51] loss: -483.093
+validation....
+[349,     1] loss: -492.290
+Epoch 349: Train: avg. loss: -499.214
+Epoch 349: Valid: avg. loss: -461.518
+Saving best model at epoch 349
+Generating sequence....
+training.....
+[350,     1] loss: -491.745
+[350,    11] loss: -509.194
+[350,    21] loss: -500.982
+[350,    31] loss: -508.379
+[350,    41] loss: -485.429
+[350,    51] loss: -509.318
+validation....
+[350,     1] loss: -472.843
+Epoch 350: Train: avg. loss: -497.894
+Epoch 350: Valid: avg. loss: -454.190
+training.....
+[351,     1] loss: -492.904
+[351,    11] loss: -488.659
+[351,    21] loss: -485.054
+[351,    31] loss: -492.164
+[351,    41] loss: -493.279
+[351,    51] loss: -512.732
+validation....
+[351,     1] loss: -486.034
+Epoch 351: Train: avg. loss: -500.629
+Epoch 351: Valid: avg. loss: -454.346
+training.....
+[352,     1] loss: -500.524
+[352,    11] loss: -495.107
+[352,    21] loss: -535.606
+[352,    31] loss: -479.661
+[352,    41] loss: -488.734
+[352,    51] loss: -489.212
+validation....
+[352,     1] loss: -481.041
+Epoch 352: Train: avg. loss: -498.847
+Epoch 352: Valid: avg. loss: -455.524
+training.....
+[353,     1] loss: -515.755
+[353,    11] loss: -516.094
+[353,    21] loss: -504.039
+[353,    31] loss: -501.310
+[353,    41] loss: -511.051
+[353,    51] loss: -475.005
+validation....
+[353,     1] loss: -483.339
+Epoch 353: Train: avg. loss: -500.410
+Epoch 353: Valid: avg. loss: -459.967
+training.....
+[354,     1] loss: -510.614
+[354,    11] loss: -500.770
+[354,    21] loss: -497.820
+[354,    31] loss: -504.226
+[354,    41] loss: -498.817
+[354,    51] loss: -479.516
+validation....
+[354,     1] loss: -487.147
+Epoch 354: Train: avg. loss: -500.604
+Epoch 354: Valid: avg. loss: -459.192
+training.....
+[355,     1] loss: -488.682
+[355,    11] loss: -467.014
+[355,    21] loss: -483.745
+[355,    31] loss: -491.891
+[355,    41] loss: -502.033
+[355,    51] loss: -520.325
+validation....
+[355,     1] loss: -479.527
+Epoch 355: Train: avg. loss: -501.907
+Epoch 355: Valid: avg. loss: -461.235
+training.....
+[356,     1] loss: -502.326
+[356,    11] loss: -491.127
+[356,    21] loss: -528.226
+[356,    31] loss: -490.493
+[356,    41] loss: -504.971
+[356,    51] loss: -501.479
+validation....
+[356,     1] loss: -483.216
+Epoch 356: Train: avg. loss: -502.617
+Epoch 356: Valid: avg. loss: -462.849
+Saving best model at epoch 356
+Generating sequence....
+training.....
+[357,     1] loss: -487.119
+[357,    11] loss: -492.336
+[357,    21] loss: -472.977
+[357,    31] loss: -511.233
+[357,    41] loss: -489.291
+[357,    51] loss: -498.035
+validation....
+[357,     1] loss: -481.992
+Epoch 357: Train: avg. loss: -502.961
+Epoch 357: Valid: avg. loss: -460.305
+training.....
+[358,     1] loss: -537.902
+[358,    11] loss: -515.238
+[358,    21] loss: -484.429
+[358,    31] loss: -501.053
+[358,    41] loss: -513.309
+[358,    51] loss: -524.315
+validation....
+[358,     1] loss: -481.258
+Epoch 358: Train: avg. loss: -502.510
+Epoch 358: Valid: avg. loss: -460.439
+training.....
+[359,     1] loss: -507.035
+[359,    11] loss: -509.974
+[359,    21] loss: -494.111
+[359,    31] loss: -538.410
+[359,    41] loss: -486.081
+[359,    51] loss: -512.374
+validation....
+[359,     1] loss: -481.465
+Epoch 359: Train: avg. loss: -502.395
+Epoch 359: Valid: avg. loss: -460.387
+training.....
+[360,     1] loss: -491.836
+[360,    11] loss: -521.480
+[360,    21] loss: -503.300
+[360,    31] loss: -500.063
+[360,    41] loss: -513.006
+[360,    51] loss: -533.138
+validation....
+[360,     1] loss: -483.954
+Epoch 360: Train: avg. loss: -503.344
+Epoch 360: Valid: avg. loss: -459.447
+training.....
+[361,     1] loss: -504.379
+[361,    11] loss: -493.275
+[361,    21] loss: -495.148
+[361,    31] loss: -490.922
+[361,    41] loss: -511.570
+[361,    51] loss: -510.284
+validation....
+[361,     1] loss: -485.227
+Epoch 361: Train: avg. loss: -503.786
+Epoch 361: Valid: avg. loss: -461.554
+training.....
+[362,     1] loss: -496.742
+[362,    11] loss: -479.536
+[362,    21] loss: -511.669
+[362,    31] loss: -474.041
+[362,    41] loss: -518.774
+[362,    51] loss: -496.081
+validation....
+[362,     1] loss: -482.906
+Epoch 362: Train: avg. loss: -502.373
+Epoch 362: Valid: avg. loss: -463.465
+Saving best model at epoch 362
+Generating sequence....
+training.....
+[363,     1] loss: -479.162
+[363,    11] loss: -481.770
+[363,    21] loss: -502.581
+[363,    31] loss: -501.335
+[363,    41] loss: -530.577
+[363,    51] loss: -492.140
+validation....
+[363,     1] loss: -482.344
+Epoch 363: Train: avg. loss: -503.692
+Epoch 363: Valid: avg. loss: -463.588
+Saving best model at epoch 363
+Generating sequence....
+training.....
+[364,     1] loss: -484.077
+[364,    11] loss: -485.050
+[364,    21] loss: -487.995
+[364,    31] loss: -519.929
+[364,    41] loss: -487.368
+[364,    51] loss: -507.358
+validation....
+[364,     1] loss: -488.480
+Epoch 364: Train: avg. loss: -503.436
+Epoch 364: Valid: avg. loss: -461.315
+training.....
+[365,     1] loss: -503.461
+[365,    11] loss: -510.026
+[365,    21] loss: -525.814
+[365,    31] loss: -502.712
+[365,    41] loss: -485.917
+[365,    51] loss: -505.378
+validation....
+[365,     1] loss: -495.792
+Epoch 365: Train: avg. loss: -504.176
+Epoch 365: Valid: avg. loss: -461.784
+training.....
+[366,     1] loss: -484.694
+[366,    11] loss: -522.471
+[366,    21] loss: -514.347
+[366,    31] loss: -513.397
+[366,    41] loss: -477.417
+[366,    51] loss: -479.674
+validation....
+[366,     1] loss: -490.771
+Epoch 366: Train: avg. loss: -505.404
+Epoch 366: Valid: avg. loss: -464.349
+Saving best model at epoch 366
+Generating sequence....
+training.....
+[367,     1] loss: -509.650
+[367,    11] loss: -524.608
+[367,    21] loss: -514.836
+[367,    31] loss: -494.089
+[367,    41] loss: -520.345
+[367,    51] loss: -532.846
+validation....
+[367,     1] loss: -489.309
+Epoch 367: Train: avg. loss: -505.131
+Epoch 367: Valid: avg. loss: -463.106
+training.....
+[368,     1] loss: -505.261
+[368,    11] loss: -491.622
+[368,    21] loss: -493.642
+[368,    31] loss: -500.835
+[368,    41] loss: -501.924
+[368,    51] loss: -521.194
+validation....
+[368,     1] loss: -479.034
+Epoch 368: Train: avg. loss: -504.498
+Epoch 368: Valid: avg. loss: -459.114
+training.....
+[369,     1] loss: -479.455
+[369,    11] loss: -479.916
+[369,    21] loss: -496.087
+[369,    31] loss: -524.310
+[369,    41] loss: -504.665
+[369,    51] loss: -491.764
+validation....
+[369,     1] loss: -487.522
+Epoch 369: Train: avg. loss: -506.202
+Epoch 369: Valid: avg. loss: -465.172
+Saving best model at epoch 369
+Generating sequence....
+training.....
+[370,     1] loss: -515.699
+[370,    11] loss: -542.907
+[370,    21] loss: -479.885
+[370,    31] loss: -481.921
+[370,    41] loss: -551.227
+[370,    51] loss: -495.494
+validation....
+[370,     1] loss: -486.075
+Epoch 370: Train: avg. loss: -505.550
+Epoch 370: Valid: avg. loss: -460.390
+training.....
+[371,     1] loss: -502.673
+[371,    11] loss: -532.083
+[371,    21] loss: -489.789
+[371,    31] loss: -507.246
+[371,    41] loss: -514.707
+[371,    51] loss: -494.669
+validation....
+[371,     1] loss: -490.081
+Epoch 371: Train: avg. loss: -506.484
+Epoch 371: Valid: avg. loss: -460.653
+training.....
+[372,     1] loss: -483.828
+[372,    11] loss: -503.468
+[372,    21] loss: -517.257
+[372,    31] loss: -505.313
+[372,    41] loss: -512.999
+[372,    51] loss: -538.691
+validation....
+[372,     1] loss: -497.425
+Epoch 372: Train: avg. loss: -505.339
+Epoch 372: Valid: avg. loss: -467.740
+Saving best model at epoch 372
+Generating sequence....
+training.....
+[373,     1] loss: -495.577
+[373,    11] loss: -514.066
+[373,    21] loss: -495.923
+[373,    31] loss: -520.296
+[373,    41] loss: -503.072
+[373,    51] loss: -515.992
+validation....
+[373,     1] loss: -485.108
+Epoch 373: Train: avg. loss: -506.582
+Epoch 373: Valid: avg. loss: -459.906
+training.....
+[374,     1] loss: -516.680
+[374,    11] loss: -500.659
+[374,    21] loss: -490.847
+[374,    31] loss: -509.061
+[374,    41] loss: -497.294
+[374,    51] loss: -520.070
+validation....
+[374,     1] loss: -481.754
+Epoch 374: Train: avg. loss: -507.472
+Epoch 374: Valid: avg. loss: -459.632
+training.....
+[375,     1] loss: -521.347
+[375,    11] loss: -501.625
+[375,    21] loss: -505.151
+[375,    31] loss: -485.980
+[375,    41] loss: -502.607
+[375,    51] loss: -481.457
+validation....
+[375,     1] loss: -483.436
+Epoch 375: Train: avg. loss: -506.471
+Epoch 375: Valid: avg. loss: -466.524
+training.....
+[376,     1] loss: -532.544
+[376,    11] loss: -484.861
+[376,    21] loss: -495.183
+[376,    31] loss: -487.623
+[376,    41] loss: -506.220
+[376,    51] loss: -514.981
+validation....
+[376,     1] loss: -485.757
+Epoch 376: Train: avg. loss: -507.141
+Epoch 376: Valid: avg. loss: -463.048
+training.....
+[377,     1] loss: -519.879
+[377,    11] loss: -530.492
+[377,    21] loss: -513.503
+[377,    31] loss: -500.175
+[377,    41] loss: -500.306
+[377,    51] loss: -496.280
+validation....
+[377,     1] loss: -475.088
+Epoch 377: Train: avg. loss: -506.390
+Epoch 377: Valid: avg. loss: -459.446
+training.....
+[378,     1] loss: -478.781
+[378,    11] loss: -490.172
+[378,    21] loss: -520.180
+[378,    31] loss: -536.432
+[378,    41] loss: -488.958
+[378,    51] loss: -511.912
+validation....
+[378,     1] loss: -482.771
+Epoch 378: Train: avg. loss: -508.393
+Epoch 378: Valid: avg. loss: -462.042
+training.....
+[379,     1] loss: -516.321
+[379,    11] loss: -495.094
+[379,    21] loss: -507.748
+[379,    31] loss: -496.614
+[379,    41] loss: -526.331
+[379,    51] loss: -517.397
+validation....
+[379,     1] loss: -487.702
+Epoch 379: Train: avg. loss: -508.901
+Epoch 379: Valid: avg. loss: -464.885
+training.....
+[380,     1] loss: -499.527
+[380,    11] loss: -487.795
+[380,    21] loss: -525.835
+[380,    31] loss: -486.523
+[380,    41] loss: -507.373
+[380,    51] loss: -500.227
+validation....
+[380,     1] loss: -491.193
+Epoch 380: Train: avg. loss: -508.942
+Epoch 380: Valid: avg. loss: -464.998
+training.....
+[381,     1] loss: -500.666
+[381,    11] loss: -525.427
+[381,    21] loss: -526.679
+[381,    31] loss: -515.184
+[381,    41] loss: -522.032
+[381,    51] loss: -515.830
+validation....
+[381,     1] loss: -482.488
+Epoch 381: Train: avg. loss: -509.186
+Epoch 381: Valid: avg. loss: -462.691
+training.....
+[382,     1] loss: -534.828
+[382,    11] loss: -515.994
+[382,    21] loss: -498.191
+[382,    31] loss: -510.934
+[382,    41] loss: -520.441
+[382,    51] loss: -496.348
+validation....
+[382,     1] loss: -481.942
+Epoch 382: Train: avg. loss: -508.012
+Epoch 382: Valid: avg. loss: -464.577
+training.....
+[383,     1] loss: -507.144
+[383,    11] loss: -501.801
+[383,    21] loss: -503.736
+[383,    31] loss: -506.019
+[383,    41] loss: -508.211
+[383,    51] loss: -511.767
+validation....
+[383,     1] loss: -482.461
+Epoch 383: Train: avg. loss: -508.785
+Epoch 383: Valid: avg. loss: -463.799
+training.....
+[384,     1] loss: -486.006
+[384,    11] loss: -529.484
+[384,    21] loss: -515.547
+[384,    31] loss: -513.908
+[384,    41] loss: -488.771
+[384,    51] loss: -494.682
+validation....
+[384,     1] loss: -487.034
+Epoch 384: Train: avg. loss: -509.835
+Epoch 384: Valid: avg. loss: -465.134
+training.....
+[385,     1] loss: -529.554
+[385,    11] loss: -516.240
+[385,    21] loss: -514.446
+[385,    31] loss: -534.092
+[385,    41] loss: -513.427
+[385,    51] loss: -502.999
+validation....
+[385,     1] loss: -474.636
+Epoch 385: Train: avg. loss: -510.013
+Epoch 385: Valid: avg. loss: -462.022
+training.....
+[386,     1] loss: -491.591
+[386,    11] loss: -512.365
+[386,    21] loss: -513.475
+[386,    31] loss: -493.900
+[386,    41] loss: -505.476
+[386,    51] loss: -495.318
+validation....
+[386,     1] loss: -488.404
+Epoch 386: Train: avg. loss: -508.705
+Epoch 386: Valid: avg. loss: -465.717
+training.....
+[387,     1] loss: -526.261
+[387,    11] loss: -546.665
+[387,    21] loss: -482.614
+[387,    31] loss: -515.152
+[387,    41] loss: -524.406
+[387,    51] loss: -474.309
+validation....
+[387,     1] loss: -482.977
+Epoch 387: Train: avg. loss: -509.550
+Epoch 387: Valid: avg. loss: -463.597
+training.....
+[388,     1] loss: -513.678
+[388,    11] loss: -509.729
+[388,    21] loss: -505.177
+[388,    31] loss: -477.494
+[388,    41] loss: -526.908
+[388,    51] loss: -521.149
+validation....
+[388,     1] loss: -482.730
+Epoch 388: Train: avg. loss: -509.859
+Epoch 388: Valid: avg. loss: -466.892
+training.....
+[389,     1] loss: -520.292
+[389,    11] loss: -510.978
+[389,    21] loss: -520.122
+[389,    31] loss: -492.846
+[389,    41] loss: -468.481
+[389,    51] loss: -493.617
+validation....
+[389,     1] loss: -490.465
+Epoch 389: Train: avg. loss: -511.702
+Epoch 389: Valid: avg. loss: -466.145
+training.....
+[390,     1] loss: -491.809
+[390,    11] loss: -530.171
+[390,    21] loss: -508.361
+[390,    31] loss: -540.660
+[390,    41] loss: -524.230
+[390,    51] loss: -497.947
+validation....
+[390,     1] loss: -492.683
+Epoch 390: Train: avg. loss: -512.128
+Epoch 390: Valid: avg. loss: -464.049
+training.....
+[391,     1] loss: -515.878
+[391,    11] loss: -516.617
+[391,    21] loss: -484.703
+[391,    31] loss: -491.673
+[391,    41] loss: -493.912
+[391,    51] loss: -520.196
+validation....
+[391,     1] loss: -508.337
+Epoch 391: Train: avg. loss: -510.123
+Epoch 391: Valid: avg. loss: -464.818
+training.....
+[392,     1] loss: -481.770
+[392,    11] loss: -519.134
+[392,    21] loss: -495.569
+[392,    31] loss: -524.751
+[392,    41] loss: -525.706
+[392,    51] loss: -513.224
+validation....
+[392,     1] loss: -494.669
+Epoch 392: Train: avg. loss: -511.161
+Epoch 392: Valid: avg. loss: -465.451
+training.....
+[393,     1] loss: -533.942
+[393,    11] loss: -502.597
+[393,    21] loss: -513.634
+[393,    31] loss: -537.612
+[393,    41] loss: -524.161
+[393,    51] loss: -487.443
+validation....
+[393,     1] loss: -491.499
+Epoch 393: Train: avg. loss: -510.635
+Epoch 393: Valid: avg. loss: -466.363
+training.....
+[394,     1] loss: -489.717
+[394,    11] loss: -552.598
+[394,    21] loss: -516.516
+[394,    31] loss: -486.854
+[394,    41] loss: -522.831
+[394,    51] loss: -491.471
+validation....
+[394,     1] loss: -489.561
+Epoch 394: Train: avg. loss: -512.392
+Epoch 394: Valid: avg. loss: -466.294
+training.....
+[395,     1] loss: -510.723
+[395,    11] loss: -505.644
+[395,    21] loss: -513.675
+[395,    31] loss: -515.263
+[395,    41] loss: -489.810
+[395,    51] loss: -515.113
+validation....
+[395,     1] loss: -491.402
+Epoch 395: Train: avg. loss: -511.687
+Epoch 395: Valid: avg. loss: -466.183
+training.....
+[396,     1] loss: -494.085
+[396,    11] loss: -528.018
+[396,    21] loss: -505.953
+[396,    31] loss: -529.827
+[396,    41] loss: -512.704
+[396,    51] loss: -504.989
+validation....
+[396,     1] loss: -486.434
+Epoch 396: Train: avg. loss: -511.966
+Epoch 396: Valid: avg. loss: -466.631
+training.....
+[397,     1] loss: -529.999
+[397,    11] loss: -481.532
+[397,    21] loss: -484.746
+[397,    31] loss: -518.149
+[397,    41] loss: -520.924
+[397,    51] loss: -536.144
+validation....
+[397,     1] loss: -496.068
+Epoch 397: Train: avg. loss: -512.116
+Epoch 397: Valid: avg. loss: -468.723
+Saving best model at epoch 397
+Generating sequence....
+training.....
+[398,     1] loss: -485.311
+[398,    11] loss: -519.445
+[398,    21] loss: -500.529
+[398,    31] loss: -501.639
+[398,    41] loss: -512.544
+[398,    51] loss: -532.236
+validation....
+[398,     1] loss: -490.112
+Epoch 398: Train: avg. loss: -511.877
+Epoch 398: Valid: avg. loss: -470.119
+Saving best model at epoch 398
+Generating sequence....
+training.....
+[399,     1] loss: -477.512
+[399,    11] loss: -518.013
+[399,    21] loss: -504.454
+[399,    31] loss: -522.347
+[399,    41] loss: -516.593
+[399,    51] loss: -488.840
+validation....
+[399,     1] loss: -491.878
+Epoch 399: Train: avg. loss: -512.110
+Epoch 399: Valid: avg. loss: -466.706
+training.....
+[400,     1] loss: -491.262
+[400,    11] loss: -500.326
+[400,    21] loss: -502.275
+[400,    31] loss: -520.209
+[400,    41] loss: -479.752
+[400,    51] loss: -549.487
+validation....
+[400,     1] loss: -505.443
+Epoch 400: Train: avg. loss: -514.250
+Epoch 400: Valid: avg. loss: -472.274
+Saving best model at epoch 400
+Generating sequence....
+training.....
+[401,     1] loss: -511.426
+[401,    11] loss: -512.047
+[401,    21] loss: -524.523
+[401,    31] loss: -515.720
+[401,    41] loss: -512.995
+[401,    51] loss: -496.164
+validation....
+[401,     1] loss: -485.827
+Epoch 401: Train: avg. loss: -513.935
+Epoch 401: Valid: avg. loss: -467.055
+training.....
+[402,     1] loss: -532.611
+[402,    11] loss: -504.319
+[402,    21] loss: -530.881
+[402,    31] loss: -498.200
+[402,    41] loss: -520.826
+[402,    51] loss: -511.057
+validation....
+[402,     1] loss: -500.305
+Epoch 402: Train: avg. loss: -512.416
+Epoch 402: Valid: avg. loss: -468.643
+training.....
+[403,     1] loss: -490.711
+[403,    11] loss: -500.936
+[403,    21] loss: -519.520
+[403,    31] loss: -509.665
+[403,    41] loss: -500.079
+[403,    51] loss: -511.602
+validation....
+[403,     1] loss: -497.245
+Epoch 403: Train: avg. loss: -514.330
+Epoch 403: Valid: avg. loss: -464.593
+training.....
+[404,     1] loss: -495.813
+[404,    11] loss: -519.569
+[404,    21] loss: -507.772
+[404,    31] loss: -502.624
+[404,    41] loss: -517.446
+[404,    51] loss: -513.406
+validation....
+[404,     1] loss: -485.716
+Epoch 404: Train: avg. loss: -512.269
+Epoch 404: Valid: avg. loss: -463.246
+training.....
+[405,     1] loss: -499.227
+[405,    11] loss: -536.351
+[405,    21] loss: -522.051
+[405,    31] loss: -545.033
+[405,    41] loss: -507.880
+[405,    51] loss: -505.624
+validation....
+[405,     1] loss: -497.339
+Epoch 405: Train: avg. loss: -516.178
+Epoch 405: Valid: avg. loss: -470.740
+training.....
+[406,     1] loss: -497.022
+[406,    11] loss: -492.920
+[406,    21] loss: -521.458
+[406,    31] loss: -538.481
+[406,    41] loss: -529.369
+[406,    51] loss: -507.778
+validation....
+[406,     1] loss: -489.747
+Epoch 406: Train: avg. loss: -515.259
+Epoch 406: Valid: avg. loss: -467.187
+training.....
+[407,     1] loss: -501.243
+[407,    11] loss: -531.779
+[407,    21] loss: -506.277
+[407,    31] loss: -523.323
+[407,    41] loss: -564.451
+[407,    51] loss: -534.642
+validation....
+[407,     1] loss: -492.541
+Epoch 407: Train: avg. loss: -513.989
+Epoch 407: Valid: avg. loss: -468.336
+training.....
+[408,     1] loss: -507.443
+[408,    11] loss: -484.387
+[408,    21] loss: -543.950
+[408,    31] loss: -513.278
+[408,    41] loss: -500.363
+[408,    51] loss: -518.162
+validation....
+[408,     1] loss: -498.588
+Epoch 408: Train: avg. loss: -515.136
+Epoch 408: Valid: avg. loss: -472.390
+Saving best model at epoch 408
+Generating sequence....
+training.....
+[409,     1] loss: -500.421
+[409,    11] loss: -537.512
+[409,    21] loss: -509.444
+[409,    31] loss: -504.610
+[409,    41] loss: -487.571
+[409,    51] loss: -522.712
+validation....
+[409,     1] loss: -493.160
+Epoch 409: Train: avg. loss: -514.657
+Epoch 409: Valid: avg. loss: -470.458
+training.....
+[410,     1] loss: -507.409
+[410,    11] loss: -500.892
+[410,    21] loss: -517.703
+[410,    31] loss: -494.033
+[410,    41] loss: -504.755
+[410,    51] loss: -505.869
+validation....
+[410,     1] loss: -496.686
+Epoch 410: Train: avg. loss: -515.702
+Epoch 410: Valid: avg. loss: -472.426
+Saving best model at epoch 410
+Generating sequence....
+training.....
+[411,     1] loss: -507.262
+[411,    11] loss: -496.956
+[411,    21] loss: -491.974
+[411,    31] loss: -526.639
+[411,    41] loss: -503.790
+[411,    51] loss: -515.649
+validation....
+[411,     1] loss: -492.352
+Epoch 411: Train: avg. loss: -516.365
+Epoch 411: Valid: avg. loss: -467.053
+training.....
+[412,     1] loss: -529.343
+[412,    11] loss: -524.259
+[412,    21] loss: -505.093
+[412,    31] loss: -529.430
+[412,    41] loss: -513.749
+[412,    51] loss: -525.789
+validation....
+[412,     1] loss: -483.193
+Epoch 412: Train: avg. loss: -516.132
+Epoch 412: Valid: avg. loss: -466.729
+training.....
+[413,     1] loss: -535.380
+[413,    11] loss: -509.993
+[413,    21] loss: -542.173
+[413,    31] loss: -519.578
+[413,    41] loss: -522.079
+[413,    51] loss: -536.585
+validation....
+[413,     1] loss: -491.552
+Epoch 413: Train: avg. loss: -518.036
+Epoch 413: Valid: avg. loss: -467.572
+training.....
+[414,     1] loss: -538.670
+[414,    11] loss: -516.779
+[414,    21] loss: -497.189
+[414,    31] loss: -497.204
+[414,    41] loss: -510.045
+[414,    51] loss: -501.065
+validation....
+[414,     1] loss: -490.383
+Epoch 414: Train: avg. loss: -516.000
+Epoch 414: Valid: avg. loss: -468.167
+training.....
+[415,     1] loss: -521.399
+[415,    11] loss: -515.422
+[415,    21] loss: -517.308
+[415,    31] loss: -542.125
+[415,    41] loss: -500.301
+[415,    51] loss: -511.922
+validation....
+[415,     1] loss: -500.227
+Epoch 415: Train: avg. loss: -517.785
+Epoch 415: Valid: avg. loss: -468.766
+training.....
+[416,     1] loss: -524.538
+[416,    11] loss: -511.840
+[416,    21] loss: -509.472
+[416,    31] loss: -533.112
+[416,    41] loss: -502.680
+[416,    51] loss: -528.100
+validation....
+[416,     1] loss: -491.018
+Epoch 416: Train: avg. loss: -517.024
+Epoch 416: Valid: avg. loss: -468.723
+training.....
+[417,     1] loss: -517.143
+[417,    11] loss: -527.147
+[417,    21] loss: -551.935
+[417,    31] loss: -497.767
+[417,    41] loss: -534.136
+[417,    51] loss: -506.447
+validation....
+[417,     1] loss: -498.831
+Epoch 417: Train: avg. loss: -517.636
+Epoch 417: Valid: avg. loss: -469.095
+training.....
+[418,     1] loss: -494.123
+[418,    11] loss: -512.182
+[418,    21] loss: -516.254
+[418,    31] loss: -509.140
+[418,    41] loss: -522.213
+[418,    51] loss: -522.803
+validation....
+[418,     1] loss: -494.176
+Epoch 418: Train: avg. loss: -516.501
+Epoch 418: Valid: avg. loss: -466.016
+training.....
+[419,     1] loss: -528.814
+[419,    11] loss: -520.066
+[419,    21] loss: -532.857
+[419,    31] loss: -535.148
+[419,    41] loss: -514.525
+[419,    51] loss: -518.986
+validation....
+[419,     1] loss: -498.172
+Epoch 419: Train: avg. loss: -515.918
+Epoch 419: Valid: avg. loss: -469.467
+training.....
+[420,     1] loss: -504.293
+[420,    11] loss: -489.314
+[420,    21] loss: -560.508
+[420,    31] loss: -500.922
+[420,    41] loss: -542.932
+[420,    51] loss: -515.464
+validation....
+[420,     1] loss: -486.405
+Epoch 420: Train: avg. loss: -518.817
+Epoch 420: Valid: avg. loss: -466.336
+training.....
+[421,     1] loss: -509.850
+[421,    11] loss: -522.842
+[421,    21] loss: -530.353
+[421,    31] loss: -518.093
+[421,    41] loss: -508.608
+[421,    51] loss: -526.380
+validation....
+[421,     1] loss: -498.239
+Epoch 421: Train: avg. loss: -517.382
+Epoch 421: Valid: avg. loss: -476.200
+Saving best model at epoch 421
+Generating sequence....
+training.....
+[422,     1] loss: -529.928
+[422,    11] loss: -541.786
+[422,    21] loss: -504.784
+[422,    31] loss: -518.152
+[422,    41] loss: -487.141
+[422,    51] loss: -512.657
+validation....
+[422,     1] loss: -501.994
+Epoch 422: Train: avg. loss: -517.887
+Epoch 422: Valid: avg. loss: -473.108
+training.....
+[423,     1] loss: -537.041
+[423,    11] loss: -529.603
+[423,    21] loss: -549.188
+[423,    31] loss: -517.625
+[423,    41] loss: -514.108
+[423,    51] loss: -536.190
+validation....
+[423,     1] loss: -497.620
+Epoch 423: Train: avg. loss: -518.785
+Epoch 423: Valid: avg. loss: -472.379
+training.....
+[424,     1] loss: -517.905
+[424,    11] loss: -492.708
+[424,    21] loss: -546.318
+[424,    31] loss: -510.956
+[424,    41] loss: -492.876
+[424,    51] loss: -542.688
+validation....
+[424,     1] loss: -493.135
+Epoch 424: Train: avg. loss: -518.838
+Epoch 424: Valid: avg. loss: -470.214
+training.....
+[425,     1] loss: -526.874
+[425,    11] loss: -530.216
+[425,    21] loss: -504.565
+[425,    31] loss: -522.890
+[425,    41] loss: -517.461
+[425,    51] loss: -529.372
+validation....
+[425,     1] loss: -494.370
+Epoch 425: Train: avg. loss: -518.502
+Epoch 425: Valid: avg. loss: -471.158
+training.....
+[426,     1] loss: -487.213
+[426,    11] loss: -511.854
+[426,    21] loss: -546.830
+[426,    31] loss: -510.360
+[426,    41] loss: -495.736
+[426,    51] loss: -534.775
+validation....
+[426,     1] loss: -490.397
+Epoch 426: Train: avg. loss: -519.776
+Epoch 426: Valid: avg. loss: -468.627
+training.....
+[427,     1] loss: -497.087
+[427,    11] loss: -529.827
+[427,    21] loss: -539.708
+[427,    31] loss: -495.777
+[427,    41] loss: -502.516
+[427,    51] loss: -526.553
+validation....
+[427,     1] loss: -488.831
+Epoch 427: Train: avg. loss: -519.354
+Epoch 427: Valid: avg. loss: -469.684
+training.....
+[428,     1] loss: -533.224
+[428,    11] loss: -531.624
+[428,    21] loss: -548.269
+[428,    31] loss: -499.532
+[428,    41] loss: -534.585
+[428,    51] loss: -504.307
+validation....
+[428,     1] loss: -493.137
+Epoch 428: Train: avg. loss: -518.507
+Epoch 428: Valid: avg. loss: -470.361
+training.....
+[429,     1] loss: -505.389
+[429,    11] loss: -509.555
+[429,    21] loss: -553.365
+[429,    31] loss: -523.435
+[429,    41] loss: -492.874
+[429,    51] loss: -508.355
+validation....
+[429,     1] loss: -493.679
+Epoch 429: Train: avg. loss: -519.414
+Epoch 429: Valid: avg. loss: -469.210
+training.....
+[430,     1] loss: -510.027
+[430,    11] loss: -499.660
+[430,    21] loss: -507.859
+[430,    31] loss: -519.052
+[430,    41] loss: -526.779
+[430,    51] loss: -500.746
+validation....
+[430,     1] loss: -494.374
+Epoch 430: Train: avg. loss: -520.061
+Epoch 430: Valid: avg. loss: -465.781
+training.....
+[431,     1] loss: -501.931
+[431,    11] loss: -546.706
+[431,    21] loss: -513.041
+[431,    31] loss: -543.767
+[431,    41] loss: -505.894
+[431,    51] loss: -543.404
+validation....
+[431,     1] loss: -501.559
+Epoch 431: Train: avg. loss: -520.021
+Epoch 431: Valid: avg. loss: -474.039
+training.....
+[432,     1] loss: -550.641
+[432,    11] loss: -513.558
+[432,    21] loss: -551.360
+[432,    31] loss: -540.321
+[432,    41] loss: -524.249
+[432,    51] loss: -518.765
+validation....
+[432,     1] loss: -488.240
+Epoch 432: Train: avg. loss: -520.440
+Epoch 432: Valid: avg. loss: -472.975
+training.....
+[433,     1] loss: -475.640
+[433,    11] loss: -519.696
+[433,    21] loss: -542.846
+[433,    31] loss: -514.115
+[433,    41] loss: -512.897
+[433,    51] loss: -502.022
+validation....
+[433,     1] loss: -499.411
+Epoch 433: Train: avg. loss: -519.138
+Epoch 433: Valid: avg. loss: -471.664
+training.....
+[434,     1] loss: -520.471
+[434,    11] loss: -522.021
+[434,    21] loss: -554.119
+[434,    31] loss: -525.021
+[434,    41] loss: -505.704
+[434,    51] loss: -528.024
+validation....
+[434,     1] loss: -500.459
+Epoch 434: Train: avg. loss: -519.432
+Epoch 434: Valid: avg. loss: -477.205
+Saving best model at epoch 434
+Generating sequence....
+training.....
+[435,     1] loss: -498.076
+[435,    11] loss: -550.932
+[435,    21] loss: -563.163
+[435,    31] loss: -507.499
+[435,    41] loss: -532.005
+[435,    51] loss: -495.486
+validation....
+[435,     1] loss: -504.398
+Epoch 435: Train: avg. loss: -520.693
+Epoch 435: Valid: avg. loss: -479.567
+Saving best model at epoch 435
+Generating sequence....
+training.....
+[436,     1] loss: -533.489
+[436,    11] loss: -560.667
+[436,    21] loss: -508.777
+[436,    31] loss: -500.201
+[436,    41] loss: -524.301
+[436,    51] loss: -545.121
+validation....
+[436,     1] loss: -495.196
+Epoch 436: Train: avg. loss: -520.733
+Epoch 436: Valid: avg. loss: -473.547
+training.....
+[437,     1] loss: -541.697
+[437,    11] loss: -517.096
+[437,    21] loss: -510.143
+[437,    31] loss: -492.499
+[437,    41] loss: -525.590
+[437,    51] loss: -549.976
+validation....
+[437,     1] loss: -502.993
+Epoch 437: Train: avg. loss: -519.205
+Epoch 437: Valid: avg. loss: -476.003
+training.....
+[438,     1] loss: -496.065
+[438,    11] loss: -519.716
+[438,    21] loss: -527.969
+[438,    31] loss: -525.962
+[438,    41] loss: -501.866
+[438,    51] loss: -495.617
+validation....
+[438,     1] loss: -487.331
+Epoch 438: Train: avg. loss: -520.859
+Epoch 438: Valid: avg. loss: -470.103
+training.....
+[439,     1] loss: -543.900
+[439,    11] loss: -530.506
+[439,    21] loss: -508.752
+[439,    31] loss: -565.764
+[439,    41] loss: -513.286
+[439,    51] loss: -498.263
+validation....
+[439,     1] loss: -484.202
+Epoch 439: Train: avg. loss: -521.093
+Epoch 439: Valid: avg. loss: -472.189
+training.....
+[440,     1] loss: -532.669
+[440,    11] loss: -524.759
+[440,    21] loss: -535.704
+[440,    31] loss: -513.619
+[440,    41] loss: -499.100
+[440,    51] loss: -520.078
+validation....
+[440,     1] loss: -490.375
+Epoch 440: Train: avg. loss: -521.469
+Epoch 440: Valid: avg. loss: -469.999
+training.....
+[441,     1] loss: -515.922
+[441,    11] loss: -476.447
+[441,    21] loss: -508.462
+[441,    31] loss: -531.629
+[441,    41] loss: -508.197
+[441,    51] loss: -517.915
+validation....
+[441,     1] loss: -502.239
+Epoch 441: Train: avg. loss: -522.426
+Epoch 441: Valid: avg. loss: -478.283
+training.....
+[442,     1] loss: -527.072
+[442,    11] loss: -549.046
+[442,    21] loss: -528.081
+[442,    31] loss: -491.211
+[442,    41] loss: -546.429
+[442,    51] loss: -521.264
+validation....
+[442,     1] loss: -496.719
+Epoch 442: Train: avg. loss: -522.549
+Epoch 442: Valid: avg. loss: -471.905
+training.....
+[443,     1] loss: -551.410
+[443,    11] loss: -533.490
+[443,    21] loss: -534.422
+[443,    31] loss: -508.435
+[443,    41] loss: -546.973
+[443,    51] loss: -521.477
+validation....
+[443,     1] loss: -502.088
+Epoch 443: Train: avg. loss: -522.193
+Epoch 443: Valid: avg. loss: -472.349
+training.....
+[444,     1] loss: -526.929
+[444,    11] loss: -502.253
+[444,    21] loss: -514.382
+[444,    31] loss: -498.031
+[444,    41] loss: -515.714
+[444,    51] loss: -551.509
+validation....
+[444,     1] loss: -502.370
+Epoch 444: Train: avg. loss: -522.145
+Epoch 444: Valid: avg. loss: -477.046
+training.....
+[445,     1] loss: -531.198
+[445,    11] loss: -515.270
+[445,    21] loss: -559.220
+[445,    31] loss: -527.132
+[445,    41] loss: -526.026
+[445,    51] loss: -540.583
+validation....
+[445,     1] loss: -496.882
+Epoch 445: Train: avg. loss: -521.842
+Epoch 445: Valid: avg. loss: -473.409
+training.....
+[446,     1] loss: -507.936
+[446,    11] loss: -528.431
+[446,    21] loss: -541.884
+[446,    31] loss: -539.889
+[446,    41] loss: -527.620
+[446,    51] loss: -527.125
+validation....
+[446,     1] loss: -501.228
+Epoch 446: Train: avg. loss: -523.378
+Epoch 446: Valid: avg. loss: -475.126
+training.....
+[447,     1] loss: -496.594
+[447,    11] loss: -487.454
+[447,    21] loss: -501.585
+[447,    31] loss: -568.810
+[447,    41] loss: -531.302
+[447,    51] loss: -505.682
+validation....
+[447,     1] loss: -504.821
+Epoch 447: Train: avg. loss: -523.493
+Epoch 447: Valid: avg. loss: -475.126
+training.....
+[448,     1] loss: -535.904
+[448,    11] loss: -492.234
+[448,    21] loss: -558.494
+[448,    31] loss: -492.990
+[448,    41] loss: -511.279
+[448,    51] loss: -524.216
+validation....
+[448,     1] loss: -496.508
+Epoch 448: Train: avg. loss: -523.393
+Epoch 448: Valid: avg. loss: -476.682
+training.....
+[449,     1] loss: -519.639
+[449,    11] loss: -527.629
+[449,    21] loss: -521.744
+[449,    31] loss: -494.071
+[449,    41] loss: -522.706
+[449,    51] loss: -526.999
+validation....
+[449,     1] loss: -504.138
+Epoch 449: Train: avg. loss: -521.291
+Epoch 449: Valid: avg. loss: -475.249
+training.....
+[450,     1] loss: -508.520
+[450,    11] loss: -527.196
+[450,    21] loss: -545.598
+[450,    31] loss: -535.014
+[450,    41] loss: -527.438
+[450,    51] loss: -500.661
+validation....
+[450,     1] loss: -497.564
+Epoch 450: Train: avg. loss: -522.675
+Epoch 450: Valid: avg. loss: -472.110
+training.....
+[451,     1] loss: -558.182
+[451,    11] loss: -515.503
+[451,    21] loss: -520.384
+[451,    31] loss: -492.968
+[451,    41] loss: -535.176
+[451,    51] loss: -525.986
+validation....
+[451,     1] loss: -511.515
+Epoch 451: Train: avg. loss: -522.166
+Epoch 451: Valid: avg. loss: -476.540
+training.....
+[452,     1] loss: -516.714
+[452,    11] loss: -535.972
+[452,    21] loss: -551.567
+[452,    31] loss: -495.757
+[452,    41] loss: -545.477
+[452,    51] loss: -532.411
+validation....
+[452,     1] loss: -497.676
+Epoch 452: Train: avg. loss: -523.776
+Epoch 452: Valid: avg. loss: -476.325
+training.....
+[453,     1] loss: -543.538
+[453,    11] loss: -513.261
+[453,    21] loss: -520.224
+[453,    31] loss: -516.128
+[453,    41] loss: -542.222
+[453,    51] loss: -510.934
+validation....
+[453,     1] loss: -497.364
+Epoch 453: Train: avg. loss: -523.983
+Epoch 453: Valid: avg. loss: -472.888
+training.....
+[454,     1] loss: -494.957
+[454,    11] loss: -508.791
+[454,    21] loss: -516.703
+[454,    31] loss: -515.551
+[454,    41] loss: -550.231
+[454,    51] loss: -503.460
+validation....
+[454,     1] loss: -497.261
+Epoch 454: Train: avg. loss: -521.430
+Epoch 454: Valid: avg. loss: -473.793
+training.....
+[455,     1] loss: -505.545
+[455,    11] loss: -540.480
+[455,    21] loss: -512.221
+[455,    31] loss: -549.913
+[455,    41] loss: -513.425
+[455,    51] loss: -550.125
+validation....
+[455,     1] loss: -506.336
+Epoch 455: Train: avg. loss: -523.376
+Epoch 455: Valid: avg. loss: -475.888
+training.....
+[456,     1] loss: -500.780
+[456,    11] loss: -530.103
+[456,    21] loss: -554.554
+[456,    31] loss: -524.236
+[456,    41] loss: -532.292
+[456,    51] loss: -502.215
+validation....
+[456,     1] loss: -493.578
+Epoch 456: Train: avg. loss: -525.886
+Epoch 456: Valid: avg. loss: -474.317
+training.....
+[457,     1] loss: -502.821
+[457,    11] loss: -505.334
+[457,    21] loss: -556.560
+[457,    31] loss: -536.076
+[457,    41] loss: -519.032
+[457,    51] loss: -541.587
+validation....
+[457,     1] loss: -515.565
+Epoch 457: Train: avg. loss: -523.062
+Epoch 457: Valid: avg. loss: -476.460
+training.....
+[458,     1] loss: -540.488
+[458,    11] loss: -525.217
+[458,    21] loss: -530.027
+[458,    31] loss: -524.124
+[458,    41] loss: -506.413
+[458,    51] loss: -532.218
+validation....
+[458,     1] loss: -499.047
+Epoch 458: Train: avg. loss: -524.407
+Epoch 458: Valid: avg. loss: -480.835
+Saving best model at epoch 458
+Generating sequence....
+training.....
+[459,     1] loss: -504.324
+[459,    11] loss: -494.994
+[459,    21] loss: -490.102
+[459,    31] loss: -533.600
+[459,    41] loss: -535.840
+[459,    51] loss: -524.069
+validation....
+[459,     1] loss: -491.747
+Epoch 459: Train: avg. loss: -523.599
+Epoch 459: Valid: avg. loss: -475.369
+training.....
+[460,     1] loss: -542.238
+[460,    11] loss: -520.203
+[460,    21] loss: -525.126
+[460,    31] loss: -531.152
+[460,    41] loss: -529.045
+[460,    51] loss: -532.139
+validation....
+[460,     1] loss: -498.023
+Epoch 460: Train: avg. loss: -526.224
+Epoch 460: Valid: avg. loss: -476.951
+training.....
+[461,     1] loss: -528.656
+[461,    11] loss: -526.782
+[461,    21] loss: -520.608
+[461,    31] loss: -512.629
+[461,    41] loss: -504.241
+[461,    51] loss: -541.686
+validation....
+[461,     1] loss: -499.488
+Epoch 461: Train: avg. loss: -526.407
+Epoch 461: Valid: avg. loss: -478.003
+training.....
+[462,     1] loss: -499.349
+[462,    11] loss: -509.094
+[462,    21] loss: -518.816
+[462,    31] loss: -513.485
+[462,    41] loss: -521.071
+[462,    51] loss: -497.506
+validation....
+[462,     1] loss: -491.568
+Epoch 462: Train: avg. loss: -523.138
+Epoch 462: Valid: avg. loss: -476.924
+training.....
+[463,     1] loss: -534.653
+[463,    11] loss: -511.170
+[463,    21] loss: -512.725
+[463,    31] loss: -512.207
+[463,    41] loss: -527.669
+[463,    51] loss: -533.556
+validation....
+[463,     1] loss: -493.664
+Epoch 463: Train: avg. loss: -525.554
+Epoch 463: Valid: avg. loss: -473.819
+training.....
+[464,     1] loss: -533.607
+[464,    11] loss: -514.824
+[464,    21] loss: -539.082
+[464,    31] loss: -544.731
+[464,    41] loss: -511.533
+[464,    51] loss: -528.222
+validation....
+[464,     1] loss: -510.115
+Epoch 464: Train: avg. loss: -524.059
+Epoch 464: Valid: avg. loss: -477.285
+training.....
+[465,     1] loss: -501.082
+[465,    11] loss: -523.210
+[465,    21] loss: -503.680
+[465,    31] loss: -540.701
+[465,    41] loss: -553.146
+[465,    51] loss: -530.891
+validation....
+[465,     1] loss: -498.076
+Epoch 465: Train: avg. loss: -523.999
+Epoch 465: Valid: avg. loss: -474.830
+training.....
+[466,     1] loss: -495.836
+[466,    11] loss: -558.807
+[466,    21] loss: -506.955
+[466,    31] loss: -508.348
+[466,    41] loss: -563.423
+[466,    51] loss: -509.992
+validation....
+[466,     1] loss: -497.501
+Epoch 466: Train: avg. loss: -527.604
+Epoch 466: Valid: avg. loss: -473.916
+training.....
+[467,     1] loss: -511.804
+[467,    11] loss: -518.205
+[467,    21] loss: -516.385
+[467,    31] loss: -527.548
+[467,    41] loss: -549.248
+[467,    51] loss: -539.787
+validation....
+[467,     1] loss: -510.092
+Epoch 467: Train: avg. loss: -525.991
+Epoch 467: Valid: avg. loss: -479.683
+training.....
+[468,     1] loss: -539.103
+[468,    11] loss: -535.093
+[468,    21] loss: -547.502
+[468,    31] loss: -527.565
+[468,    41] loss: -509.061
+[468,    51] loss: -519.596
+validation....
+[468,     1] loss: -513.623
+Epoch 468: Train: avg. loss: -526.625
+Epoch 468: Valid: avg. loss: -483.418
+Saving best model at epoch 468
+Generating sequence....
+training.....
+[469,     1] loss: -518.838
+[469,    11] loss: -524.584
+[469,    21] loss: -488.118
+[469,    31] loss: -519.871
+[469,    41] loss: -515.020
+[469,    51] loss: -526.560
+validation....
+[469,     1] loss: -512.023
+Epoch 469: Train: avg. loss: -526.530
+Epoch 469: Valid: avg. loss: -476.941
+training.....
+[470,     1] loss: -547.532
+[470,    11] loss: -532.629
+[470,    21] loss: -537.563
+[470,    31] loss: -515.592
+[470,    41] loss: -517.422
+[470,    51] loss: -526.381
+validation....
+[470,     1] loss: -515.887
+Epoch 470: Train: avg. loss: -527.341
+Epoch 470: Valid: avg. loss: -480.687
+training.....
+[471,     1] loss: -561.996
+[471,    11] loss: -516.505
+[471,    21] loss: -498.775
+[471,    31] loss: -508.944
+[471,    41] loss: -494.094
+[471,    51] loss: -547.017
+validation....
+[471,     1] loss: -500.711
+Epoch 471: Train: avg. loss: -526.315
+Epoch 471: Valid: avg. loss: -476.910
+training.....
+[472,     1] loss: -508.622
+[472,    11] loss: -496.874
+[472,    21] loss: -522.628
+[472,    31] loss: -531.389
+[472,    41] loss: -523.874
+[472,    51] loss: -502.836
+validation....
+[472,     1] loss: -510.739
+Epoch 472: Train: avg. loss: -526.513
+Epoch 472: Valid: avg. loss: -477.148
+training.....
+[473,     1] loss: -519.190
+[473,    11] loss: -526.307
+[473,    21] loss: -530.875
+[473,    31] loss: -509.388
+[473,    41] loss: -530.467
+[473,    51] loss: -525.874
+validation....
+[473,     1] loss: -492.858
+Epoch 473: Train: avg. loss: -525.715
+Epoch 473: Valid: avg. loss: -476.063
+training.....
+[474,     1] loss: -530.985
+[474,    11] loss: -540.227
+[474,    21] loss: -532.983
+[474,    31] loss: -547.862
+[474,    41] loss: -537.498
+[474,    51] loss: -533.447
+validation....
+[474,     1] loss: -495.978
+Epoch 474: Train: avg. loss: -527.162
+Epoch 474: Valid: avg. loss: -476.003
+training.....
+[475,     1] loss: -526.515
+[475,    11] loss: -480.285
+[475,    21] loss: -550.126
+[475,    31] loss: -515.809
+[475,    41] loss: -528.021
+[475,    51] loss: -498.675
+validation....
+[475,     1] loss: -493.681
+Epoch 475: Train: avg. loss: -529.336
+Epoch 475: Valid: avg. loss: -475.560
+training.....
+[476,     1] loss: -508.190
+[476,    11] loss: -512.270
+[476,    21] loss: -515.977
+[476,    31] loss: -529.543
+[476,    41] loss: -504.603
+[476,    51] loss: -549.119
+validation....
+[476,     1] loss: -496.894
+Epoch 476: Train: avg. loss: -527.645
+Epoch 476: Valid: avg. loss: -478.565
+training.....
+[477,     1] loss: -528.999
+[477,    11] loss: -541.573
+[477,    21] loss: -534.656
+[477,    31] loss: -512.548
+[477,    41] loss: -509.080
+[477,    51] loss: -510.491
+validation....
+[477,     1] loss: -499.728
+Epoch 477: Train: avg. loss: -528.229
+Epoch 477: Valid: avg. loss: -479.848
+training.....
+[478,     1] loss: -515.421
+[478,    11] loss: -536.213
+[478,    21] loss: -511.004
+[478,    31] loss: -557.611
+[478,    41] loss: -496.038
+[478,    51] loss: -522.101
+validation....
+[478,     1] loss: -505.489
+Epoch 478: Train: avg. loss: -528.705
+Epoch 478: Valid: avg. loss: -482.162
+training.....
+[479,     1] loss: -502.695
+[479,    11] loss: -503.601
+[479,    21] loss: -510.288
+[479,    31] loss: -517.377
+[479,    41] loss: -520.111
+[479,    51] loss: -526.556
+validation....
+[479,     1] loss: -509.252
+Epoch 479: Train: avg. loss: -527.605
+Epoch 479: Valid: avg. loss: -477.906
+training.....
+[480,     1] loss: -533.168
+[480,    11] loss: -551.035
+[480,    21] loss: -565.817
+[480,    31] loss: -538.502
+[480,    41] loss: -514.099
+[480,    51] loss: -549.718
+validation....
+[480,     1] loss: -507.193
+Epoch 480: Train: avg. loss: -529.436
+Epoch 480: Valid: avg. loss: -478.152
+training.....
+[481,     1] loss: -548.198
+[481,    11] loss: -521.492
+[481,    21] loss: -521.108
+[481,    31] loss: -540.606
+[481,    41] loss: -513.807
+[481,    51] loss: -503.104
+validation....
+[481,     1] loss: -513.028
+Epoch 481: Train: avg. loss: -529.536
+Epoch 481: Valid: avg. loss: -477.391
+training.....
+[482,     1] loss: -543.215
+[482,    11] loss: -523.774
+[482,    21] loss: -533.403
+[482,    31] loss: -510.634
+[482,    41] loss: -517.701
+[482,    51] loss: -500.050
+validation....
+[482,     1] loss: -502.517
+Epoch 482: Train: avg. loss: -528.731
+Epoch 482: Valid: avg. loss: -473.973
+training.....
+[483,     1] loss: -502.091
+[483,    11] loss: -527.017
+[483,    21] loss: -541.795
+[483,    31] loss: -542.945
+[483,    41] loss: -505.615
+[483,    51] loss: -522.995
+validation....
+[483,     1] loss: -498.624
+Epoch 483: Train: avg. loss: -528.255
+Epoch 483: Valid: avg. loss: -471.996
+training.....
+[484,     1] loss: -502.830
+[484,    11] loss: -492.940
+[484,    21] loss: -528.053
+[484,    31] loss: -531.986
+[484,    41] loss: -514.083
+[484,    51] loss: -515.278
+validation....
+[484,     1] loss: -507.920
+Epoch 484: Train: avg. loss: -528.188
+Epoch 484: Valid: avg. loss: -478.358
+training.....
+[485,     1] loss: -504.787
+[485,    11] loss: -519.633
+[485,    21] loss: -561.218
+[485,    31] loss: -522.619
+[485,    41] loss: -537.200
+[485,    51] loss: -499.485
+validation....
+[485,     1] loss: -503.323
+Epoch 485: Train: avg. loss: -528.873
+Epoch 485: Valid: avg. loss: -477.676
+training.....
+[486,     1] loss: -564.980
+[486,    11] loss: -550.976
+[486,    21] loss: -521.136
+[486,    31] loss: -558.220
+[486,    41] loss: -520.509
+[486,    51] loss: -519.519
+validation....
+[486,     1] loss: -492.396
+Epoch 486: Train: avg. loss: -530.748
+Epoch 486: Valid: avg. loss: -476.535
+training.....
+[487,     1] loss: -533.148
+[487,    11] loss: -538.625
+[487,    21] loss: -504.866
+[487,    31] loss: -529.007
+[487,    41] loss: -538.308
+[487,    51] loss: -519.286
+validation....
+[487,     1] loss: -502.281
+Epoch 487: Train: avg. loss: -530.596
+Epoch 487: Valid: avg. loss: -477.937
+training.....
+[488,     1] loss: -510.900
+[488,    11] loss: -539.676
+[488,    21] loss: -579.337
+[488,    31] loss: -553.032
+[488,    41] loss: -562.141
+[488,    51] loss: -560.654
+validation....
+[488,     1] loss: -511.609
+Epoch 488: Train: avg. loss: -529.464
+Epoch 488: Valid: avg. loss: -476.865
+training.....
+[489,     1] loss: -544.627
+[489,    11] loss: -526.638
+[489,    21] loss: -534.819
+[489,    31] loss: -516.677
+[489,    41] loss: -488.983
+[489,    51] loss: -542.275
+validation....
+[489,     1] loss: -504.376
+Epoch 489: Train: avg. loss: -528.778
+Epoch 489: Valid: avg. loss: -476.885
+training.....
+[490,     1] loss: -524.881
+[490,    11] loss: -543.542
+[490,    21] loss: -529.296
+[490,    31] loss: -536.963
+[490,    41] loss: -524.109
+[490,    51] loss: -520.175
+validation....
+[490,     1] loss: -494.189
+Epoch 490: Train: avg. loss: -532.089
+Epoch 490: Valid: avg. loss: -477.802
+training.....
+[491,     1] loss: -536.562
+[491,    11] loss: -526.537
+[491,    21] loss: -546.842
+[491,    31] loss: -519.272
+[491,    41] loss: -539.383
+[491,    51] loss: -557.688
+validation....
+[491,     1] loss: -512.404
+Epoch 491: Train: avg. loss: -529.556
+Epoch 491: Valid: avg. loss: -480.499
+training.....
+[492,     1] loss: -545.777
+[492,    11] loss: -525.144
+[492,    21] loss: -494.953
+[492,    31] loss: -517.872
+[492,    41] loss: -529.400
+[492,    51] loss: -506.760
+validation....
+[492,     1] loss: -492.031
+Epoch 492: Train: avg. loss: -530.107
+Epoch 492: Valid: avg. loss: -475.222
+training.....
+[493,     1] loss: -527.072
+[493,    11] loss: -496.069
+[493,    21] loss: -561.023
+[493,    31] loss: -528.446
+[493,    41] loss: -491.367
+[493,    51] loss: -531.331
+validation....
+[493,     1] loss: -503.045
+Epoch 493: Train: avg. loss: -529.598
+Epoch 493: Valid: avg. loss: -475.359
+training.....
+[494,     1] loss: -555.453
+[494,    11] loss: -534.827
+[494,    21] loss: -534.324
+[494,    31] loss: -532.716
+[494,    41] loss: -505.066
+[494,    51] loss: -543.464
+validation....
+[494,     1] loss: -504.826
+Epoch 494: Train: avg. loss: -531.152
+Epoch 494: Valid: avg. loss: -479.262
+training.....
+[495,     1] loss: -518.347
+[495,    11] loss: -541.316
+[495,    21] loss: -540.470
+[495,    31] loss: -527.041
+[495,    41] loss: -529.186
+[495,    51] loss: -537.036
+validation....
+[495,     1] loss: -497.529
+Epoch 495: Train: avg. loss: -528.372
+Epoch 495: Valid: avg. loss: -479.903
+training.....
+[496,     1] loss: -520.482
+[496,    11] loss: -543.386
+[496,    21] loss: -515.901
+[496,    31] loss: -556.422
+[496,    41] loss: -519.415
+[496,    51] loss: -539.295
+validation....
+[496,     1] loss: -506.302
+Epoch 496: Train: avg. loss: -529.268
+Epoch 496: Valid: avg. loss: -476.368
+training.....
+[497,     1] loss: -554.927
+[497,    11] loss: -528.875
+[497,    21] loss: -507.878
+[497,    31] loss: -571.227
+[497,    41] loss: -519.062
+[497,    51] loss: -543.981
+validation....
+[497,     1] loss: -501.122
+Epoch 497: Train: avg. loss: -529.496
+Epoch 497: Valid: avg. loss: -478.489
+training.....
+[498,     1] loss: -559.364
+[498,    11] loss: -537.819
+[498,    21] loss: -524.550
+[498,    31] loss: -523.597
+[498,    41] loss: -511.913
+[498,    51] loss: -526.046
+validation....
+[498,     1] loss: -512.767
+Epoch 498: Train: avg. loss: -531.617
+Epoch 498: Valid: avg. loss: -481.397
+training.....
+[499,     1] loss: -509.838
+[499,    11] loss: -524.908
+[499,    21] loss: -538.316
+[499,    31] loss: -541.684
+[499,    41] loss: -516.370
+[499,    51] loss: -493.868
+validation....
+[499,     1] loss: -515.255
+Epoch 499: Train: avg. loss: -528.956
+Epoch 499: Valid: avg. loss: -479.315
+training.....
+[500,     1] loss: -524.402
+[500,    11] loss: -556.597
+[500,    21] loss: -506.026
+[500,    31] loss: -587.905
+[500,    41] loss: -524.668
+[500,    51] loss: -514.079
+validation....
+[500,     1] loss: -512.325
+Epoch 500: Train: avg. loss: -531.847
+Epoch 500: Valid: avg. loss: -481.039
+Best model was saved at epoch: 468
+Early stopping at epoch 499
