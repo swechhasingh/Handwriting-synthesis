@@ -3,58 +3,75 @@ import numpy as np
 import sys
 import os
 import matplotlib.pyplot as plt
-sys.path.append('../')
+
+sys.path.append("../")
 from utils import plot_stroke
 from utils.constants import Global
 from utils.dataset import HandwritingDataset
-from utils.data_utils import data_denormalization, data_normalization, valid_offset_normalization
+from utils.data_utils import (
+    data_denormalization,
+    data_normalization,
+    valid_offset_normalization,
+)
 from models.models import HandWritingSynthesisNet
 from generate import generate_conditional_sequence
 
-def generate_handwriting(char_seq="hello world", 
-                        text_path='../app/static/mobile/inpText.txt', 
-                        style_path='../app/static/mobile/style.npy',
-                        save_path='',
-                        app_path='',
-                        n_samples=1):
+
+def generate_handwriting(
+    char_seq="hello world",
+    text_path="../app/static/mobile/inpText.txt",
+    style_path="../app/static/mobile/style.npy",
+    save_path="",
+    app_path="",
+    n_samples=1,
+    bias=10.0,
+):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    data_path = os.path.join(app_path, '../data/')
-    model_path = os.path.join(app_path, '../results/best_model_synthesis.pt')
+    data_path = os.path.join(app_path, "../data/")
+    model_path = os.path.join(app_path, "../results/best_model_synthesis.pt")
     # seed = 194
     # print("seed:",seed)
     # torch.manual_seed(seed)
     # np.random.seed(seed)
     # print(np.random.get_state())
 
-    train_dataset = HandwritingDataset(data_path, split='train', text_req=True)
+    train_dataset = HandwritingDataset(data_path, split="train", text_req=True)
 
     prime = True
-    bias = 8.
     is_map = False
-    style = np.load(style_path, allow_pickle=True, encoding='bytes').astype(np.float32)
+    style = np.load(style_path, allow_pickle=True, encoding="bytes").astype(np.float32)
     # plot the sequence
-    plot_stroke(style, os.path.join(save_path, 'original.png'))
+    plot_stroke(style, os.path.join(save_path, "original.png"))
     with open(text_path) as file:
         texts = file.read().splitlines()
     real_text = texts[0]
-    
+
     print("Priming text: ", real_text)
     mean, std, style = data_normalization(style)
     style = torch.from_numpy(style).unsqueeze(0).to(device)
     # style = valid_offset_normalization(Global.train_mean, Global.train_std, style[None,:,:])
     # style = torch.from_numpy(style).to(device)
     print("Priming sequence size: ", style.shape)
-    ytext = real_text + ' ' + char_seq + "  "
+    ytext = real_text + " " + char_seq + "  "
 
     for i in range(n_samples):
         gen_seq, phi = generate_conditional_sequence(
-                    model_path, char_seq, device, train_dataset.char_to_id,
-                    train_dataset.idx_to_char, bias, prime, style, real_text, is_map)
+            model_path,
+            char_seq,
+            device,
+            train_dataset.char_to_id,
+            train_dataset.idx_to_char,
+            bias,
+            prime,
+            style,
+            real_text,
+            is_map,
+        )
         if is_map:
-            plt.imshow(phi, cmap='viridis', aspect='auto')
+            plt.imshow(phi, cmap="viridis", aspect="auto")
             plt.colorbar()
             plt.xlabel("time steps")
-            plt.yticks(np.arange(phi.shape[0]), list(ytext), rotation='horizontal')
+            plt.yticks(np.arange(phi.shape[0]), list(ytext), rotation="horizontal")
             plt.margins(0.2)
             plt.subplots_adjust(bottom=0.15)
             plt.show()
@@ -68,5 +85,7 @@ def generate_handwriting(char_seq="hello world",
         # plot the sequence
         print(gen_seq.shape)
         # plot_stroke(gen_seq[0, :end])
-        plot_stroke(gen_seq[0], os.path.join(save_path,'gen_stroke_'+ str(i) + '.png'))
+        plot_stroke(
+            gen_seq[0], os.path.join(save_path, "gen_stroke_" + str(i) + ".png")
+        )
         print(save_path)
