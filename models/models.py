@@ -249,36 +249,32 @@ class HandWritingSynthesisNet(nn.Module):
 
         return y_hat, [state_1, state_2, state_3], window_vec, prev_kappa
 
-    def generate(self, inp, text, text_mask, hidden, window_vector, kappa, bias,
-                 is_map=True, prime=False, prime_style=None, prime_seq=None, prime_mask=None):
+    def generate(self, inp, text, text_mask, hidden, window_vector, kappa, bias, is_map=False, prime=False):
         seq_len = 0
         gen_seq = []
+        # gen_seq.append(inp)
         with torch.no_grad():
             if prime:
                 y_hat, state, window_vector, kappa = self.forward(
-                    prime_style, prime_seq, prime_mask, hidden, window_vector, kappa, is_map=False)
+                    inp, text, text_mask, hidden, window_vector, kappa, is_map)
 
                 _hidden = torch.cat([s[0] for s in state], dim=0)
                 _cell = torch.cat([s[1] for s in state], dim=0)
+                # last time step hidden state
                 hidden = (_hidden, _cell)
+                # last time step window vector
                 window_vector = window_vector[:, -1:, :]
-                kappa = kappa[:, -1:, :]
-
-                # for i in range(inp.shape[1]):
-                #     gen_seq.append(inp[0:1, i:i + 1, :])
-
+                # last time step output vector
                 y_hat = y_hat[:, -1, :]
                 y_hat = y_hat.squeeze()
                 Z = sample_from_out_dist(y_hat, bias)
                 inp = Z
-                gen_seq.append(Z)
+                # gen_seq.append(Z)
                 self.EOS = False
 
-            _, window_vector, kappa = self.init_hidden(1, inp.device)
             while not self.EOS and seq_len < 2000:
-                # print(seq_len)
                 y_hat, state, window_vector, kappa = self.forward(
-                    inp, text, text_mask, hidden, window_vector, kappa, is_map=is_map)
+                    inp, text, text_mask, hidden, window_vector, kappa, is_map)
 
                 _hidden = torch.cat([s[0] for s in state], dim=0)
                 _cell = torch.cat([s[1] for s in state], dim=0)
@@ -293,11 +289,10 @@ class HandWritingSynthesisNet(nn.Module):
                 seq_len += 1
 
         gen_seq = torch.cat(gen_seq, dim=1)
-        if prime:
-            gen_seq = torch.cat((prime_style, gen_seq), dim=1)
         gen_seq = gen_seq.cpu().numpy()
 
         print("EOS:", self.EOS)
         print("seq_len:", seq_len)
 
         return gen_seq
+

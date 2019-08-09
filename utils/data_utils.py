@@ -44,3 +44,15 @@ def data_normalization(data):
     data[:, 1:] /= std
 
     return mean, std, data
+
+
+def data_processing(data):
+    """
+       Data denormalization using train set mean and std
+    """
+    min_xy = data[:, 1:].min(axis=0)
+    data[:, 1:] -= min_xy
+    max_xy = data[:, 1:].max(axis=0)
+    data[:, 1:] /= (max_xy - min_xy)
+    data[:, 1:] *= 10
+    return data

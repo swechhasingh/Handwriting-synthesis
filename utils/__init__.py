@@ -18,12 +18,13 @@ def plot_stroke(stroke, save_name=None):
 
     cuts = numpy.where(stroke[:, 0] == 1)[0]
     start = 0
-
+   
     for cut_value in cuts:
         ax.plot(x[start:cut_value], y[start:cut_value],
                 'k-', linewidth=3)
         start = cut_value + 1
-    ax.axis('equal')
+        
+    ax.axis('off') #equal
     ax.axes.get_xaxis().set_visible(False)
     ax.axes.get_yaxis().set_visible(False)
 
