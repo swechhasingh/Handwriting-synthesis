@@ -1,0 +1,141 @@
+<html>
+   <title>Handwriting Monkey</title>
+   <head>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+        <style>
+            body {width: 100%;
+                  position: fixed; 
+                  height: 100%; 
+                  overflow: hidden;
+                  touch-action: none
+            }
+             
+        </style>
+        </head>
+   <body>
+        <script src="FileSaver.js"></script>
+        <form action="">
+            Text<input id="text" type="text" name="text" value="">
+            <button onclick="downloadText()"><a id="textlink"download="inpText.txt">Save text</a></button><br>
+            <View pointerEvents="none">
+            <svg id="svg1" baseProfile="full" height="200" width="100%" version="1.1" 
+                style="border: 1px solid black;"
+                xmlns="http://www.w3.org/2000/svg" 
+                xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"
+                onpointerdown="detectInputType(event)"
+                touch-action="none">
+                <script type="text/JavaScript">
+                    <![CDATA[
+                        var svg = document.getElementById("svg1");
+                        var pt = svg.createSVGPoint();
+                        isDrawing = false;
+                        
+                        function detectInputType(event) {
+                            switch(event.pointerType) {
+                                case "mouse":
+                                    /* mouse input detected */
+                                    console.log("mouse");
+                                    document.getElementById("text").value = event.pointerType;
+                                    break;
+                                case "pen":
+                                    /* pen/stylus input detected */
+                                    console.log("pen");
+                                    document.getElementById("text").value = event.pointerType;
+                                    break;
+                                case "touch":
+                                    /* touch input detected */
+                                    console.log("touch");
+                                    document.getElementById("text").value = event.pointerType;
+                                    break;
+                                default:
+                                    /* pointerType is empty (could not be detected)
+                                    or UA-specific custom type */
+                                    console.log("default");
+                                    document.getElementById("text").value = event.pointerType;
+                            }
+                        }
+
+                        function alert_coords(evt) {
+                            detectInputType(evt)
+                            if(evt.targetTouches) {
+                                // Prefer Touch Events
+                                document.getElementById("text").value = evt.targetTouches.length;
+                               
+                                pt.x = evt.targetTouches[0].clientX;
+                                pt.y = evt.targetTouches[0].clientY;
+                            } else {
+                                pt.x = evt.clientX;
+                                pt.y = evt.clientY;
+                            }
+                            // The cursor point, translated into svg coordinates
+                            var point =  pt.matrixTransform(svg.getScreenCTM().inverse());
+                            return point;
+                        }
+                        function mouseDown(evt) {
+                            //console.log(evt.target)
+                            point = alert_coords(evt);
+                            isDrawing = true;
+                            var path = document.getElementById("path1");
+                            var d = path.getAttributeNS(null, "d") + "M"+ point.x + "," + point.y+ " ";
+                            path.setAttributeNS(null, "d", d);
+                        }
+                        function mouseUp(evt) {
+                            //console.log(evt.pointerType)
+                            if (isDrawing === true) {
+                                point = alert_coords(evt);
+                                var path = document.getElementById("path1");
+                                var d = path.getAttributeNS(null, "d") + "M"+ point.x + "," + point.y+ " ";
+                                path.setAttributeNS(null, "d", d);
+                                isDrawing = false;
+                            }
+                        }
+                        function mouseMove(evt) {
+                            console.log(evt.pointerType)
+                            if (isDrawing === true) {
+                                point = alert_coords(evt);
+                                var path = document.getElementById("path1");
+                                x = point.x;
+                                y = point.y ;
+                                var d = path.getAttributeNS(null, "d") + "L"+ x + "," + y + " ";
+                                path.setAttributeNS(null, "d", d);
+                            }
+                        }
+                    ]]>
+                </script>
+                <!-- <rect id="rect1" fill="white" height="200" width="100%" stroke="black" x="0" y="0" /> -->
+                <path id="path1" d="" fill="none" stroke="blue" stroke-width="1" /> 
+            </svg>
+            </View>
+            <br>
+            <button onclick="downloadSvg()"><a id="link"download="writing.svg">Save style</a></button>
+        </form>
+      <img src="{{url}}"/>
+      <script type="text/javascript">
+            function downloadText(){
+                // var blob = new Blob([document.getElementById('text').value],
+                //     {type: "text/plain;charset=utf-8"});
+                // saveAs(blob, "inpText.txt");
+                var source = document.getElementById('text').value;
+                var url = "data:text/plain;charset=UTF-8," + encodeURIComponent(source);
+                //set url value to a element's href attribute.
+                document.getElementById("textlink").href = url;
+                
+            }
+            function downloadSvg() {
+                //get svg element.
+                var svg = document.getElementById("svg1");
+                //get svg source.
+                var serializer = new XMLSerializer();
+                var source = serializer.serializeToString(svg);
+                //add xml declaration
+                source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+                //convert svg source to URI data scheme.
+                var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+                //set url value to a element's href attribute.
+                document.getElementById("link").href = url;
+                //you can download svg file by right click menu.
+            }
+      </script>
+   </body>
+</html>
