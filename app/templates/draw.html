@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            function onenter() {
+                text = document.getElementById('text1').value;
+                if (window.event && window.event.keyCode == 13){
+                    document.getElementById('text1').blur();
+                    if (text === "") {
+                        document.getElementById("message").innerHTML = "Please enter some text.";
+                    }
+                }
+                else{
+                        document.getElementById("message").innerHTML = "";
+                }
+
+            }
+        </script>
+    </head>
+   <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+        <div class="conatiner" style="width: 100%; height: 100%;">
+            <form name="form" onsubmit="return false;">
+                <div class="form-group">
+                    <input id="text1" type="text" class="form-control" name="text" placeholder="write some text..." onkeypress="return onenter()">
+                    <p id="message" style="color:rgb(230, 53, 53);"></p> 
+                </div>
+            </form> 
+            <div class="conatiner" style="width: 100%; height:180px; ">
+                <div style="border: 1px solid #abb4b0; border-radius: 5px; height: 100%; width:100%;">
+                    <svg id="svg1" baseProfile="full" version="1.1" 
+                        style="width:100%; height:100%;"
+                        xmlns="http://www.w3.org/2000/svg" 
+                        xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        onmousedown="mouseDown(evt)" onmouseup="mouseUp(evt)" onmousemove="mouseMove(evt)"
+                        ontouchstart="mouseDown(evt)" ontouchmove="mouseMove(evt)" ontouchend="mouseUp(evt)">
+                        <script type="text/JavaScript">
+                            <![CDATA[
+                                var svg = document.getElementById("svg1");
+                                var pt = svg.createSVGPoint();
+                                isDrawing = false;
+
+                                
+                                function alert_coords(evt) {
+                                    
+                                    if(evt.targetTouches) {
+                                        // Prefer Touch Events
+                                    
+                                        pt.x = evt.targetTouches[0].clientX;
+                                        pt.y = evt.targetTouches[0].clientY;
+                                    } else {
+                                        pt.x = evt.clientX;
+                                        pt.y = evt.clientY;
+                                    }
+                                    // The cursor point, translated into svg coordinates
+                                    var point =  pt.matrixTransform(svg.getScreenCTM().inverse());
+                                    return point;
+                                }
+                                function mouseDown(evt) {
+                                    evt.preventDefault();
+                                    point = alert_coords(evt);
+                                    isDrawing = true;
+                                    var path = document.getElementById("path1");
+                                    var d = path.getAttributeNS(null, "d") + "M"+ point.x + "," + point.y+ " ";
+                                    path.setAttributeNS(null, "d", d);
+                                }
+                                function mouseUp(evt) {
+                                    evt.preventDefault();
+                                    if (isDrawing === true) {
+                                        point = alert_coords(evt);
+                                        var path = document.getElementById("path1");
+                                        var d = path.getAttributeNS(null, "d") + "M"+ point.x + "," + point.y+ " ";
+                                        path.setAttributeNS(null, "d", d);
+                                        isDrawing = false;
+                                    }
+                                }
+                                function mouseMove(evt) {
+                                    evt.preventDefault();
+                                    if (isDrawing === true) {
+                                        point = alert_coords(evt);
+                                        var path = document.getElementById("path1");
+                                        x = point.x;
+                                        y = point.y ;
+                                        var d = path.getAttributeNS(null, "d") + "L"+ x + "," + y + " ";
+                                        path.setAttributeNS(null, "d", d);
+                                    }
+                                }
+                                
+                            ]]>
+                        </script>
+                        <path id="path1" d="" fill="none" stroke="blue" stroke-width="1" /> 
+                    </svg>
+                </div>
+            </div>     
+            <div class="btn-group" style="padding-top: 10px;">
+                <button id="save_button" class="btn btn-primary" name="save-writing" onclick="downloadSvg()">Save style</button>
+                <button class="btn btn-primary" name="clear" onclick="clearSvg()">Clear Canvas</button>   
+            </div>
+        </div>
+        <script type="text/javascript">
+            function clearSvg(){
+                var svg = document.getElementById("svg1");
+                svg.getElementById('path1').setAttributeNS(null, 'd', "");
+            }
+            function downloadSvg() {
+                //get svg element.
+                var svg = document.getElementById("svg1");
+                var path = svg.getElementById('path1').getAttributeNS(null, 'd');
+                var text = document.forms["form"]["text1"].value;
+                console.log(path);
+                if (text === "") {
+                    document.getElementById("message").innerHTML = "Please enter some text.";
+                }
+                else{
+                    $.ajax({
+                        type: "POST",
+                        url: "/upload_style",
+                        contentType: "application/json",
+                        data: JSON.stringify({"path": path, "text":text}),
+                        dataType: "json",
+                        success: function(response) {
+                            if (response.message == ''){
+                                window.location.href = response.redirect;
+                            }
+                            else{
+                                document.getElementById("message").innerHTML = response.message;
+                            }
+                            console.log(response);
+                        },
+                        error: function(err) {
+                            console.log(err);
+                    
+                        }
+                    }); 
+                }
+            }
+        </script>
+   </body>
+</html>
+{% endblock %}

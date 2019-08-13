@@ -1,0 +1,4 @@
+name: py36
+channels:
+  - defaults
+prefix: /Users/swechha/anaconda3/envs/py36
