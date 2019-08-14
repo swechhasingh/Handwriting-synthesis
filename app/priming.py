@@ -24,6 +24,7 @@ def generate_handwriting(
     save_path="",
     app_path="",
     n_samples=1,
+    bias=10.0,
 ):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     data_path = os.path.join(app_path, "../data/")
@@ -37,7 +38,6 @@ def generate_handwriting(
     train_dataset = HandwritingDataset(data_path, split="train", text_req=True)
 
     prime = True
-    bias = 6.0
     is_map = False
     style = np.load(style_path, allow_pickle=True, encoding="bytes").astype(np.float32)
     # plot the sequence
