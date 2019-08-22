@@ -77,7 +77,10 @@ def submit_style_data():
 
 @flask_app.route("/generate", methods=["GET", "POST"])
 def generate():
-
+    org_img = base64.b64encode(
+        open(os.path.join(flask_app.root_path, "static", "sample.png"), "rb").read()
+    )
+    org_src = "data:image/png;base64,{}".format(org_img.decode("ascii"))
     if "id" in session:
         id = session["id"]
         print("uuid", id)
@@ -85,7 +88,8 @@ def generate():
         tmp_dir = os.path.join(flask_app.root_path, "static", "uploads", session["id"])
 
         org_img_path = os.path.join(tmp_dir, "original.png")
-        org_img = base64.b64encode(open(org_img_path, "rb").read())
+        if os.path.exists(org_img_path):
+            org_img = base64.b64encode(open(org_img_path, "rb").read())
         org_src = "data:image/png;base64,{}".format(org_img.decode("ascii"))
         if request.method == "POST":
             text = request.form["text"]
@@ -153,5 +157,6 @@ def generate():
         title="Generate",
         text="",
         message="Please go to Write and add some style.",
+        org_src=org_src,
     )
 
