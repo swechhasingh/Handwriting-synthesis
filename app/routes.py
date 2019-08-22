@@ -18,12 +18,12 @@ sys.path.append("../")
 from utils import plot_stroke
 
 
+@flask_app.route("/", methods=["GET"])
 @flask_app.route("/aboutus", methods=["GET"])
 def index():
     return render_template("aboutus.html", title="About Us")
 
 
-@flask_app.route("/", methods=["GET"])
 @flask_app.route("/draw", methods=["GET"])
 def draw():
     if "id" in session:

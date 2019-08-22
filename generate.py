@@ -56,48 +56,6 @@ def generate_unconditional_seq(model_path, seq_len, device, bias, style, prime):
     return gen_seq
 
 
-# def generate_conditional_sequence(model_path, char_seq, device, char_to_id,
-#                                   idx_to_char, bias, prime, prime_seq, real_text, is_map):
-#     model = HandWritingSynthesisNet(window_size=len(char_to_id))
-#     print("Vocab size: ", len(char_to_id))
-#     # load the best model
-#     model.load_state_dict(torch.load(model_path, map_location=device))
-#     model = model.to(device)
-#     model.eval()
-
-#     # initial input
-#     if prime:
-#         char_seq = real_text + ' ' + char_seq
-#         inp = prime_seq
-#     else:
-#         inp = torch.zeros(1,1,3).to(device)
-
-#     char_seq = np.array(list(char_seq + "  "))
-#     print(''.join(char_seq))
-#     text = np.array([[char_to_id[char] for char in char_seq]]).astype(np.float32)
-#     text = torch.from_numpy(text).to(device)
-
-#     text_mask = torch.ones(text.shape).to(device)
-#     batch_size = 1
-
-#     hidden, window_vector, kappa = model.init_hidden(batch_size, device)
-
-#     print("Generating sequence....")
-#     gen_seq = model.generate(inp, text, text_mask, hidden,
-#                              window_vector, kappa, bias, is_map, prime=prime)
-
-#     length = len(text_mask.nonzero())
-#     print("Input seq: ", ''.join(idx_to_char(
-#         text[0].detach().cpu().numpy()))[:length])
-#     print("Length of input sequence: ", text[0].shape[0])
-
-#     if is_map:
-#         phi = torch.cat(model._phi, dim=1).cpu().numpy()
-#         phi = phi[0].T
-#     else:
-#         phi = []
-
-#     return gen_seq, phi
 def generate_conditional_sequence(
     model_path,
     char_seq,
