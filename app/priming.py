@@ -19,7 +19,7 @@ from generate import generate_conditional_sequence
 
 def generate_handwriting(
     char_seq="hello world",
-    text_path="../app/static/mobile/inpText.txt",
+    real_text="",
     style_path="../app/static/mobile/style.npy",
     save_path="",
     app_path="",
@@ -28,7 +28,9 @@ def generate_handwriting(
 ):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     data_path = os.path.join(app_path, "../data/")
-    model_path = os.path.join(app_path, "../results/best_model_synthesis.pt")
+    model_path = os.path.join(
+        app_path, "../results/synthesis/best_model_synthesis_3.pt"
+    )
     # seed = 194
     # print("seed:",seed)
     # torch.manual_seed(seed)
@@ -41,10 +43,7 @@ def generate_handwriting(
     is_map = False
     style = np.load(style_path, allow_pickle=True, encoding="bytes").astype(np.float32)
     # plot the sequence
-    plot_stroke(style, os.path.join(save_path, "original.png"))
-    with open(text_path) as file:
-        texts = file.read().splitlines()
-    real_text = texts[0]
+    # plot_stroke(style, os.path.join(save_path, "original.png"))
 
     print("Priming text: ", real_text)
     mean, std, style = data_normalization(style)

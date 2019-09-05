@@ -2,6 +2,8 @@ import torch
 import numpy as np
 import argparse
 import matplotlib
+from pathlib import Path
+import os
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -17,8 +19,9 @@ def argparser():
     parser = argparse.ArgumentParser(description="PyTorch Handwriting Synthesis Model")
     parser.add_argument("--model", type=str, default="synthesis")
     parser.add_argument(
-        "--model_path", type=str, default="./results/best_model_synthesis.pt"
+        "--model_path", type=Path, default="./results/best_model_synthesis.pt"
     )
+    parser.add_argument("--save_path", type=Path, default="./results/")
     parser.add_argument("--seq_len", type=int, default=400)
     parser.add_argument("--batch_size", type=int, default=1)
     parser.add_argument("--bias", type=float, default=10.0, help="bias")
@@ -131,6 +134,8 @@ def generate_conditional_sequence(
 if __name__ == "__main__":
 
     args = argparser()
+    if not args.save_path.exists():
+        args.save_path.mkdir(parents=True, exist_ok=True)
 
     # fix random seed
     if args.seed:
@@ -154,7 +159,7 @@ if __name__ == "__main__":
             texts = file.read().splitlines()
         real_text = texts[0]
         # plot the sequence
-        plot_stroke(style, save_name="style.png")
+        plot_stroke(style, save_name=args.save_path / "style.png")
         print(real_text)
         mean, std, _ = data_normalization(style)
         style = torch.from_numpy(style).unsqueeze(0).to(device)
@@ -166,12 +171,12 @@ if __name__ == "__main__":
         )
         with open(args.data_path + "sentences.txt") as file:
             texts = file.read().splitlines()
-        idx = np.random.randint(0, len(strokes))
+        idx = 3949  # np.random.randint(0, len(strokes))
         print("Prime style index: ", idx)
         real_text = texts[idx]
         style = strokes[idx]
         # plot the sequence
-        plot_stroke(style, save_name="style_" + str(idx) + ".png")
+        plot_stroke(style, save_name=args.save_path / ("style_" + str(idx) + ".png"))
         print(real_text)
         mean, std, _ = data_normalization(style)
         style = np.array([style for i in range(args.batch_size)])
@@ -221,5 +226,7 @@ if __name__ == "__main__":
 
     # plot the sequence
     for i in range(args.batch_size):
-        plot_stroke(gen_seq[i], save_name="gen_seq_" + str(i) + ".png")
+        plot_stroke(
+            gen_seq[i], save_name=args.save_path / ("gen_seq_" + str(i) + ".png")
+        )
 
