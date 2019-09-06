@@ -199,6 +199,9 @@ class HandWritingSynthesisNet(nn.Module):
         self.lstm_2 = nn.LSTM(
             3 + self.vocab_size + hidden_size, hidden_size, batch_first=True
         )
+        # self.lstm_3 = nn.LSTM(
+        #     3 + hidden_size, hidden_size, batch_first=True
+        # )
         self.lstm_3 = nn.LSTM(
             3 + self.vocab_size + hidden_size, hidden_size, batch_first=True
         )
@@ -304,8 +307,8 @@ class HandWritingSynthesisNet(nn.Module):
         state_2 = (initial_hidden[0][1:2], initial_hidden[1][1:2])
 
         hid_2, state_2 = self.lstm_2(inp, state_2)
-
         inp = torch.cat((inputs, hid_2, window_vec), dim=2)
+        # inp = torch.cat((inputs, hid_2), dim=2)
         state_3 = (initial_hidden[0][2:], initial_hidden[1][2:])
 
         hid_3, state_3 = self.lstm_3(inp, state_3)

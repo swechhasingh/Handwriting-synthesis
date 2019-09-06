@@ -19,7 +19,9 @@ def argparser():
     parser = argparse.ArgumentParser(description="PyTorch Handwriting Synthesis Model")
     parser.add_argument("--model", type=str, default="synthesis")
     parser.add_argument(
-        "--model_path", type=Path, default="./results/best_model_synthesis.pt"
+        "--model_path",
+        type=Path,
+        default="./results/synthesis/best_model_synthesis_3.pt",
     )
     parser.add_argument("--save_path", type=Path, default="./results/")
     parser.add_argument("--seq_len", type=int, default=400)

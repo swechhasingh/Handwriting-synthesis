@@ -63,7 +63,7 @@
                     <button id="gen_button" class="btn btn-primary" type="submit" name="gen-writing">Generate</button>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" style="margin-left:3px">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="styleOptions" id="radio1" value="defaultStyle"
                         checked>
@@ -75,11 +75,15 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col">
+                <div class="col-1">
                     <label for="bias_range">Bias:</label>
+                </div>
+                <div class="col-1">
                     <span class="mr-2 mt-1" id="bias"></span>
-                    <input type="range" name="bias" class="custom-range w-25 border-0" min="0" max="10" step="0.5"
-                        value="8" id="bias_range">
+                </div>
+                <div class="col-3">
+                    <input type="range" name="bias" class="custom-range border-0" min="0" max="10" step="0.5" value="8"
+                        id="bias_range">
                 </div>
             </div>
         </form>
