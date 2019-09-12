@@ -20,8 +20,4 @@ Generated samples:
 ![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_python_handwriting_synthesis_224.png)
 ![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_urnn.png)
 ![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_by_Swechha.png)
-![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_got_200.png)
-![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_yknjs_224.png)
-![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_vd_211.png)
-![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_vm_216.png)
 
