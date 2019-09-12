@@ -24,5 +24,4 @@ Generated samples:
 ![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_yknjs_224.png)
 ![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_vd_211.png)
 ![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_vm_216.png)
-![alt text](https://github.com/swechhachoudhary/Handwriting-synthesis/blob/master/results/gen_synthesis_samples/syn_10_Welcome_to_lyrebird_216.png)
 
