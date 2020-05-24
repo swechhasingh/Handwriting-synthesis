@@ -1,1 +1,1 @@
-FLASK_APP=copycat.py
+FLASK_APP=main.py

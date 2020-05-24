@@ -9,13 +9,23 @@ from flask import (
     session,
 )
 from app import flask_app
-import os, sys, stat, base64, uuid
+import os
+import sys
+import stat
+import base64
+import uuid
 import numpy as np
 from app.priming import generate_handwriting
 from app.xml_parser import svg_xml_parser, path_to_stroke, path_string_to_stroke
+from google.cloud import storage
+import tempfile
 
-sys.path.append("../")
-from utils import plot_stroke
+
+# sys.path.append("../")
+from utils import plot_stroke, upload_blob
+
+# Instantiates a client
+storage_client = storage.Client()
 
 
 @flask_app.route("/", methods=["GET"])
@@ -44,11 +54,14 @@ def submit_style_data():
 
     id = str(uuid.uuid4())
     session["id"] = id
-    tmp_dir = os.path.join(flask_app.root_path, "static", "uploads", id)
-    if not os.path.exists(tmp_dir):
-        os.makedirs(tmp_dir)
-    os.chmod(tmp_dir, 0o777)
-    print(tmp_dir)
+    # tmp_dir = os.path.join(flask_app.root_path, "static", "uploads", id)
+    destination_blob_name = "static/uploads/" + id
+    blob = bucket.blob(destination_blob_name)
+    # if not os.path.exists(tmp_dir):
+    #     os.makedirs(tmp_dir)
+
+    # os.chmod(tmp_dir, 0o777)
+    # print(tmp_dir)
     # user agent info
     user_agent = request.user_agent
     print(user_agent.string)
@@ -59,19 +72,31 @@ def submit_style_data():
     if user_agent.platform in phones:
         down_sample = False
 
-    text_path = os.path.join(tmp_dir, "inpText.txt")
-    print(text_path)
-    with open(text_path, "w") as f:
-        f.write(text)
+    # text_path = os.path.join(tmp_dir, "inpText.txt")
+    text_file = tempfile.NamedTemporaryFile(suffix=".txt")
+    # print(text_path)
+    # with open(text_path, "w") as f:
+    #     f.write(text)
+    text_file.write(text)
+    text_file.close()
 
     stroke = path_string_to_stroke(
         path, str_len=len(list(text)), down_sample=down_sample
     )
-    save_path = os.path.join(tmp_dir, "style.npy")
-    np.save(save_path, stroke, allow_pickle=True)
-    print(save_path)
+    # save_path = os.path.join(tmp_dir, "style.npy")
+    # np.save(save_path, stroke, allow_pickle=True)
+    # print(save_path)
+
+    stroke_file = tempfile.NamedTemporaryFile(suffix=".npy")
+    np.save(stroke_file.name, stroke, allow_pickle=True)
+
+    upload_blob(text_file.name, id + "/inpText.txt")
+    upload_blob(stroke_file.name, id + "/style.npy")
     # plot the sequence
-    plot_stroke(stroke.astype(np.float32), os.path.join(tmp_dir, "original.png"))
+    temp_file = tempfile.NamedTemporaryFile(suffix=".png")
+    # plot_stroke(stroke.astype(np.float32), os.path.join(tmp_dir, "original.png"))
+    plot_stroke(stroke.astype(np.float32), temp_file.name)
+    upload_blob(temp_file.name, id + "/original.png")
     return jsonify(dict({"redirect": url_for("generate"), "message": ""}))
 
 
@@ -196,4 +221,3 @@ def generate():
             samples="",
             message="",
         )
-

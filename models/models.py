@@ -91,6 +91,7 @@ def sample_batch_from_out_dist(y_hat, bias):
 
 
 class HandWritingPredictionNet(nn.Module):
+
     def __init__(self, hidden_size=400, n_layers=3, output_size=121, input_size=3):
         super(HandWritingPredictionNet, self).__init__()
         self.input_size = input_size
@@ -120,7 +121,7 @@ class HandWritingPredictionNet(nn.Module):
         for i in range(1, self.n_layers):
             inp = torch.cat((inputs, output), dim=2)
             output, hidden = self.LSTM_layers[i](
-                inp, (initial_hidden[0][i : i + 1], initial_hidden[1][i : i + 1])
+                inp, (initial_hidden[0][i: i + 1], initial_hidden[1][i: i + 1])
             )
             hiddens.append(output)
             hidden_cell_state.append(hidden)
@@ -158,7 +159,7 @@ class HandWritingPredictionNet(nn.Module):
                 y_hat = y_hat.squeeze()
 
                 for i in range(style.shape[1]):
-                    gen_seq.append(style[0:1, i : i + 1, :])
+                    gen_seq.append(style[0:1, i: i + 1, :])
 
                 Z = sample_from_out_dist(y_hat, bias)
                 inp = Z
@@ -185,6 +186,7 @@ class HandWritingPredictionNet(nn.Module):
 
 
 class HandWritingSynthesisNet(nn.Module):
+
     def __init__(self, hidden_size=400, n_layers=3, output_size=121, window_size=77):
         super(HandWritingSynthesisNet, self).__init__()
         self.vocab_size = window_size
@@ -282,7 +284,7 @@ class HandWritingSynthesisNet(nn.Module):
         state_1 = (initial_hidden[0][0:1], initial_hidden[1][0:1])
 
         for t in range(inputs.shape[1]):
-            inp = torch.cat((inputs[:, t : t + 1, :], prev_window_vec), dim=2)
+            inp = torch.cat((inputs[:, t: t + 1, :], prev_window_vec), dim=2)
 
             hid_1_t, state_1 = self.lstm_1(inp, state_1)
             hid_1.append(hid_1_t)
@@ -383,4 +385,3 @@ class HandWritingSynthesisNet(nn.Module):
         print("seq_len:", seq_len)
 
         return gen_seq
-

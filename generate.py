@@ -4,8 +4,6 @@ import argparse
 import matplotlib
 from pathlib import Path
 import os
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from utils import plot_stroke
 from utils.constants import Global
@@ -78,6 +76,12 @@ def generate_conditional_sequence(
     print("Vocab size: ", len(char_to_id))
     # load the best model
     model.load_state_dict(torch.load(model_path, map_location=device))
+
+    # Print model's state_dict
+    # print(f"Model's state_dict:")
+    # for param_tensor in model.state_dict():
+    #     print(f"{param_tensor}\t {model.state_dict()[param_tensor]}")
+
     model = model.to(device)
     model.eval()
 
@@ -173,7 +177,7 @@ if __name__ == "__main__":
         )
         with open(args.data_path + "sentences.txt") as file:
             texts = file.read().splitlines()
-        idx = 3949  # np.random.randint(0, len(strokes))
+        idx = np.random.randint(0, len(strokes))
         print("Prime style index: ", idx)
         real_text = texts[idx]
         style = strokes[idx]
@@ -231,4 +235,3 @@ if __name__ == "__main__":
         plot_stroke(
             gen_seq[i], save_name=args.save_path / ("gen_seq_" + str(i) + ".png")
         )
-

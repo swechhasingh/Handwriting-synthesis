@@ -2,7 +2,7 @@ import torch
 import numpy as np
 import sys
 import os
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 sys.path.append("../")
 from utils import plot_stroke
@@ -64,14 +64,14 @@ def generate_handwriting(
             real_text,
             is_map,
         )
-        if is_map:
-            plt.imshow(phi, cmap="viridis", aspect="auto")
-            plt.colorbar()
-            plt.xlabel("time steps")
-            plt.yticks(np.arange(phi.shape[0]), list(ytext), rotation="horizontal")
-            plt.margins(0.2)
-            plt.subplots_adjust(bottom=0.15)
-            plt.show()
+        # if is_map:
+        #     plt.imshow(phi, cmap="viridis", aspect="auto")
+        #     plt.colorbar()
+        #     plt.xlabel("time steps")
+        #     plt.yticks(np.arange(phi.shape[0]), list(ytext), rotation="horizontal")
+        #     plt.margins(0.2)
+        #     plt.subplots_adjust(bottom=0.15)
+        #     plt.show()
 
         # denormalize the generated offsets using train set mean and std
         print("data denormalization...")
