@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="d-flex" style="width: 100%; height: 100%;">
+        <div class="card text-center mx-auto mb-4 border-0" style="width: 80%; height: 100%;">
+            <div class="card-body">
+                <h5 style="color: #2472f0">CopyMonkey is a handwriting mimic app</h5>
+                <p class="card-text text-left">CopyMonkey app uses machine learning to mimic your
+                    handwriting style like a monkey. Have fun generating handwriting in your own style!
+                </p>
+                <div class="card-text text-left">
+                    <h6>Steps:</h6>
+                    <ul style="list-style-type:disc;">
+                        <li>Go to <a href="/draw">Write</a> tab, type some text in input box and write that sentence in
+                            your
+                            handwriting in the canvas box and then click "Save style" button
+                        </li>
+                        <li>Now go to <a href="/generate">Generate</a> tab, write some sentence (for better results,
+                            first character
+                            should be lower case). You can also select bias value between 0 to 10,
+                            increasing the bias will generate more legible and neater samples of your handwriting
+                            style
+                        </li>
+                    </ul>
+                    <p>
+                        If you find this project cool, you can give this project a star on <a
+                            href="https://github.com/swechhachoudhary/Handwriting-synthesis">github</a>. Thanks for your
+                        appreciation. :)
+                    </p>
+                </div>
+                <div class="card-text text-left">
+                    <h5>About me:</h5>
+                    <p>
+                        I am pursuing Professional Masters (in Machine learning) at Mila, University of Montreal,
+                        Canada. I am interested in machine learning and its applications. I am actively looking for an
+                        internship starting January 2020.
+                    </p>
+                    <p>-Swechha</p>
+                    <h5>Contact at:</h5>
+                    <p>
+                        <small>Email:</small>
+                        <a href="mailto:swechha16.05@gmail.com">swechha16.05@gmail.com</a>
+                        <br>
+                        <a href="https://www.linkedin.com/in/swechha-71a76990/">Linkedin</a>
+                        <br>
+                        <a href="https://github.com/swechhachoudhary/Handwriting-synthesis">Github</a>
+                        <br>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
+{% endblock %}

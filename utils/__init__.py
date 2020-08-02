@@ -1,24 +1,8 @@
 import numpy
 import matplotlib
+
 matplotlib.use("AGG")
 from matplotlib import pyplot
-from google.cloud import storage
-
-
-def upload_blob(source_file_name, destination_name):
-    """Uploads a file to the bucket."""
-    # bucket_name = "your-bucket-name"
-    # source_file_name = "local/path/to/file"
-    # destination_blob_name = "storage-object-name"
-
-    storage_client = storage.Client()
-    bucket = storage_client.bucket("copymonkey")
-    destination_name = "static/uploads/" + destination_name
-    blob = bucket.blob(destination_name)
-
-    blob.upload_from_filename(source_file_name)
-
-    print("File {} uploaded to {}.".format(source_file_name, destination_name))
 
 
 def plot_stroke(stroke, save_name=None):
