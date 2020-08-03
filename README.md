@@ -1,5 +1,40 @@
 # Handwriting generation
-CopyMonkey (this project) web app is hosted at: https://copymonkey.xyz
+### How to run the web app on your local machine
+```bash
+git clone https://github.com/swechhachoudhary/Handwriting-synthesis.git
+```
+
+```bash
+cd Handwriting-synthesis
+```
+
+```bash
+python3 -m venv hand_gen_env
+```
+```bash
+source hand_gen_env/bin/activate
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+python main.py
+```
+
+### How to train handwriting generation (synthesis) model
+
+```bash
+python train.py --n_epochs 120 --model synthesis --batch_size 64 --text_req --n_epochs 200
+```
+
+### How to train handwriting prediction model
+
+```bash
+python train.py --n_epochs 120 --model prediction --batch_size 64 --n_epochs 200
+```
+
 ### Data description:
 
 There are 2 data files that you need to consider: `data.npy` and `sentences.txt`. `data.npy`contains 6000 sequences of points that correspond to handwritten sentences. `sentences.txt` contains the corresponding text sentences. You can see an example on how to load and plot an example sentence in `example.ipynb`. Each handwritten sentence is represented as a 2D array with T rows and 3 columns. T is the number of timesteps. The first column represents whether to interrupt the current stroke (i.e. when the pen is lifted off the paper). The second and third columns represent the relative coordinates of the new point with respect to the last point. Please have a look at the plot_stroke if you want to understand how to plot this sequence.
