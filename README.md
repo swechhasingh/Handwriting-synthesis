@@ -1,4 +1,7 @@
 # Handwriting generation
+This project is a web app (CopyMonkey) which uses machine learning to mimic your handwriting style like a monkey. Have fun generating handwriting in your own style!
+The ML model is implemented from "Generating Sequences With Recurrent Neural Networks" by Alex Graves (https://arxiv.org/abs/1308.0850)
+
 ### How to run the web app on your local machine
 ```bash
 git clone https://github.com/swechhachoudhary/Handwriting-synthesis.git
