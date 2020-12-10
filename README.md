@@ -32,13 +32,13 @@ python main.py
 ### How to train handwriting generation (synthesis) model
 
 ```bash
-python train.py --n_epochs 120 --model synthesis --batch_size 64 --text_req --n_epochs 200
+python train.py --n_epochs 120 --model synthesis --batch_size 64 --text_req
 ```
 
 ### How to train handwriting prediction model
 
 ```bash
-python train.py --n_epochs 120 --model prediction --batch_size 64 --n_epochs 200
+python train.py --n_epochs 120 --model prediction --batch_size 64
 ```
 
 ### Data description:
